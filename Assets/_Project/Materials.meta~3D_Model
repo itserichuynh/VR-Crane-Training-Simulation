@@ -1,5 +1,13 @@
 fileFormatVersion: 2
+<<<<<<< HEAD
+<<<<<<< HEAD:Assets/_Project/Materials.meta~3D_Model
 guid: 5e72e22ee3c60164599e2170736e1be6
+=======
+guid: 56a49e5dd9671cd469f0e0f139b6c9d9
+>>>>>>> origin/Kirk:Assets/VR Beginner/Models.meta
+=======
+guid: 5e72e22ee3c60164599e2170736e1be6
+>>>>>>> origin/Kirk
 folderAsset: yes
 DefaultImporter:
   externalObjects: {}

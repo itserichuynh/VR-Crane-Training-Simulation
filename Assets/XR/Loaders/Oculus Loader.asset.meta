@@ -1,5 +1,13 @@
 fileFormatVersion: 2
+<<<<<<< HEAD
+<<<<<<< HEAD:Assets/XR/Loaders/Oculus Loader.asset.meta
 guid: 5a3848e98420c4147b999f7363f0751b
+=======
+guid: 99cc404c2f8083044818702a42a143e4
+>>>>>>> origin/Kirk:Assets/Duy Assets/Hierarchy 2/Editor/Settings.asset.meta
+=======
+guid: f5410190b825beb4182883de4afb4f33
+>>>>>>> origin/Kirk
 NativeFormatImporter:
   externalObjects: {}
   mainObjectFileID: 0

@@ -1,5 +1,13 @@
 fileFormatVersion: 2
+<<<<<<< HEAD
+<<<<<<< HEAD:Assets/XR/Loaders.meta
 guid: 39f8e1976c5aaf040a6e171fb738f86c
+=======
+guid: 5e6d26937d2c32b43ba72924bc3e93af
+>>>>>>> origin/Kirk:Assets/VR Beginner/Materials.meta
+=======
+guid: 39f8e1976c5aaf040a6e171fb738f86c
+>>>>>>> origin/Kirk
 folderAsset: yes
 DefaultImporter:
   externalObjects: {}

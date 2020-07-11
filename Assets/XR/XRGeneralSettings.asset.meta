@@ -1,5 +1,13 @@
 fileFormatVersion: 2
+<<<<<<< HEAD
+<<<<<<< HEAD:Assets/XR/XRGeneralSettings.asset.meta
 guid: 2ddf13856beafa14dacf8e84e888ba43
+=======
+guid: 70578688edafaa747a247f15facddc2a
+>>>>>>> origin/Kirk:Assets/XR Terra resources/Textures/Boom.mat.meta
+=======
+guid: b7a50de6f0678e4469bc5a9e6bfd6e9b
+>>>>>>> origin/Kirk
 NativeFormatImporter:
   externalObjects: {}
   mainObjectFileID: 0

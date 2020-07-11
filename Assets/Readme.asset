@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fcf7219bab7fe46a1ad266029b2fee19, type: 3}
   m_Name: Readme
   m_EditorClassIdentifier: 
+<<<<<<< HEAD
   icon: {fileID: 2800000, guid: 7801804018a7dcf42abb827444e18660, type: 3}
   title: Universal Render Pipeline Template
   sections:
@@ -47,4 +48,26 @@ MonoBehaviour:
     text: 'For more information about Shader Graph, see the '
     linkText: Shader Graph documentation
     url: https://docs.unity3d.com/Packages/com.unity.shadergraph@latest
+=======
+  icon: {fileID: 2800000, guid: 5affe27dad942bc4c9f76348faeb0abe, type: 3}
+  title: 'VR Beginner: The Escape Room'
+  sections:
+  - heading: What is this project?
+    text: "This beginner VR project introduces users to interacting with different
+      elements of VR. Work with assets in a prototype scene and experience an escape
+      room environment we\u2019ve created for you. "
+    linkText: 
+    url: 
+  - heading: How do I use it?
+    text: "We\u2019ve written detailed tutorials that explore the project step by
+      step. You can find them on our Learn site. Use the project in the Unity editor
+      alongside the learning materials. "
+    linkText: Read the manual
+    url: https://learn.unity.com/project/vr-beginner-the-escape-room
+  - heading: Got feedback?
+    text: 'Let us know what you think or ask any questions you might have on our
+      forum. '
+    linkText: Forum Thread
+    url: https://forum.unity.com/threads/new-vr-beginner-escape-room.834769/
+>>>>>>> origin/Kirk
   loadedLayout: 1

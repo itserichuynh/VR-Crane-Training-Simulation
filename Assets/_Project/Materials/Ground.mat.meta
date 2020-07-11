@@ -1,5 +1,13 @@
 fileFormatVersion: 2
+<<<<<<< HEAD
+<<<<<<< HEAD:Assets/_Project/Materials/Ground.mat.meta
 guid: c848a857084657d43ad184a1865508ec
+=======
+guid: 5fa324668a677de4197417417290f057
+>>>>>>> origin/Kirk:Assets/XR Terra resources/Textures/Lever.mat.meta
+=======
+guid: c848a857084657d43ad184a1865508ec
+>>>>>>> origin/Kirk
 NativeFormatImporter:
   externalObjects: {}
   mainObjectFileID: 0
