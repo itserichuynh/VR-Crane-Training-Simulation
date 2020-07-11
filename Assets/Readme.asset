@@ -1,3 +1,35 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:f07595274aa834fd233fe5c847fa88ab31b0b0abe84039bee971e6d58118dccd
-size 2577
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fcf7219bab7fe46a1ad266029b2fee19, type: 3}
+  m_Name: Readme
+  m_EditorClassIdentifier: 
+  icon: {fileID: 2800000, guid: 5affe27dad942bc4c9f76348faeb0abe, type: 3}
+  title: 'VR Beginner: The Escape Room'
+  sections:
+  - heading: What is this project?
+    text: "This beginner VR project introduces users to interacting with different
+      elements of VR. Work with assets in a prototype scene and experience an escape
+      room environment we\u2019ve created for you. "
+    linkText: 
+    url: 
+  - heading: How do I use it?
+    text: "We\u2019ve written detailed tutorials that explore the project step by
+      step. You can find them on our Learn site. Use the project in the Unity editor
+      alongside the learning materials. "
+    linkText: Read the manual
+    url: https://learn.unity.com/project/vr-beginner-the-escape-room
+  - heading: Got feedback?
+    text: 'Let us know what you think or ask any questions you might have on our
+      forum. '
+    linkText: Forum Thread
+    url: https://forum.unity.com/threads/new-vr-beginner-escape-room.834769/
+  loadedLayout: 1
