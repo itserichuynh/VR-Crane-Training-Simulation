@@ -99,7 +99,7 @@ LightmapSettings:
     m_LightProbeSampleCountMultiplier: 4
   m_LightingDataAsset: {fileID: 112000000, guid: c6e59e6fcdef98e42a1117ccf8b28074,
     type: 2}
-  m_UseShadowmask: 0
+  m_UseShadowmask: 1
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -1661,7 +1661,7 @@ PrefabInstance:
     - target: {fileID: 7102753911949200656, guid: 7d59d514d63cf344d8681b2e005f5ce8,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.192
+      value: 0.236
       objectReference: {fileID: 0}
     - target: {fileID: 7102753911949200656, guid: 7d59d514d63cf344d8681b2e005f5ce8,
         type: 3}
@@ -1716,17 +1716,17 @@ PrefabInstance:
     - target: {fileID: 7102753911949200656, guid: 7d59d514d63cf344d8681b2e005f5ce8,
         type: 3}
       propertyPath: m_LocalScale.x
-      value: 1.3680149
+      value: 1.0775712
       objectReference: {fileID: 0}
     - target: {fileID: 7102753911949200656, guid: 7d59d514d63cf344d8681b2e005f5ce8,
         type: 3}
       propertyPath: m_LocalScale.y
-      value: 1.3680149
+      value: 1.0775712
       objectReference: {fileID: 0}
     - target: {fileID: 7102753911949200656, guid: 7d59d514d63cf344d8681b2e005f5ce8,
         type: 3}
       propertyPath: m_LocalScale.z
-      value: 1.3680149
+      value: 1.0775712
       objectReference: {fileID: 0}
     - target: {fileID: 7627371129938630570, guid: 7d59d514d63cf344d8681b2e005f5ce8,
         type: 3}
@@ -5405,7 +5405,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1786911171}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 5.9488, y: 0, z: -6.3909407}
+  m_LocalPosition: {x: 6.606, y: 0, z: -4.671}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 70277815}
