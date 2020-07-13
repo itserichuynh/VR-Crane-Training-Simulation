@@ -6,9 +6,9 @@ MonoImporter:
   defaultReferences:
   - locationStart: {instanceID: 0}
   - locationCab: {instanceID: 0}
-  - ambientPlayer: {instanceID: 0}
-  - ambientSound: {instanceID: 0}
   - rigLocation: {instanceID: 0}
+  - engineStart: {fileID: 8300000, guid: cf45e28070fccbd4cbce84e00ca81114, type: 3}
+  - engineRunning: {fileID: 8300000, guid: 9e196e114396c684eb3bb0fbdaea8b42, type: 3}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 

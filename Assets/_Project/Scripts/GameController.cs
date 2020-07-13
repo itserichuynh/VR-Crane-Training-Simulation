@@ -9,6 +9,8 @@ public class GameController : Singleton<GameController>
     public GameObject locationStart;
     public GameObject locationCab;
     public Transform rigLocation;
+    public AudioClip engineStart;
+    public AudioClip engineRunning;
     
     public void GotoCab()
     {
@@ -18,6 +20,16 @@ public class GameController : Singleton<GameController>
     public void GotoStart()
     {
         rigLocation.position=new Vector3(locationStart.transform.position.x,locationStart.transform.position.y,locationStart.transform.position.z);
+    }
+
+    public void StartEngine()
+    {
+        AudioSource engineStart;
+    }
+
+    public void RunningEngine()
+    {
+        
     }
 
 }
