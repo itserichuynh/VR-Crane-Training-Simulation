@@ -12,13 +12,12 @@ public class GameController : Singleton<GameController>
     
     public void GotoCab()
     {
-        /*rigLocation.position=new Vector3(locationCab);*/
-        
+        rigLocation.position=new Vector3(locationCab.transform.position.x,locationCab.transform.position.y,locationCab.transform.position.z);
     }
 
     public void GotoStart()
     {
-        /*rigLocation.position=new Vector3(locationStart);*/
+        rigLocation.position=new Vector3(locationStart.transform.position.x,locationStart.transform.position.y,locationStart.transform.position.z);
     }
 
 }
