@@ -1,0 +1,103 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!244 &-8696517177226887822
+AudioMixerEffectController:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: 
+  m_EffectID: 5640a862c971dc84ba2a7173235f090c
+  m_EffectName: Lowpass
+  m_MixLevel: f2da42ec36237234faea5477c03aad26
+  m_Parameters:
+  - m_ParameterName: Cutoff freq
+    m_GUID: db6d5ab200edb7549bb10b316c57c55c
+  - m_ParameterName: Resonance
+    m_GUID: 028dba35163c21f46a1837fe902d8963
+  m_SendTarget: {fileID: 0}
+  m_EnableWetMix: 0
+  m_Bypass: 0
+--- !u!245 &-5627225470854086490
+AudioMixerSnapshotController:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Start Area
+  m_AudioMixer: {fileID: 24100000}
+  m_SnapshotID: 02982678dfd4e0149991e58410238ef8
+  m_FloatValues:
+    db6d5ab200edb7549bb10b316c57c55c: 22000
+    49879df5b3953e542b29c07a72626f8f: 0.27000782
+  m_TransitionOverrides: {}
+--- !u!241 &24100000
+AudioMixerController:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Ambient Construction Site
+  m_OutputGroup: {fileID: 0}
+  m_MasterGroup: {fileID: 24300002}
+  m_Snapshots:
+  - {fileID: 9084068459464239226}
+  - {fileID: -5627225470854086490}
+  m_StartSnapshot: {fileID: -5627225470854086490}
+  m_SuspendThreshold: -80
+  m_EnableSuspend: 1
+  m_UpdateMode: 0
+  m_ExposedParameters: []
+  m_AudioMixerGroupViews:
+  - guids:
+    - b715719133f38fc488e7fee3ab24bf42
+    name: View
+  m_CurrentViewIndex: 0
+  m_TargetSnapshot: {fileID: -5627225470854086490}
+--- !u!243 &24300002
+AudioMixerGroupController:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Master
+  m_AudioMixer: {fileID: 24100000}
+  m_GroupID: b715719133f38fc488e7fee3ab24bf42
+  m_Children: []
+  m_Volume: 49879df5b3953e542b29c07a72626f8f
+  m_Pitch: c148a273366933b499d51fe48eb1e634
+  m_Send: 00000000000000000000000000000000
+  m_Effects:
+  - {fileID: 24400004}
+  - {fileID: -8696517177226887822}
+  m_UserColorIndex: 0
+  m_Mute: 0
+  m_Solo: 0
+  m_BypassEffects: 0
+--- !u!244 &24400004
+AudioMixerEffectController:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: 
+  m_EffectID: 60da38deca998ea448cb56c9e9f6878a
+  m_EffectName: Attenuation
+  m_MixLevel: db605409ae0897044af51b9739822aa7
+  m_Parameters: []
+  m_SendTarget: {fileID: 0}
+  m_EnableWetMix: 0
+  m_Bypass: 0
+--- !u!245 &9084068459464239226
+AudioMixerSnapshotController:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Inside Cab
+  m_AudioMixer: {fileID: 24100000}
+  m_SnapshotID: 26689da657894b74d89092fd5263bb00
+  m_FloatValues:
+    db6d5ab200edb7549bb10b316c57c55c: 5000
+    49879df5b3953e542b29c07a72626f8f: -5.3230734
+  m_TransitionOverrides: {}
