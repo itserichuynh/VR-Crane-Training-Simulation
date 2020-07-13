@@ -1,0 +1,16 @@
+fileFormatVersion: 2
+guid: 6367c294a1b158f4da67fa0178b069ce
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - locationStart: {instanceID: 0}
+  - locationCab: {instanceID: 0}
+  - ambientPlayer: {instanceID: 0}
+  - ambientSound: {instanceID: 0}
+  - rigLocation: {instanceID: 0}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
