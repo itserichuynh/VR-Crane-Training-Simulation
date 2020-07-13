@@ -4,5 +4,12 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes: []
-  m_configObjects: {}
+  m_Scenes:
+  - enabled: 1
+    path: Assets/_Project/Scenes/CraneScene.unity
+    guid: 28be917ea57082c479e6c4cdd451d806
+  m_configObjects:
+    Unity.XR.Oculus.Settings: {fileID: 11400000, guid: 7fc30bc504276c240a6d73c8a020d39e,
+      type: 2}
+    com.unity.xr.management.loader_settings: {fileID: 11400000, guid: 12d8eba18d18fb94b9837543e57b00f7,
+      type: 2}
