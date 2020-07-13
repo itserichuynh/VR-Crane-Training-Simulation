@@ -5600,7 +5600,7 @@ GameObject:
   - component: {fileID: 1548979849}
   - component: {fileID: 1548979848}
   m_Layer: 0
-  m_Name: test sphere (jump to Start location)
+  m_Name: zzkirk test sphere (jump to Start location)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
