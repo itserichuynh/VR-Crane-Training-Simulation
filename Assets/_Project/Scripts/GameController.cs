@@ -43,8 +43,8 @@ public class GameController : Singleton<GameController>
 
     public void StartCraneEngine()
     {
-        
-
+        cabRadioSource.PlayOneShot(engineStart);        
+        // TODO get engine running idle sound loop after start plays
     }
 }
 
