@@ -513,7 +513,7 @@ GameObject:
   - component: {fileID: 112308449}
   - component: {fileID: 112308448}
   m_Layer: 0
-  m_Name: zzkirk test sphere (jump to Start location) (2)
+  m_Name: zzkirk test radio
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5813,7 +5813,7 @@ GameObject:
   - component: {fileID: 1359529631}
   - component: {fileID: 1359529635}
   m_Layer: 0
-  m_Name: zzkirk test sphere (jump to Start location) (1)
+  m_Name: zzkirk test engine start
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -10493,7 +10493,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6420575161211459024}
   m_LocalRotation: {x: -0, y: 1.9411756e-23, z: 8.881784e-16, w: 1}
-  m_LocalPosition: {x: -0.0018845797, y: 0.5495707, z: 0.30819437}
+  m_LocalPosition: {x: -0.002, y: 0.55, z: 1.272}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 6420575161211357630}
@@ -10522,7 +10522,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6420575161211459028}
-  m_LocalRotation: {x: 0.000000056024135, y: 0.71180505, z: 0.00000005913617, w: 0.70237714}
+  m_LocalRotation: {x: 0.000000057565096, y: 0.69302297, z: 0.00000005763722, w: 0.72091556}
   m_LocalPosition: {x: -1.1217637, y: 0.026432835, z: -2.6513836}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -10532,7 +10532,7 @@ Transform:
   - {fileID: 6420575161211357640}
   m_Father: {fileID: 6420575161211357590}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 90.76401, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 87.740005, z: 0}
 --- !u!4 &6420575161211357622
 Transform:
   m_ObjectHideFlags: 0
@@ -10598,7 +10598,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6420575161211459038}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.002800703, y: 0, z: 0.026260138}
+  m_LocalPosition: {x: -0.003, y: -0, z: 0.142}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 6420575161211357628}
