@@ -20,22 +20,22 @@ public class SecondLeverController : MonoBehaviour
         }
         else if (leverRotation.x > 20f && leverRotation.x <= 40f)
         {
-            BoomRaise.Instance.LowerBoom(20f);
+            BoomRaise.Instance.LowerBoom(10f);
             leverTwoActive = true;
         }
         else if (leverRotation.x > 40f && leverRotation.x <= 61f)
         {
-            BoomRaise.Instance.LowerBoom(25f);
+            BoomRaise.Instance.LowerBoom(15f);
             leverTwoActive = true;
         }
         else if (leverRotation.x < 340f && leverRotation.x >= 320f)
         {
-            BoomRaise.Instance.RaiseBoom(20f);
+            BoomRaise.Instance.RaiseBoom(10f);
             leverTwoActive = true;
         }
         else if (leverRotation.x < 320f && leverRotation.x >= 299f)
         {
-            BoomRaise.Instance.RaiseBoom(25f);
+            BoomRaise.Instance.RaiseBoom(15f);
             leverTwoActive = true;
         }        
     }

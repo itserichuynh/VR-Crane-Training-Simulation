@@ -20,22 +20,22 @@ public class ThirdLeverController : MonoBehaviour
         }
         else if (leverRotation.x > 20f && leverRotation.x <= 40f)
         {
-            ExtendBoom.Instance.BoomShorten(0.15f);
+            ExtendBoom.Instance.BoomShorten(0.05f);
             leverThreeActive = true;
         }
         else if (leverRotation.x > 40f && leverRotation.x <= 61f)
         {
-            ExtendBoom.Instance.BoomShorten(0.2f);
+            ExtendBoom.Instance.BoomShorten(0.1f);
             leverThreeActive = true;
         }
         else if (leverRotation.x < 340f && leverRotation.x >= 320f)
         {
-            ExtendBoom.Instance.BoomExtend(0.15f);
+            ExtendBoom.Instance.BoomExtend(0.05f);
             leverThreeActive = true;
         }
         else if (leverRotation.x < 320f && leverRotation.x >= 299f)
         {
-            ExtendBoom.Instance.BoomExtend(0.2f);
+            ExtendBoom.Instance.BoomExtend(0.1f);
             leverThreeActive = true;
         }
     }

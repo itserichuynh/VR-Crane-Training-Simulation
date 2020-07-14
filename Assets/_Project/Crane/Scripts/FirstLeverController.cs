@@ -19,22 +19,22 @@ public class FirstLeverController : MonoBehaviour
         }
         else if (leverRotation.x > 20f && leverRotation.x <= 40f)
         {
-            CabRotation.Instance.CabTurnLeft(75f);
+            CabRotation.Instance.CabTurnLeft(45f);
             leverOneActive = true;
         }
         else if (leverRotation.x > 40f && leverRotation.x <= 61f)
         {
-            CabRotation.Instance.CabTurnLeft(80f);
+            CabRotation.Instance.CabTurnLeft(50f);
             leverOneActive = true;
         }
         else if (leverRotation.x < 340f && leverRotation.x >= 320f)
         {
-            CabRotation.Instance.CabTurnRight(75f);
+            CabRotation.Instance.CabTurnRight(45f);
             leverOneActive = true;
         }
         else if (leverRotation.x < 320f && leverRotation.x >= 299f)
         {
-            CabRotation.Instance.CabTurnRight(80f);
+            CabRotation.Instance.CabTurnRight(50f);
             leverOneActive = true;
         }        
     }

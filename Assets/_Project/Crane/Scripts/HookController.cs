@@ -4,10 +4,10 @@ using UnityEngine;
 
 public class HookController : Singleton<HookController>
 {
-    private ConfigurableJoint configurableJoint;
+    private SpringJoint springJoint;
     private SoftJointLimit softJointLimit;
 
-    private float minHookPosition = 0.0f;
+    private float minHookPosition = 0.1f;
     private float maxHookPosition = 10f;
 
     private float currentLength;
@@ -15,31 +15,27 @@ public class HookController : Singleton<HookController>
    
     void Start()
     {
-        configurableJoint = GetComponent<ConfigurableJoint>();
-        softJointLimit = new SoftJointLimit();
+        springJoint = GetComponent<SpringJoint>();
     }
 
     private void FixedUpdate()
     {
-        currentLength = softJointLimit.limit;
+        currentLength = springJoint.maxDistance;
     }
 
     public void HookUp(float hookSpeed)
     {
-        softJointLimit.limit = Mathf.Clamp(softJointLimit.limit - hookSpeed, minHookPosition, maxHookPosition);
-        configurableJoint.linearLimit = softJointLimit;
+        springJoint.maxDistance = Mathf.Clamp(springJoint.maxDistance - hookSpeed, minHookPosition, maxHookPosition);
     }
 
     public void HookDown(float hookSpeed)
     {
-        softJointLimit.limit = Mathf.Clamp(softJointLimit.limit + hookSpeed, minHookPosition, maxHookPosition);
-        configurableJoint.linearLimit = softJointLimit;
+        springJoint.maxDistance = Mathf.Clamp(springJoint.maxDistance + hookSpeed, minHookPosition, maxHookPosition);
     }
 
     public void HookStationary()
     {
-        softJointLimit.limit = currentLength;
-        configurableJoint.linearLimit = softJointLimit;
+        springJoint.maxDistance = currentLength;
     }
 
 }
