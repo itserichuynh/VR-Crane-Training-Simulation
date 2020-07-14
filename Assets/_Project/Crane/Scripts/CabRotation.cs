@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class CabRotation : Singleton<CabRotation>
 {
-    public float cabRotateSpeed = 120f;
+    public float cabRotateSpeed; // initially, 120
 
     private Rigidbody _rb;
 
@@ -18,15 +18,19 @@ public class CabRotation : Singleton<CabRotation>
 
     }
 
-    private void FixedUpdate()
+    public void CabTurnRight()
     {
-        if (Input.GetKey(Cab_Right_keyA) && Input.GetKey(Cab_keyA_B))
-        {
-            _rb.AddTorque(Vector3.up * cabRotateSpeed);
-        }
-        else if (Input.GetKey(Cab_Left_keyB) && Input.GetKey(Cab_keyA_B))
-        {
-            _rb.AddTorque(-Vector3.up * cabRotateSpeed);
-        }      
+        _rb.AddTorque(Vector3.up * cabRotateSpeed);
+    }
+
+    public void CabTurnLeft()
+    {
+        _rb.AddTorque(-Vector3.up * cabRotateSpeed);
+    }
+
+    public void CabStationary()
+    {
+        _rb.velocity = Vector3.zero;
+        _rb.angularVelocity = Vector3.zero;
     }
 }

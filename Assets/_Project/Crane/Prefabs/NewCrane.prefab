@@ -887,8 +887,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.35192275, y: 0.74525857, z: 3.1067808}
-  m_Center: {x: 0.00000011920929, y: 0.0000006854534, z: 4.2225103}
+  m_Size: {x: 0.35192275, y: 0.6206722, z: 3.106781}
+  m_Center: {x: 0.00000011920929, y: 0.06229385, z: 4.2225103}
 --- !u!114 &4699093429061667637
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -917,7 +917,7 @@ ConfigurableJoint:
   m_Anchor: {x: -0.03101933, y: -0.28, z: 5.646322}
   m_Axis: {x: 1, y: 0, z: 0}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: 0, y: 0.48543432, z: -0.00000047683716}
+  m_ConnectedAnchor: {x: 0, y: 0.48543456, z: -0.00000047683716}
   serializedVersion: 2
   m_SecondaryAxis: {x: 0, y: 1, z: 0}
   m_XMotion: 1
@@ -2187,8 +2187,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 3.2607386, y: 2.6930082, z: 2.611938}
-  m_Center: {x: 0.00000047683716, y: -0.00000011920929, z: 1.689812}
+  m_Size: {x: 3.2607386, y: 2.7876937, z: 2.611938}
+  m_Center: {x: 0.00000047683716, y: 0.047342658, z: 1.689812}
 --- !u!65 &1205545561440169257
 BoxCollider:
   m_ObjectHideFlags: 0
