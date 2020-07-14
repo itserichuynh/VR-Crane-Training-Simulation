@@ -35,13 +35,15 @@ public class AudioController : Singleton<AudioController>
     public void CraneStart()
     {
         cabEngineSource.PlayOneShot(engineStart);
-        // TODO get engine running idle sound loop after start plays
+        StartCoroutine(WaitToSwitchOutClips());
     }
     
-    IEnumerator WaitToSwitchOutClips(){
-        yield return new WaitForSeconds(audioSource.clip.length);
-        audioSource.clip = engineRunning;
-        audioSource.loop = true (or enabled I forget);
-        audioSource.Play();
+    IEnumerator WaitToSwitchOutClips()
+    {
+        /*yield return new WaitForSeconds(cabEngineSource.clip.length);*/
+        yield return new WaitForSeconds(engineStart.length);
+        cabEngineSource.clip = engineRunning;
+        cabEngineSource.loop = true;
+        cabEngineSource.Play();
     }
 }

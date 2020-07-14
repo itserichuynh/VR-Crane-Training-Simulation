@@ -24,12 +24,12 @@ AudioMixerSnapshotController:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Start Area
+  m_Name: Start Area - construction
   m_AudioMixer: {fileID: 24100000}
   m_SnapshotID: 02982678dfd4e0149991e58410238ef8
   m_FloatValues:
     db6d5ab200edb7549bb10b316c57c55c: 22000
-    49879df5b3953e542b29c07a72626f8f: 0.27000782
+    49879df5b3953e542b29c07a72626f8f: -1.5191226
   m_TransitionOverrides: {}
 --- !u!241 &24100000
 AudioMixerController:
@@ -99,5 +99,5 @@ AudioMixerSnapshotController:
   m_SnapshotID: 26689da657894b74d89092fd5263bb00
   m_FloatValues:
     db6d5ab200edb7549bb10b316c57c55c: 5000
-    49879df5b3953e542b29c07a72626f8f: -5.3230734
+    49879df5b3953e542b29c07a72626f8f: -11.87199
   m_TransitionOverrides: {}
