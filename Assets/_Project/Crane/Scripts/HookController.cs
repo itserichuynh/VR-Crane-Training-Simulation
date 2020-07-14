@@ -4,49 +4,41 @@ using UnityEngine;
 
 public class HookController : Singleton<HookController>
 {
-    public KeyCode Hook_Down_keyA;
-    public KeyCode Hook_keyA_B;
-    public KeyCode Hook_Up_keyB;
-
-    public float hookSpeed = 0.01f;
-
     private ConfigurableJoint configurableJoint;
     private SoftJointLimit softJointLimit;
 
-    private float minHookPosition = 0.5f;
-    private float maxHookPosition = 5f;
+    private float minHookPosition = 0.0f;
+    private float maxHookPosition = 10f;
+
+    private float currentLength;
 
    
     void Start()
     {
         configurableJoint = GetComponent<ConfigurableJoint>();
         softJointLimit = new SoftJointLimit();
-        softJointLimit.limit = 1f;
-        configurableJoint.linearLimit = softJointLimit;
-
     }
 
-    void FixedUpdate()
+    private void FixedUpdate()
     {
-        if (Input.GetKey(Hook_Down_keyA) && Input.GetKey(Hook_keyA_B))
-        {
-            HookDown();
-        }
-        else if (Input.GetKey(Hook_Up_keyB) && Input.GetKey(Hook_keyA_B))
-        {
-            HookUp();
-        }
+        currentLength = softJointLimit.limit;
     }
 
-    public void HookUp()
+    public void HookUp(float hookSpeed)
     {
         softJointLimit.limit = Mathf.Clamp(softJointLimit.limit - hookSpeed, minHookPosition, maxHookPosition);
         configurableJoint.linearLimit = softJointLimit;
     }
 
-    public void HookDown()
+    public void HookDown(float hookSpeed)
     {
         softJointLimit.limit = Mathf.Clamp(softJointLimit.limit + hookSpeed, minHookPosition, maxHookPosition);
+        configurableJoint.linearLimit = softJointLimit;
+    }
+
+    public void HookStationary()
+    {
+        softJointLimit.limit = currentLength;
         configurableJoint.linearLimit = softJointLimit;
     }
 
