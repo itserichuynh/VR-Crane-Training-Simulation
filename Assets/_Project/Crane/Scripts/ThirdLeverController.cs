@@ -35,7 +35,7 @@ public class ThirdLeverController : MonoBehaviour
         }
         else if (leverRotation.x < 350f && leverRotation.x >= 299f)
         {
-            if (ExtendBoom.Instance.position.z < 3.081f)
+            if (ExtendBoom.Instance.position.z < 3.581f)
             {
                 ExtendBoom.Instance.BoomExtend(0.1f);
                 leverThreeActive = true;

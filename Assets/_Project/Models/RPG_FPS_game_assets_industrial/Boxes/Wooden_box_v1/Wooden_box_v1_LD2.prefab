@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 33000011027782840}
   - component: {fileID: 23000010768947382}
   - component: {fileID: 65000013648367982}
+  - component: {fileID: 4089512619939757325}
   m_Layer: 0
   m_Name: Wooden_box_v1_LD2
   m_TagString: Untagged
@@ -93,3 +94,19 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1.0936637, y: 0.67138124, z: 1.7901659}
   m_Center: {x: 0, y: 0.00000010430813, z: 0.00000008940697}
+--- !u!54 &4089512619939757325
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1000013580012832}
+  serializedVersion: 2
+  m_Mass: 0.001
+  m_Drag: 0
+  m_AngularDrag: 800
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
