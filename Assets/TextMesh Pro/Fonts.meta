@@ -1,5 +1,9 @@
 fileFormatVersion: 2
+<<<<<<< HEAD
 guid: 6ab70aee4d56447429c680537fbf93ed
+=======
+guid: b8421021b23046048af0a76bd7ca0bef
+>>>>>>> Functioning_crane
 folderAsset: yes
 DefaultImporter:
   externalObjects: {}
