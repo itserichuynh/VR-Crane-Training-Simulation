@@ -22,18 +22,22 @@ public class CabRotation : Singleton<CabRotation>
 
     public void CabTurnRight(float cabRotateSpeed)
     {
-        //_rb.AddTorque(Vector3.up * cabRotateSpeed);
+        _rb.AddTorque(Vector3.up * cabRotateSpeed);
+        /*
         Vector3 m_EulerAngleVelocity = new Vector3(0, cabRotateSpeed, 0);
         Quaternion deltaRotation = Quaternion.Euler(m_EulerAngleVelocity * Time.deltaTime);
         _rb.MoveRotation(_rb.rotation * deltaRotation);
+    */
     }
 
     public void CabTurnLeft(float cabRotateSpeed)
     {
-        //_rb.AddTorque(-Vector3.up * cabRotateSpeed);
+        _rb.AddTorque(-Vector3.up * cabRotateSpeed);
+        /*
         Vector3 m_EulerAngleVelocity = new Vector3(0, -cabRotateSpeed, 0);
         Quaternion deltaRotation = Quaternion.Euler(m_EulerAngleVelocity * Time.deltaTime);
         _rb.MoveRotation(_rb.rotation * deltaRotation);
+    */
     }
 
     public void CabStationary()

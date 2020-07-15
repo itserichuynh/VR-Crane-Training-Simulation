@@ -23,7 +23,7 @@ public class ThirdLeverController : MonoBehaviour
         {
             if (ExtendBoom.Instance.position.z > 0.081f)
             {
-                ExtendBoom.Instance.BoomShorten(0.1f);
+                ExtendBoom.Instance.BoomShorten(10f);
                 leverThreeActive = true;
             }
             else
@@ -37,7 +37,7 @@ public class ThirdLeverController : MonoBehaviour
         {
             if (ExtendBoom.Instance.position.z < 3.581f)
             {
-                ExtendBoom.Instance.BoomExtend(0.1f);
+                ExtendBoom.Instance.BoomExtend(10f);
                 leverThreeActive = true;
             }
             else
