@@ -23,20 +23,20 @@ public class ExtendBoom : Singleton<ExtendBoom>
     public void BoomExtend(float extendSpeed)
     {
             _rigid.constraints = RigidbodyConstraints.None;
-        //_rigid.AddForce(transform.forward * extendSpeed);
-        Vector3 tempVect = new Vector3(0, 0, 1);
-        tempVect = tempVect.normalized * extendSpeed * Time.deltaTime;
-        _rigid.MovePosition(transform.position + tempVect);
+        _rigid.AddForce(transform.forward * extendSpeed);
+        //Vector3 tempVect = new Vector3(0, 0, 1);
+        //tempVect = tempVect.normalized * extendSpeed * Time.deltaTime;
+        //_rigid.MovePosition(transform.position + tempVect);
 
     }
 
     public void BoomShorten(float extendSpeed)
     {
         _rigid.constraints = RigidbodyConstraints.None;
-        //_rigid.AddForce(-transform.forward * extendSpeed);
-        Vector3 tempVect = new Vector3(0, 0, 1);
-        tempVect = tempVect.normalized * extendSpeed * Time.deltaTime;
-        _rigid.MovePosition(transform.position - tempVect);
+        _rigid.AddForce(-transform.forward * extendSpeed);
+        //Vector3 tempVect = new Vector3(0, 0, 1);
+        //tempVect = tempVect.normalized * extendSpeed * Time.deltaTime;
+        //_rigid.MovePosition(transform.position - tempVect);
     }
 
     public void ExtendStationary()
