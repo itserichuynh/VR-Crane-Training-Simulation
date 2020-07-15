@@ -4,22 +4,7 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes:
-  - enabled: 1
-<<<<<<< HEAD
-    path: Assets/_Project/Scenes/KirkScene.unity
-    guid: 394a141d6786ff84e970efad36c7e63a
+  m_Scenes: []
   m_configObjects:
     Unity.XR.Oculus.Settings: {fileID: 11400000, guid: 7fc30bc504276c240a6d73c8a020d39e,
-      type: 2}
-    com.unity.input.settings: {fileID: 11400000, guid: 4ec7f0311b056754fa03d36ecb2457a7,
-      type: 2}
-=======
-    path: Assets/_Project/Scenes/CraneScene.unity
-    guid: 28be917ea57082c479e6c4cdd451d806
-  m_configObjects:
-    Unity.XR.Oculus.Settings: {fileID: 11400000, guid: 7fc30bc504276c240a6d73c8a020d39e,
-      type: 2}
->>>>>>> Functioning_crane
-    com.unity.xr.management.loader_settings: {fileID: 11400000, guid: 12d8eba18d18fb94b9837543e57b00f7,
       type: 2}
