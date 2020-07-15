@@ -11,32 +11,46 @@ public class SecondLeverController : MonoBehaviour
     {
         leverRotation = transform.localEulerAngles;
         //Debug.Log(leverRotation.x);
+        //Debug.Log(BoomRaise.Instance.rotation.x);
         
 
-        if ((leverRotation.x <= 20f && leverRotation.x >= 0f) || (leverRotation.x >= 340f && leverRotation.x <= 360f))
+        if ((leverRotation.x <= 10f && leverRotation.x >= 0f) || (leverRotation.x >= 350f && leverRotation.x <= 360f))
         {
             BoomRaise.Instance.BoomStationary();
             leverTwoActive = false;
         }
-        else if (leverRotation.x > 20f && leverRotation.x <= 40f)
+
+        else if (leverRotation.x > 10f && leverRotation.x <= 61f)
         {
-            BoomRaise.Instance.LowerBoom(10f);
-            leverTwoActive = true;
+            if (BoomRaise.Instance.rotation.x >= 310f && BoomRaise.Instance.rotation.x <= 359.5f)
+            {
+                BoomRaise.Instance.LowerBoom(15f);
+                leverTwoActive = true;
+            }
+            else
+            {
+                BoomRaise.Instance.BoomStationary();
+                Debug.Log("No force 1");
+            }            
         }
-        else if (leverRotation.x > 40f && leverRotation.x <= 61f)
+        else if (leverRotation.x < 350f && leverRotation.x >= 299f)
         {
-            BoomRaise.Instance.LowerBoom(15f);
-            leverTwoActive = true;
+            if (BoomRaise.Instance.rotation.x >= -0.5f && BoomRaise.Instance.rotation.x <= 0.5f)
+            {
+                BoomRaise.Instance.RaiseBoom(15f);
+                leverTwoActive = true;
+            }
+            else if(BoomRaise.Instance.rotation.x > 311f)
+            {
+                BoomRaise.Instance.RaiseBoom(15f);
+                leverTwoActive = true;
+            }
+            else
+            {
+                BoomRaise.Instance.BoomStationary();
+                Debug.Log("No force 3");
+            }
+            
         }
-        else if (leverRotation.x < 340f && leverRotation.x >= 320f)
-        {
-            BoomRaise.Instance.RaiseBoom(10f);
-            leverTwoActive = true;
-        }
-        else if (leverRotation.x < 320f && leverRotation.x >= 299f)
-        {
-            BoomRaise.Instance.RaiseBoom(15f);
-            leverTwoActive = true;
-        }        
     }
 }

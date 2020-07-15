@@ -13,30 +13,39 @@ public class ThirdLeverController : MonoBehaviour
         //Debug.Log(leverRotation.x);
 
 
-        if ((leverRotation.x <= 20f && leverRotation.x >= 0f) || (leverRotation.x >= 340f && leverRotation.x <= 360f))
+        if ((leverRotation.x <= 10f && leverRotation.x >= 0f) || (leverRotation.x >= 350f && leverRotation.x <= 360f))
         {
+           
             ExtendBoom.Instance.ExtendStationary();
             leverThreeActive = false;
         }
-        else if (leverRotation.x > 20f && leverRotation.x <= 40f)
+        else if (leverRotation.x > 10f && leverRotation.x <= 61f)
         {
-            ExtendBoom.Instance.BoomShorten(0.05f);
-            leverThreeActive = true;
+            if (ExtendBoom.Instance.position.z > 0.081f)
+            {
+                ExtendBoom.Instance.BoomShorten(0.1f);
+                leverThreeActive = true;
+            }
+            else
+            {
+                ExtendBoom.Instance.ExtendStationary();
+                //Debug.Log("No force1");
+            }
+                
         }
-        else if (leverRotation.x > 40f && leverRotation.x <= 61f)
+        else if (leverRotation.x < 350f && leverRotation.x >= 299f)
         {
-            ExtendBoom.Instance.BoomShorten(0.1f);
-            leverThreeActive = true;
-        }
-        else if (leverRotation.x < 340f && leverRotation.x >= 320f)
-        {
-            ExtendBoom.Instance.BoomExtend(0.05f);
-            leverThreeActive = true;
-        }
-        else if (leverRotation.x < 320f && leverRotation.x >= 299f)
-        {
-            ExtendBoom.Instance.BoomExtend(0.1f);
-            leverThreeActive = true;
+            if (ExtendBoom.Instance.position.z < 3.081f)
+            {
+                ExtendBoom.Instance.BoomExtend(0.1f);
+                leverThreeActive = true;
+            }
+            else
+            {
+                ExtendBoom.Instance.ExtendStationary();
+                //Debug.Log("No force3");
+            }
+
         }
     }
 }

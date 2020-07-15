@@ -6,36 +6,32 @@ public class FirstLeverController : MonoBehaviour
 {
     Vector3 leverRotation;
     public bool leverOneActive;
+    Rigidbody _rb;
 
+    private void Start()
+    {
+        _rb = GetComponent<Rigidbody>();
+    }
     private void FixedUpdate()
     {
         leverRotation = transform.localEulerAngles;
         //Debug.Log(leverRotation.x);
+        //Debug.Log(_rb.angularVelocity);
 
-        if ((leverRotation.x <= 20f && leverRotation.x >= 0f) || (leverRotation.x >= 340f && leverRotation.x <= 360f))
+        if ((leverRotation.x <= 10f && leverRotation.x >= 0f) || (leverRotation.x >= 350f && leverRotation.x <= 360f))
         {
             CabRotation.Instance.CabStationary();
             leverOneActive = false;
         }
-        else if (leverRotation.x > 20f && leverRotation.x <= 40f)
+        else if (leverRotation.x > 10f && leverRotation.x <= 61f)
         {
-            CabRotation.Instance.CabTurnLeft(45f);
+            CabRotation.Instance.CabTurnLeft(60f);
             leverOneActive = true;
         }
-        else if (leverRotation.x > 40f && leverRotation.x <= 61f)
+        else if (leverRotation.x < 350f && leverRotation.x >= 299f)
         {
-            CabRotation.Instance.CabTurnLeft(50f);
+            CabRotation.Instance.CabTurnRight(60f);
             leverOneActive = true;
-        }
-        else if (leverRotation.x < 340f && leverRotation.x >= 320f)
-        {
-            CabRotation.Instance.CabTurnRight(45f);
-            leverOneActive = true;
-        }
-        else if (leverRotation.x < 320f && leverRotation.x >= 299f)
-        {
-            CabRotation.Instance.CabTurnRight(50f);
-            leverOneActive = true;
-        }        
+        }  
     }
 }

@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class BoomRaise : Singleton<BoomRaise>
 {
-    [SerializeField]
-    GameObject smallBoom;
+    //[SerializeField]
+    //GameObject smallBoom;
 
     [SerializeField]
     Transform cylinderA;
@@ -14,12 +14,21 @@ public class BoomRaise : Singleton<BoomRaise>
     Transform cylinderB;
 
     Rigidbody _rigid;
-    Rigidbody _rigidSmall;
+    //Rigidbody _rigidSmall;
+
+    public Vector3 rotation;
                  
     void Start()
     {
         _rigid = GetComponent<Rigidbody>();
-        _rigidSmall = smallBoom.GetComponent<Rigidbody>();
+       // _rigidSmall = smallBoom.GetComponent<Rigidbody>();
+    }
+
+    private void FixedUpdate()
+    {
+        rotation = transform.localEulerAngles;
+        _rigid.velocity = Vector3.zero;
+        _rigid.angularVelocity = Vector3.zero;
     }
 
     void LateUpdate()
@@ -33,18 +42,25 @@ public class BoomRaise : Singleton<BoomRaise>
         }
     }
 
+
     public void RaiseBoom(float raiseSpeed)
     {
         _rigid.constraints = RigidbodyConstraints.None;
-        _rigidSmall.constraints = RigidbodyConstraints.FreezePositionZ;
+        //_rigidSmall.constraints = RigidbodyConstraints.FreezePositionZ;
         _rigid.AddForce(transform.up * raiseSpeed);
+        //Vector3 m_EulerAngleVelocity = new Vector3(raiseSpeed, 0, 0);
+        //Quaternion deltaRotation = Quaternion.Euler(m_EulerAngleVelocity * Time.deltaTime);
+        //_rigid.MoveRotation(_rigid.rotation * deltaRotation);
     }
 
     public void LowerBoom(float raiseSpeed)
     {
         _rigid.constraints = RigidbodyConstraints.None;
-        _rigidSmall.constraints = RigidbodyConstraints.FreezePositionZ;
+        //_rigidSmall.constraints = RigidbodyConstraints.FreezePositionZ;
         _rigid.AddForce(-transform.up * raiseSpeed);
+        //Vector3 m_EulerAngleVelocity = new Vector3(-raiseSpeed, 0, 0);
+        //Quaternion deltaRotation = Quaternion.Euler(m_EulerAngleVelocity * Time.deltaTime);
+        //_rigid.MoveRotation(_rigid.rotation * deltaRotation);
     }
 
     public void BoomStationary()
