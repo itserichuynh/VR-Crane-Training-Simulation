@@ -13,8 +13,8 @@ public class GameController : Singleton<GameController>
     public GameObject locationStart;
     public GameObject locationCab;
     public Transform rigLocation;
-
-    private bool engine = false;
+    
+    private bool engineRunning = false;
     
     public void GotoCab()
     {
@@ -36,16 +36,26 @@ public class GameController : Singleton<GameController>
 
     public void Engine()
     {
-        if (engine == false)
+        if (engineRunning == false)
         {
             audioController.CraneStart();
-            engine = true;
+            engineRunning = true;
+            // TODO Kirk - change button material to engine_on
         }
         else
         {
-            // TODO crane shutdown sound, set variable, pause, then bring back to start
+            // TODO Kirk - crane shutdown sound & wait for sound to finish
+            // TODO Kirk - set variable for completion of task
+            // TODO Kirk - change button material to engine_off
+            engineRunning = false;
             GotoStart();
         }
     }
+
+    void Start()
+    {
+        
+    }
+    
 }
 

@@ -15,6 +15,7 @@ public class AudioController : Singleton<AudioController>
     public AudioSource cabRadioSource;
     public AudioClip engineStart;
     public AudioClip engineRunning;
+    public AudioClip engineEnd;
     public AudioClip npcWelcome;
     
     public void AtCab()
@@ -37,10 +38,14 @@ public class AudioController : Singleton<AudioController>
         cabEngineSource.PlayOneShot(engineStart);
         StartCoroutine(WaitToSwitchOutClips());
     }
-    
+
+    public void CraneEnd()
+    {
+        /*cabEngineSource.PlayOneShot(engineEnd);*/ // TODO Kirk - need to fix this with shutoff sound
+    }
+
     IEnumerator WaitToSwitchOutClips()
     {
-        /*yield return new WaitForSeconds(cabEngineSource.clip.length);*/
         yield return new WaitForSeconds(engineStart.length);
         cabEngineSource.clip = engineRunning;
         cabEngineSource.loop = true;
