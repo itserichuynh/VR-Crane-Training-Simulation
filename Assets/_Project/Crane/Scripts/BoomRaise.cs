@@ -4,9 +4,6 @@ using UnityEngine;
 
 public class BoomRaise : Singleton<BoomRaise>
 {
-    //[SerializeField]
-    //GameObject smallBoom;
-
     [SerializeField]
     Transform cylinderA;
 
@@ -14,14 +11,14 @@ public class BoomRaise : Singleton<BoomRaise>
     Transform cylinderB;
 
     Rigidbody _rigid;
-    //Rigidbody _rigidSmall;
-
     public Vector3 rotation;
+    public bool boomIsRaising;
+    public float raiseSpeed;
                  
     void Start()
     {
         _rigid = GetComponent<Rigidbody>();
-       // _rigidSmall = smallBoom.GetComponent<Rigidbody>();
+        raiseSpeed = 25f;
     }
 
     private void FixedUpdate()
@@ -43,7 +40,7 @@ public class BoomRaise : Singleton<BoomRaise>
     }
 
 
-    public void RaiseBoom(float raiseSpeed)
+    public void RaiseBoom()
     {
         _rigid.constraints = RigidbodyConstraints.None;
         //_rigidSmall.constraints = RigidbodyConstraints.FreezePositionZ;
@@ -53,7 +50,7 @@ public class BoomRaise : Singleton<BoomRaise>
         //_rigid.MoveRotation(_rigid.rotation * deltaRotation);
     }
 
-    public void LowerBoom(float raiseSpeed)
+    public void LowerBoom()
     {
         _rigid.constraints = RigidbodyConstraints.None;
         //_rigidSmall.constraints = RigidbodyConstraints.FreezePositionZ;

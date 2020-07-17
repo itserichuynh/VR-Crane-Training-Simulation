@@ -4,23 +4,36 @@ using UnityEngine;
 
 public class CabRotation : Singleton<CabRotation>
 {
-    //public float cabRotateSpeed; // 120
+    public float cabRotateSpeed; 
 
     private Rigidbody _rb;
+    public bool turn;
+    public bool cabIsTurning;
 
     void Start()
     {
         _rb = GetComponent<Rigidbody>();
-
+        cabRotateSpeed = 100f;
     }
 
     private void FixedUpdate()
     {
         _rb.velocity = Vector3.zero;
         _rb.angularVelocity = Vector3.zero;
+
+        if (turn == true)
+        {
+            CabTurnRight();
+        }
+        else if (turn==false)
+        {
+            _rb.velocity = Vector3.zero;
+            _rb.angularVelocity = Vector3.zero;
+        }
+
     }
 
-    public void CabTurnRight(float cabRotateSpeed)
+    public void CabTurnRight()
     {
         _rb.AddTorque(Vector3.up * cabRotateSpeed);
         /*
@@ -30,7 +43,7 @@ public class CabRotation : Singleton<CabRotation>
     */
     }
 
-    public void CabTurnLeft(float cabRotateSpeed)
+    public void CabTurnLeft()
     {
         _rb.AddTorque(-Vector3.up * cabRotateSpeed);
         /*

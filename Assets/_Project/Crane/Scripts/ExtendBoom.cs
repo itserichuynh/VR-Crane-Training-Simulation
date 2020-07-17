@@ -6,11 +6,13 @@ public class ExtendBoom : Singleton<ExtendBoom>
 {
     Rigidbody _rigid;
     public Vector3 position;
-    public bool stopForce;
+    public bool boomIsExtending;
+    public float extendSpeed;
 
     void Start()
     {
         _rigid = GetComponent<Rigidbody>();
+        extendSpeed = 20f;
     }
 
     private void FixedUpdate()
@@ -20,7 +22,7 @@ public class ExtendBoom : Singleton<ExtendBoom>
         _rigid.angularVelocity = Vector3.zero;
     }
 
-    public void BoomExtend(float extendSpeed)
+    public void BoomExtend()
     {
             _rigid.constraints = RigidbodyConstraints.None;
         _rigid.AddForce(transform.forward * extendSpeed);
@@ -32,7 +34,7 @@ public class ExtendBoom : Singleton<ExtendBoom>
 
     }
 
-    public void BoomShorten(float extendSpeed)
+    public void BoomShorten()
     {
         _rigid.constraints = RigidbodyConstraints.None;
         _rigid.AddForce(-transform.forward * extendSpeed);
