@@ -11,7 +11,6 @@ GameObject:
   - component: {fileID: 4000012771108642}
   - component: {fileID: 33000013241609138}
   - component: {fileID: 23000012221895050}
-  - component: {fileID: 65000012033373492}
   m_Layer: 0
   m_Name: Wooden_box_v1_LD1
   m_TagString: Untagged
@@ -80,16 +79,3 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!65 &65000012033373492
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1000011585897626}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1.0936633, y: 0.6713812, z: 1.7901654}
-  m_Center: {x: 0, y: 0, z: -0.000000029802322}
