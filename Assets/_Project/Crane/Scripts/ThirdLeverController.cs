@@ -17,18 +17,22 @@ public class ThirdLeverController : MonoBehaviour
         {
            
             ExtendBoom.Instance.ExtendStationary();
+            ExtendBoom.Instance.boomIsExtending = false;
             leverThreeActive = false;
         }
         else if (leverRotation.x > 10f && leverRotation.x <= 61f)
         {
             if (ExtendBoom.Instance.position.z > 0.081f)
             {
-                ExtendBoom.Instance.BoomShorten(10f);
+                ExtendBoom.Instance.BoomShorten();
+                ExtendBoom.Instance.boomIsExtending = true;
                 leverThreeActive = true;
             }
             else
             {
                 ExtendBoom.Instance.ExtendStationary();
+                ExtendBoom.Instance.boomIsExtending = false;
+                leverThreeActive = true;
                 //Debug.Log("No force1");
             }
                 
@@ -37,12 +41,15 @@ public class ThirdLeverController : MonoBehaviour
         {
             if (ExtendBoom.Instance.position.z < 3.581f)
             {
-                ExtendBoom.Instance.BoomExtend(10f);
+                ExtendBoom.Instance.BoomExtend();
+                ExtendBoom.Instance.boomIsExtending = true;
                 leverThreeActive = true;
             }
             else
             {
                 ExtendBoom.Instance.ExtendStationary();
+                ExtendBoom.Instance.boomIsExtending = false;
+                leverThreeActive = true;
                 //Debug.Log("No force3");
             }
 

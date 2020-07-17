@@ -4,17 +4,22 @@ using UnityEngine;
 
 public class HookController : Singleton<HookController>
 {
+    public float hookSpeed;
+
     private SpringJoint springJoint;
     private SoftJointLimit softJointLimit;
 
-    private float minHookPosition = 0.1f;
+    private float minHookPosition = 0.5f;
     private float maxHookPosition = 10f;
 
     private float currentLength;
 
+    public bool hookIsMoving;
+
    
     void Start()
     {
+        hookSpeed = 0.005f;
         springJoint = GetComponent<SpringJoint>();
     }
 
@@ -23,12 +28,12 @@ public class HookController : Singleton<HookController>
         currentLength = springJoint.maxDistance;
     }
 
-    public void HookUp(float hookSpeed)
+    public void HookUp()
     {
         springJoint.maxDistance = Mathf.Clamp(springJoint.maxDistance - hookSpeed, minHookPosition, maxHookPosition);
     }
 
-    public void HookDown(float hookSpeed)
+    public void HookDown()
     {
         springJoint.maxDistance = Mathf.Clamp(springJoint.maxDistance + hookSpeed, minHookPosition, maxHookPosition);
     }

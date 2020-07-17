@@ -287,6 +287,8 @@ MonoBehaviour:
   cylinderA: {fileID: 864403991909676484}
   cylinderB: {fileID: 2196708656531327612}
   rotation: {x: 0, y: 0, z: 0}
+  boomIsRaising: 0
+  raiseSpeed: 0
 --- !u!153 &6959549304620991470
 ConfigurableJoint:
   m_ObjectHideFlags: 0
@@ -496,6 +498,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f1558858506c4b04bbee4ae57ba9593f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  cabRotateSpeed: 0
+  turn: 0
+  cabIsTurning: 0
 --- !u!59 &1277078431411507202
 HingeJoint:
   m_ObjectHideFlags: 0
@@ -893,7 +898,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   position: {x: 0, y: 0, z: 0}
-  stopForce: 0
+  boomIsExtending: 0
+  extendSpeed: 0
 --- !u!1 &1790937510746276145
 GameObject:
   m_ObjectHideFlags: 0
@@ -1243,7 +1249,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1790937510746276153}
   m_LocalRotation: {x: 0.000000021855698, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 4.171466, y: -3.903931, z: 3.35}
+  m_LocalPosition: {x: 4.171466, y: -4.045, z: 3.287}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4692947253471024006}
@@ -2329,6 +2335,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 19cd2b547cb638c42b6f74e70d9a9679, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  hookSpeed: 0
+  hookIsMoving: 0
 --- !u!1 &5280184245770796936
 GameObject:
   m_ObjectHideFlags: 0

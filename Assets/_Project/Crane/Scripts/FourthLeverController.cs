@@ -13,29 +13,22 @@ public class FourthLeverController : MonoBehaviour
         //Debug.Log(leverRotation.x);
 
 
-        if ((leverRotation.x <= 20f && leverRotation.x >= 0f) || (leverRotation.x >= 340f && leverRotation.x <= 360f))
+        if ((leverRotation.x <= 10f && leverRotation.x >= 0f) || (leverRotation.x >= 350f && leverRotation.x <= 360f))
         {
             HookController.Instance.HookStationary();
+            HookController.Instance.hookIsMoving = false;
             leverFourActive = false;
         }
-        else if (leverRotation.x > 20f && leverRotation.x <= 40f)
+        else if (leverRotation.x > 10f && leverRotation.x <= 61f)
         {
-            HookController.Instance.HookUp(0.005f);
+            HookController.Instance.HookUp();
+            HookController.Instance.hookIsMoving = true;
             leverFourActive = true;
         }
-        else if (leverRotation.x > 40f && leverRotation.x <= 61f)
+        else if (leverRotation.x < 350f && leverRotation.x >= 299f)
         {
-            HookController.Instance.HookUp(0.01f);
-            leverFourActive = true;
-        }
-        else if (leverRotation.x < 340f && leverRotation.x >= 320f)
-        {
-            HookController.Instance.HookDown(0.005f);
-            leverFourActive = true;
-        }
-        else if (leverRotation.x < 320f && leverRotation.x >= 299f)
-        {
-            HookController.Instance.HookDown(0.01f);
+            HookController.Instance.HookDown();
+            HookController.Instance.hookIsMoving = true;
             leverFourActive = true;
         }
     }
