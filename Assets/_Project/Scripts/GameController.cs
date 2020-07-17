@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 using UnityEngine.Audio;
 using UnityEngine.XR.Interaction.Toolkit;
@@ -12,6 +13,8 @@ public class GameController : Singleton<GameController>
     public GameObject locationStart;
     public GameObject locationCab;
     public Transform rigLocation;
+
+    private bool engine = false;
     
     public void GotoCab()
     {
@@ -31,10 +34,18 @@ public class GameController : Singleton<GameController>
         audioController.AtStart();
     }
 
-    public void StartCraneEngine()
+    public void Engine()
     {
-        audioController.CraneStart();
-
+        if (engine == false)
+        {
+            audioController.CraneStart();
+            engine = true;
+        }
+        else
+        {
+            // TODO crane shutdown sound, set variable, pause, then bring back to start
+            GotoStart();
+        }
     }
 }
 
