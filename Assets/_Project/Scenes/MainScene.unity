@@ -5666,7 +5666,7 @@ ConfigurableJoint:
   m_Anchor: {x: 0.35, y: 0.55, z: 0.02}
   m_Axis: {x: 1, y: 0, z: 0}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: 2.9925716, y: -0.5369584, z: -0.10505619}
+  m_ConnectedAnchor: {x: 2.9925716, y: -0.5369587, z: -0.10505768}
   serializedVersion: 2
   m_SecondaryAxis: {x: 0, y: 1, z: 0}
   m_XMotion: 0
@@ -5824,7 +5824,7 @@ ConfigurableJoint:
   m_Anchor: {x: 0.15, y: 0.55, z: 0.02}
   m_Axis: {x: 1, y: 0, z: 0}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: 1.4575071, y: -0.5369584, z: -0.10505918}
+  m_ConnectedAnchor: {x: 1.4575071, y: -0.5369587, z: -0.10506215}
   serializedVersion: 2
   m_SecondaryAxis: {x: 0, y: 1, z: 0}
   m_XMotion: 0
@@ -5919,7 +5919,7 @@ ConfigurableJoint:
   m_Anchor: {x: -0.25, y: 0.55, z: 0.02}
   m_Axis: {x: 1, y: 0, z: 0}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: -1.6125592, y: -0.5369584, z: -0.10507108}
+  m_ConnectedAnchor: {x: -1.6125592, y: -0.5369587, z: -0.10507408}
   serializedVersion: 2
   m_SecondaryAxis: {x: 0, y: 1, z: 0}
   m_XMotion: 0
@@ -6014,7 +6014,7 @@ ConfigurableJoint:
   m_Anchor: {x: -0.05, y: 0.55, z: 0.02}
   m_Axis: {x: 1, y: 0, z: 0}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: -0.07751556, y: -0.5369584, z: -0.10507108}
+  m_ConnectedAnchor: {x: -0.07751556, y: -0.5369587, z: -0.10507408}
   serializedVersion: 2
   m_SecondaryAxis: {x: 0, y: 1, z: 0}
   m_XMotion: 0
@@ -9912,6 +9912,7 @@ GameObject:
   - component: {fileID: 1800542511}
   - component: {fileID: 1800542510}
   - component: {fileID: 1800542509}
+  - component: {fileID: 1800542512}
   m_Layer: 0
   m_Name: side arm rest
   m_TagString: Untagged
@@ -9996,6 +9997,22 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1800542507}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!54 &1800542512
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1800542507}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 0
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1 &1803554423
 GameObject:
   m_ObjectHideFlags: 0
