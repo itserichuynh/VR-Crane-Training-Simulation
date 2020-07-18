@@ -4,10 +4,11 @@ using UnityEngine;
 
 public class HookPickUp : MonoBehaviour
 {
-    private void OnCollisionEnter(Collision collision)
+    private IEnumerator OnCollisionEnter(Collision collision)
     {
         if (collision.gameObject.CompareTag("Cargo") && collision.gameObject.GetComponent<Rigidbody>()) 
         {
+            yield return new WaitForSeconds(2f);
             gameObject.AddComponent<FixedJoint>();
             gameObject.GetComponent<FixedJoint>().connectedBody = collision.rigidbody;
         }
