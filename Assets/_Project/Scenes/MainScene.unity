@@ -3872,6 +3872,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Hard Hat
       objectReference: {fileID: 0}
+    - target: {fileID: 7830097233518632340, guid: 4076a7c96803d6f4b8deff189a308006,
+        type: 3}
+      propertyPath: m_Layer
+      value: 5
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4076a7c96803d6f4b8deff189a308006, type: 3}
 --- !u!1 &857245873 stripped
@@ -6540,7 +6545,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1193418943
 Transform:
   m_ObjectHideFlags: 0
@@ -7698,7 +7703,7 @@ MonoBehaviour:
   m_SphereCastRadius: 0
   m_RaycastMask:
     serializedVersion: 2
-    m_Bits: 4294967295
+    m_Bits: 288
   m_RaycastTriggerInteraction: 1
   m_HoverToSelect: 0
   m_HoverTimeToSelect: 0.5
@@ -9505,7 +9510,7 @@ MonoBehaviour:
   m_SphereCastRadius: 0
   m_RaycastMask:
     serializedVersion: 2
-    m_Bits: 4294967295
+    m_Bits: 288
   m_RaycastTriggerInteraction: 1
   m_HoverToSelect: 0
   m_HoverTimeToSelect: 0.5
@@ -10986,6 +10991,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: keys
       objectReference: {fileID: 0}
+    - target: {fileID: 454185880865003294, guid: 7ec1d78cc2550214e9d6bf21513e038e,
+        type: 3}
+      propertyPath: m_Layer
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 938515682243677604, guid: 7ec1d78cc2550214e9d6bf21513e038e,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -11055,6 +11065,21 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalScale.z
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 963334772759886240, guid: 7ec1d78cc2550214e9d6bf21513e038e,
+        type: 3}
+      propertyPath: m_Layer
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3410107463165410243, guid: 7ec1d78cc2550214e9d6bf21513e038e,
+        type: 3}
+      propertyPath: m_Layer
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5452024889953640335, guid: 7ec1d78cc2550214e9d6bf21513e038e,
+        type: 3}
+      propertyPath: m_Layer
+      value: 5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7ec1d78cc2550214e9d6bf21513e038e, type: 3}
