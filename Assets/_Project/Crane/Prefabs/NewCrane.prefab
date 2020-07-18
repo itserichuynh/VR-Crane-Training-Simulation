@@ -2293,8 +2293,8 @@ SpringJoint:
   serializedVersion: 2
   m_Spring: 1000
   m_Damper: 400
-  m_MinDistance: 0.1
-  m_MaxDistance: 0.8
+  m_MinDistance: 0.5
+  m_MaxDistance: 0
   m_Tolerance: 0.025
   m_BreakForce: Infinity
   m_BreakTorque: Infinity

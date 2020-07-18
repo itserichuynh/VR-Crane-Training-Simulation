@@ -4376,6 +4376,7 @@ MonoBehaviour:
   cabRadioSource: {fileID: 1159596847}
   engineStart: {fileID: 8300000, guid: 2ff2a92c7ce98294dab21953171ec723, type: 3}
   engineRunning: {fileID: 8300000, guid: 42fb3b3a45e10294594cb1f3c00c7fdd, type: 3}
+  engineEnd: {fileID: 0}
   npcWelcome: {fileID: 8300000, guid: 03efd541e69046e4a9de6857ba08e8a7, type: 3}
 --- !u!4 &915072349
 Transform:
@@ -7048,7 +7049,7 @@ PrefabInstance:
     - target: {fileID: 4692947254667533023, guid: d0c39f9bc445cd84e912c5fd8e6805c3,
         type: 3}
       propertyPath: m_MaxDistance
-      value: 2
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4692947254667533023, guid: d0c39f9bc445cd84e912c5fd8e6805c3,
         type: 3}
@@ -8982,7 +8983,7 @@ MonoBehaviour:
   m_SmoothRotation: 0
   m_SmoothRotationAmount: 5
   m_TightenRotation: 0.5
-  m_ThrowOnDetach: 1
+  m_ThrowOnDetach: 0
   m_ThrowSmoothingDuration: 0.25
   m_ThrowSmoothingCurve:
     serializedVersion: 2
