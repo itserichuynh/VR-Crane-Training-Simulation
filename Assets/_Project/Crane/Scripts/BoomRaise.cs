@@ -18,7 +18,7 @@ public class BoomRaise : Singleton<BoomRaise>
     void Start()
     {
         _rigid = GetComponent<Rigidbody>();
-        raiseSpeed = 25f;
+        raiseSpeed = 35f;
     }
 
     private void FixedUpdate()
