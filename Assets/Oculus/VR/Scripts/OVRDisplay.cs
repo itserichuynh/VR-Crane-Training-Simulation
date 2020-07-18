@@ -1,12 +1,12 @@
 /************************************************************************************
 Copyright : Copyright (c) Facebook Technologies, LLC and its affiliates. All rights reserved.
 
-Licensed under the Oculus Utilities SDK License Version 1.31 (the "License"); you may not use
+Licensed under the Oculus Master SDK License Version 1.0 (the "License"); you may not use
 the Utilities SDK except in compliance with the License, which is provided at the time of installation
 or download, or which otherwise accompanies this software in either electronic or hard copy form.
 
 You may obtain a copy of the License at
-https://developer.oculus.com/licenses/utilities-1.31
+https://developer.oculus.com/licenses/oculusmastersdk-1.0/
 
 Unless required by applicable law or agreed to in writing, the Utilities SDK distributed
 under the License is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF
@@ -20,20 +20,9 @@ using System.Text.RegularExpressions;
 using UnityEngine;
 using System.Collections.Generic;
 
-#if UNITY_2017_2_OR_NEWER
 using InputTracking = UnityEngine.XR.InputTracking;
 using Node = UnityEngine.XR.XRNode;
-using NodeState = UnityEngine.XR.XRNodeState;
 using Settings = UnityEngine.XR.XRSettings;
-#elif UNITY_2017_1_OR_NEWER
-using InputTracking = UnityEngine.VR.InputTracking;
-using Node = UnityEngine.VR.VRNode;
-using NodeState = UnityEngine.VR.VRNodeState;
-using Settings = UnityEngine.VR.VRSettings;
-#else
-using Node = UnityEngine.VR.VRNode;
-using Settings = UnityEngine.VR.VRSettings;
-#endif
 
 /// <summary>
 /// Manages an Oculus Rift head-mounted display (HMD).
@@ -131,7 +120,7 @@ public class OVRDisplay
 			recenterRequestedFrameCount = int.MaxValue;
 		}
 
-		if (OVRPlugin.GetSystemHeadsetType() >= OVRPlugin.SystemHeadset.Oculus_Quest && 
+		if (OVRPlugin.GetSystemHeadsetType() >= OVRPlugin.SystemHeadset.Oculus_Quest &&
 			OVRPlugin.GetSystemHeadsetType() < OVRPlugin.SystemHeadset.Rift_DK1) // all Oculus Standalone headsets
 		{
 			int recenterCount = OVRPlugin.GetLocalTrackingSpaceRecenterCount();
@@ -157,11 +146,7 @@ public class OVRDisplay
 	/// </summary>
 	public void RecenterPose()
 	{
-#if UNITY_2017_2_OR_NEWER
-        UnityEngine.XR.InputTracking.Recenter();
-#else
-		UnityEngine.VR.InputTracking.Recenter();
-#endif
+		InputTracking.Recenter();
 
 		// The current poses are cached for the current frame and won't be updated immediately
 		// after UnityEngine.VR.InputTracking.Recenter(). So we need to wait until next frame
@@ -245,11 +230,7 @@ public class OVRDisplay
 	/// <summary>
 	/// Gets the resolution and field of view for the given eye.
 	/// </summary>
-#if UNITY_2017_2_OR_NEWER
     public EyeRenderDesc GetEyeRenderDesc(UnityEngine.XR.XRNode eye)
-#else
-	public EyeRenderDesc GetEyeRenderDesc(UnityEngine.VR.VRNode eye)
-#endif
 	{
 		return eyeDescs[(int)eye];
 	}
@@ -336,20 +317,11 @@ public class OVRDisplay
 
 	private void UpdateTextures()
 	{
-#if UNITY_2017_2_OR_NEWER
-		ConfigureEyeDesc(UnityEngine.XR.XRNode.LeftEye);
-        ConfigureEyeDesc(UnityEngine.XR.XRNode.RightEye);
-#else
-		ConfigureEyeDesc(UnityEngine.VR.VRNode.LeftEye);
-		ConfigureEyeDesc(UnityEngine.VR.VRNode.RightEye);
-#endif
+		ConfigureEyeDesc(Node.LeftEye);
+		ConfigureEyeDesc(Node.RightEye);
 	}
 
-#if UNITY_2017_2_OR_NEWER
-    private void ConfigureEyeDesc(UnityEngine.XR.XRNode eye)
-#else
-	private void ConfigureEyeDesc(UnityEngine.VR.VRNode eye)
-#endif
+	private void ConfigureEyeDesc(Node eye)
 	{
 		if (!OVRManager.isHmdPresent)
 			return;

@@ -13,17 +13,28 @@ public class GameController : Singleton<GameController>
     public GameObject locationStart;
     public GameObject locationCab;
     public Transform rigLocation;
-    
+
+    private static string spokenLanguage = "en";
     private bool engineRunning = false;
     
     public void GotoCab()
     {
+        if (GameObject.name("Hard Hat es"))
+        {
+            spokenLanguage = "es";
+        }
+        else
+        {
+            spokenLanguage = "en";
+        }
+
         rigLocation.position=new Vector3(
             locationCab.transform.position.x,
             locationCab.transform.position.y,
             locationCab.transform.position.z);
         audioController.AtCab();
     }
+
 
     public void GotoStart()
     {

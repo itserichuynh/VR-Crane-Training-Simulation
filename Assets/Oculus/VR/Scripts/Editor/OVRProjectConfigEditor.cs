@@ -60,7 +60,6 @@ public class OVRProjectConfigEditor : Editor
 		EditorGUI.EndDisabledGroup();
 		EditorGUILayout.Space();
 
-#if UNITY_2018_2_OR_NEWER
 		EditorGUI.BeginDisabledGroup(false);
 		EditorGUILayout.LabelField("Android Build Settings", EditorStyles.boldLabel);
 
@@ -71,7 +70,6 @@ public class OVRProjectConfigEditor : Editor
 
 		EditorGUI.EndDisabledGroup();
 		EditorGUILayout.Space();
-#endif
 
 		EditorGUILayout.LabelField("Security", EditorStyles.boldLabel);
 		OVREditorUtil.SetupInputField(projectConfig, "Custom Security XML Path", ref projectConfig.securityXmlPath, ref hasModified);

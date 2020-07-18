@@ -1,12 +1,12 @@
 /************************************************************************************
 Copyright : Copyright (c) Facebook Technologies, LLC and its affiliates. All rights reserved.
 
-Licensed under the Oculus Utilities SDK License Version 1.31 (the "License"); you may not use
+Licensed under the Oculus Master SDK License Version 1.0 (the "License"); you may not use
 the Utilities SDK except in compliance with the License, which is provided at the time of installation
 or download, or which otherwise accompanies this software in either electronic or hard copy form.
 
 You may obtain a copy of the License at
-https://developer.oculus.com/licenses/utilities-1.31
+https://developer.oculus.com/licenses/oculusmastersdk-1.0/
 
 Unless required by applicable law or agreed to in writing, the Utilities SDK distributed
 under the License is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF
@@ -74,9 +74,6 @@ public class OVRLint : EditorWindow
 
 	private static List<FixRecord> mRecords = new List<FixRecord>();
 	private static List<FixRecord> mRuntimeEditModeRequiredRecords = new List<FixRecord>();
-#if !UNITY_2017_2_OR_NEWER
-	private static bool mWasPlaying = false;
-#endif
 	private Vector2 mScrollPosition;
 
 	[MenuItem("Oculus/Tools/OVR Performance Lint Tool")]
@@ -86,34 +83,13 @@ public class OVRLint : EditorWindow
 		EditorWindow.GetWindow(typeof(OVRLint));
 		OVRPlugin.SendEvent("perf_lint", "activated");
 		OVRLint.RunCheck();
-#if !UNITY_2017_2_OR_NEWER
-		mWasPlaying = EditorApplication.isPlaying;
-#endif
 	}
 
 	OVRLint()
 	{
-#if UNITY_2017_2_OR_NEWER
 		EditorApplication.playModeStateChanged += HandlePlayModeState;
-#else
-		EditorApplication.playmodeStateChanged += () =>
-		{
-			// When Unity starts playing, it would also trigger play mode changed event with isPlaying == false
-			// Fixes should only be applied when it was transitioned from playing mode
-			if (!EditorApplication.isPlaying && mWasPlaying)
-			{
-				ApplyEditModeRequiredFix();
-				mWasPlaying = false;
-			}
-			else
-			{
-				mWasPlaying = true;
-			}
-		};
-#endif
 	}
 
-#if UNITY_2017_2_OR_NEWER
 	private static void HandlePlayModeState(PlayModeStateChange state)
 	{
 		if (state == PlayModeStateChange.EnteredEditMode)
@@ -121,7 +97,6 @@ public class OVRLint : EditorWindow
 			ApplyEditModeRequiredFix();
 		}
 	}
-#endif
 
 	private static void ApplyEditModeRequiredFix()
 	{
@@ -336,20 +311,12 @@ public class OVRLint : EditorWindow
 		}
 #endif
 
-#if UNITY_2017_2_OR_NEWER
 		if ((!PlayerSettings.MTRendering || !PlayerSettings.GetMobileMTRendering(BuildTargetGroup.Android)))
-#else
-		if ((!PlayerSettings.MTRendering || !PlayerSettings.mobileMTRendering))
-#endif
 		{
 			AddFix("Optimize MT Rendering", "For CPU performance, please enable multithreaded rendering.", delegate (UnityEngine.Object obj, bool last, int selected)
 			{
-#if UNITY_2017_2_OR_NEWER
 				PlayerSettings.SetMobileMTRendering(BuildTargetGroup.Standalone, true);
 				PlayerSettings.SetMobileMTRendering(BuildTargetGroup.Android, true);
-#else
-				PlayerSettings.MTRendering = PlayerSettings.mobileMTRendering = true;
-#endif
 			}, null, false, "Fix");
 		}
 
@@ -363,7 +330,7 @@ public class OVRLint : EditorWindow
 		}
 #endif
 
-#if UNITY_2017_3_OR_NEWER && !UNITY_ANDROID
+#if !UNITY_ANDROID
 		if (!PlayerSettings.VROculus.dashSupport)
 		{
 			AddFix("Enable Dash Integration", "We recommend to enable Dash Integration for better user experience.", delegate (UnityEngine.Object obj, bool last, int selected)
@@ -422,11 +389,7 @@ public class OVRLint : EditorWindow
 		var lights = GameObject.FindObjectsOfType<Light>();
 		for (int i = 0; i < lights.Length; ++i)
 		{
-#if UNITY_2017_3_OR_NEWER
 			if (lights [i].type != LightType.Directional && !lights [i].bakingOutput.isBaked && IsLightBaked(lights[i]))
-#else
-			if (lights[i].type != LightType.Directional && !lights[i].isBaked && IsLightBaked(lights[i]))
-#endif
 			{
 				AddFix("Unbaked Lights", "The following lights in the scene are marked as Baked, but they don't have up to date lightmap data. Generate the lightmap data, or set it to auto-generate, in Window->Lighting->Settings.", null, lights[i], false, null);
 			}
@@ -625,19 +588,11 @@ public class OVRLint : EditorWindow
 			}, null, true, "Stop Play and Fix");
 		}
 
-#if UNITY_2017_2_OR_NEWER
 		if (UnityEngine.XR.XRSettings.eyeTextureResolutionScale > 1.5)
-#else
-		if (UnityEngine.VR.VRSettings.renderScale > 1.5)
-#endif
 		{
 			AddFix("Optimize Render Scale", "Render scale above 1.5 is extremely expensive on the GPU, with little if any positive visual benefit.", delegate (UnityEngine.Object obj, bool last, int selected)
 			{
-#if UNITY_2017_2_OR_NEWER
 				UnityEngine.XR.XRSettings.eyeTextureResolutionScale = 1.5f;
-#else
-				UnityEngine.VR.VRSettings.renderScale = 1.5f;
-#endif
 			}, null, false, "Fix");
 		}
 	}
@@ -701,7 +656,7 @@ public class OVRLint : EditorWindow
 
 		if (!PlayerSettings.gpuSkinning)
 		{
-			AddFix("Optimize GPU Skinning", "If you are CPU-bound, consider using GPU skinning.", 
+			AddFix("Optimize GPU Skinning", "If you are CPU-bound, consider using GPU skinning.",
 				delegate (UnityEngine.Object obj, bool last, int selected)
 			{
 				PlayerSettings.gpuSkinning = true;

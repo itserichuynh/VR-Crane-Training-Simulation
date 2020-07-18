@@ -2071,6 +2071,14 @@ namespace Oculus.Platform
     [DllImport(DLL_NAME, CallingConvention=CallingConvention.Cdecl)]
     public static extern bool ovr_LaunchUnblockFlowResult_GetDidUnblock(IntPtr obj);
 
+    public static string ovr_Leaderboard_GetApiName(IntPtr obj) {
+      var result = StringFromNative(ovr_Leaderboard_GetApiName_Native(obj));
+      return result;
+    }
+
+    [DllImport(DLL_NAME, CallingConvention=CallingConvention.Cdecl, EntryPoint="ovr_Leaderboard_GetApiName")]
+    private static extern IntPtr ovr_Leaderboard_GetApiName_Native(IntPtr obj);
+
     public static byte[] ovr_LeaderboardEntry_GetExtraData(IntPtr obj) {
       var result = BlobFromNative(ovr_LeaderboardEntry_GetExtraDataLength(obj), ovr_LeaderboardEntry_GetExtraData_Native(obj));
       return result;
@@ -3112,6 +3120,14 @@ namespace Oculus.Platform
 
     [DllImport(DLL_NAME, CallingConvention=CallingConvention.Cdecl)]
     public static extern UIntPtr ovr_TestUserAppAccessArray_GetSize(IntPtr obj);
+
+    public static string ovr_User_GetDisplayName(IntPtr obj) {
+      var result = StringFromNative(ovr_User_GetDisplayName_Native(obj));
+      return result;
+    }
+
+    [DllImport(DLL_NAME, CallingConvention=CallingConvention.Cdecl, EntryPoint="ovr_User_GetDisplayName")]
+    private static extern IntPtr ovr_User_GetDisplayName_Native(IntPtr obj);
 
     [DllImport(DLL_NAME, CallingConvention=CallingConvention.Cdecl)]
     public static extern UInt64 ovr_User_GetID(IntPtr obj);

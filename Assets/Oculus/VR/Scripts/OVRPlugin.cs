@@ -1,12 +1,12 @@
 /************************************************************************************
 Copyright : Copyright (c) Facebook Technologies, LLC and its affiliates. All rights reserved.
 
-Licensed under the Oculus Utilities SDK License Version 1.31 (the "License"); you may not use
+Licensed under the Oculus Master SDK License Version 1.0 (the "License"); you may not use
 the Utilities SDK except in compliance with the License, which is provided at the time of installation
 or download, or which otherwise accompanies this software in either electronic or hard copy form.
 
 You may obtain a copy of the License at
-https://developer.oculus.com/licenses/utilities-1.31
+https://developer.oculus.com/licenses/oculusmastersdk-1.0/
 
 Unless required by applicable law or agreed to in writing, the Utilities SDK distributed
 under the License is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF
@@ -43,7 +43,7 @@ public static class OVRPlugin
 #if OVRPLUGIN_UNSUPPORTED_PLATFORM
 	public static readonly System.Version wrapperVersion = _versionZero;
 #else
-	public static readonly System.Version wrapperVersion = OVRP_1_49_0.version;
+	public static readonly System.Version wrapperVersion = OVRP_1_50_0.version;
 #endif
 
 #if !OVRPLUGIN_UNSUPPORTED_PLATFORM
@@ -181,6 +181,8 @@ public static class OVRPlugin
 		Failure_NotYetImplemented = -1005,
 		Failure_OperationFailed = -1006,
 		Failure_InsufficientSize = -1007,
+		Failure_DataIsInvalid = -1008,
+		Failure_DeprecatedOperation = -1009
 	}
 
 	public enum CameraStatus
@@ -4474,7 +4476,6 @@ public static class OVRPlugin
 				{
 					result = OVRP_1_38_0.ovrp_Media_EncodeMrcFrame(pointer, audioDataPtr, audioDataLen, audioChannels, timestamp, ref outSyncId);
 				}
-
 				pinnedArray.Free();
 				if (audioData != null)
 				{
@@ -4537,6 +4538,7 @@ public static class OVRPlugin
 			}
 #endif
 		}
+
 	}
 
 	public static bool SetDeveloperMode(Bool active)
@@ -5720,6 +5722,10 @@ public static class OVRPlugin
 		public static extern Result ovrp_Media_SetCameraMinMaxDistance(IntPtr anchorHandle, double minDistance, double maxDistance);
 	}
 
+	private static class OVRP_1_50_0
+	{
+		public static readonly System.Version version = new System.Version(1, 50, 0);
+	}
 #endif // !OVRPLUGIN_UNSUPPORTED_PLATFORM
 
 }
