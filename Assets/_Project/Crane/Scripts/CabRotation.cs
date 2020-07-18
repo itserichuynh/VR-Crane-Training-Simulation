@@ -13,7 +13,7 @@ public class CabRotation : Singleton<CabRotation>
     void Start()
     {
         _rb = GetComponent<Rigidbody>();
-        cabRotateSpeed = 200f;
+        cabRotateSpeed = 100f;
     }
 
     private void FixedUpdate()
