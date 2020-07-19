@@ -18,10 +18,25 @@ public class GameController : Singleton<GameController>
     public Transform xrRigLocation;
     public GameObject xrRigInCab;
     public Text scoreText;
+    private float score;
     
     private static string spokenLanguage = "en";
     private bool engineRunning = false;
-    
+
+    private void FixedUpdate()
+    {
+        score = ScoreController.Instance.scoretotal
+            + ScoreController1.Instance.scoretotal
+            + ScoreController2.Instance.scoretotal
+            + ScoreController3.Instance.scoretotal
+            + ScoreController4.Instance.scoretotal
+            + ScoreController5.Instance.scoretotal
+            + ScoreController6.Instance.scoretotal
+            + ScoreController7.Instance.scoretotal
+            + ScoreController8.Instance.scoretotal;
+        scoreText.text = "Score: " + score.ToString();
+    }
+
     public void GotoCab()
     {
         xrRigLocation.transform.rotation = xrRigInCab.transform.rotation;
