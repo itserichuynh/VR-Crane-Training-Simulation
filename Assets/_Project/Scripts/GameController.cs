@@ -20,24 +20,12 @@ public class GameController : Singleton<GameController>
     
     public void GotoCab()
     {
-        /*
-        if (gameObject.name.Contains("Hard Hat es"))
-        {
-            spokenLanguage = "es";
-        }
-        else
-        {
-            spokenLanguage = "en";
-        }
-        */
-
         rigLocation.position=new Vector3(
             locationCab.transform.position.x,
             locationCab.transform.position.y,
             locationCab.transform.position.z);
         audioController.AtCab();
     }
-
 
     public void GotoStart()
     {
@@ -46,6 +34,18 @@ public class GameController : Singleton<GameController>
             locationStart.transform.position.y,
             locationStart.transform.position.z);
         audioController.AtStart();
+    }
+
+    public void LanguageEN()
+    {
+        spokenLanguage = "en";
+        Debug.Log("selected language english");
+    }
+
+    public void LanguageES()
+    {
+        spokenLanguage = "es";
+        Debug.Log("selected language espanol");
     }
 
     public void Engine()
