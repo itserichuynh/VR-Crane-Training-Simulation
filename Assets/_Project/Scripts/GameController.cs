@@ -19,7 +19,8 @@ public class GameController : Singleton<GameController>
     
     public void GotoCab()
     {
-        if (GameObject.name("Hard Hat es"))
+        /*
+        if (gameObject.name.Contains("Hard Hat es"))
         {
             spokenLanguage = "es";
         }
@@ -27,6 +28,7 @@ public class GameController : Singleton<GameController>
         {
             spokenLanguage = "en";
         }
+        */
 
         rigLocation.position=new Vector3(
             locationCab.transform.position.x,
