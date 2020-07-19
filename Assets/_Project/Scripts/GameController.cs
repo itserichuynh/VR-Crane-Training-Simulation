@@ -55,6 +55,8 @@ public class GameController : Singleton<GameController>
             audioController.CraneStart();
             engineRunning = true;
             // TODO Kirk - change button material to engine_on
+
+            TimerController.Instance.StartTimer(); // Start timer
         }
         else
         {
@@ -63,6 +65,8 @@ public class GameController : Singleton<GameController>
             // TODO Kirk - change button material to engine_off
             engineRunning = false;
             GotoStart();
+
+            TimerController.Instance.StopTimer(); // Stop timer
         }
     }
 
