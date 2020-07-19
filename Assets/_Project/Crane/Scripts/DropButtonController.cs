@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ButtonController : MonoBehaviour
+public class DropButtonController : MonoBehaviour
 {
     Renderer _renderer;
 

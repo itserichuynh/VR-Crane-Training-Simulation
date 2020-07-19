@@ -102,12 +102,6 @@ public class GameController : Singleton<GameController>
             OnOffButtonController.Instance.ChangeToBlue(); // Change color to yellow (OFF)
             TimerController.Instance.StopTimer(); // Stop timer
         }
-    }
-
-    void Start()
-    {
-        
-    }
-    
+    }    
 }
 
