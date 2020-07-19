@@ -17,6 +17,7 @@ public class GameController : Singleton<GameController>
     public GameObject locationCab;
     public Transform xrRigLocation;
     public GameObject xrRigInCab;
+    public GameObject npc;
     public Text scoreText;
     private float score;
     
@@ -40,24 +41,24 @@ public class GameController : Singleton<GameController>
     public void GotoCab()
     {
         xrRigLocation.transform.rotation = xrRigInCab.transform.rotation;
-        
         xrRigLocation.position=new Vector3(
             locationCab.transform.position.x,
             locationCab.transform.position.y,
             locationCab.transform.position.z);
         xrRigLocation.transform.SetParent(xrRigInCab.transform);
+        npc.transform.LookAt(xrRigLocation);
         audioController.AtCab();
     }
 
     public void GotoStart()
     {
         xrRigLocation.transform.rotation = Quaternion.Euler(0,0,0);
-        
         xrRigLocation.position=new Vector3(
             locationStart.transform.position.x,
             locationStart.transform.position.y,
             locationStart.transform.position.z);
         xrRigLocation.transform.SetParent(null);
+        npc.transform.LookAt(xrRigLocation);
         audioController.AtStart();
     }
 
@@ -97,7 +98,7 @@ public class GameController : Singleton<GameController>
 
     void Start()
     {
-        
+        npc.transform.LookAt(xrRigLocation);
     }
     
 }
