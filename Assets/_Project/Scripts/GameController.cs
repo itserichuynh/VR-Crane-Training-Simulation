@@ -2,9 +2,11 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Net;
+using System.Net.Mime;
 using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 using UnityEngine.Audio;
+using UnityEngine.UI;
 using UnityEngine.XR.Interaction.Toolkit;
 
 public class GameController : Singleton<GameController>
@@ -15,6 +17,7 @@ public class GameController : Singleton<GameController>
     public GameObject locationCab;
     public Transform xrRigLocation;
     public GameObject xrRigInCab;
+    public Text scoreText;
     
     private static string spokenLanguage = "en";
     private bool engineRunning = false;

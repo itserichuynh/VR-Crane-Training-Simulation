@@ -8,7 +8,6 @@ using UnityEngine.XR.Interaction.Toolkit;
 public class AudioController : Singleton<AudioController>
 {
 
-    public GameController gameController;
     public AudioMixerSnapshot cabAmbient;
     public AudioMixerSnapshot startAmbient;
     public AudioSource cabEngineSource;
