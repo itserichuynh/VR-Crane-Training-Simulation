@@ -18,6 +18,9 @@ public class GameController : Singleton<GameController>
     public Transform xrRigLocation;
     public GameObject xrRigInCab;
     public Text scoreText;
+    public Text offText;
+    public Text onText;
+
     private float score;
     
     private static string spokenLanguage = "en";
@@ -81,6 +84,9 @@ public class GameController : Singleton<GameController>
             engineRunning = true;
             // TODO Kirk - change button material to engine_on
 
+            offText.gameObject.SetActive(false); // off text disappears
+            onText.gameObject.SetActive(true); // on text appears
+            OnOffButtonController.Instance.ChangeToYellow(); // Change color to yellow (ON)
             TimerController.Instance.StartTimer(); // Start timer
         }
         else
@@ -91,6 +97,9 @@ public class GameController : Singleton<GameController>
             engineRunning = false;
             GotoStart();
 
+            offText.gameObject.SetActive(true); // off text appears
+            onText.gameObject.SetActive(false); // on text dosappears
+            OnOffButtonController.Instance.ChangeToBlue(); // Change color to yellow (OFF)
             TimerController.Instance.StopTimer(); // Stop timer
         }
     }
