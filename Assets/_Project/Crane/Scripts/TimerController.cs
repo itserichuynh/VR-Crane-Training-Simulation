@@ -7,7 +7,7 @@ public class TimerController : Singleton<TimerController>
 {
     public Text timerText;
 
-    private bool timeStart;
+    private bool timeStart = false;
     private float startTime;
 
     private void Update()
