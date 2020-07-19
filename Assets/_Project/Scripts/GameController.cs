@@ -13,26 +13,33 @@ public class GameController : Singleton<GameController>
     public AudioController audioController;
     public GameObject locationStart;
     public GameObject locationCab;
-    public Transform rigLocation;
-
+    public Transform xrRigLocation;
+    public GameObject xrRigInCab;
+    
     private static string spokenLanguage = "en";
     private bool engineRunning = false;
     
     public void GotoCab()
     {
-        rigLocation.position=new Vector3(
+        xrRigLocation.transform.rotation = xrRigInCab.transform.rotation;
+        
+        xrRigLocation.position=new Vector3(
             locationCab.transform.position.x,
             locationCab.transform.position.y,
             locationCab.transform.position.z);
+        xrRigLocation.transform.SetParent(xrRigInCab.transform);
         audioController.AtCab();
     }
 
     public void GotoStart()
     {
-        rigLocation.position=new Vector3(
+        xrRigLocation.transform.rotation = Quaternion.Euler(0,0,0);
+        
+        xrRigLocation.position=new Vector3(
             locationStart.transform.position.x,
             locationStart.transform.position.y,
             locationStart.transform.position.z);
+        xrRigLocation.transform.SetParent(null);
         audioController.AtStart();
     }
 
