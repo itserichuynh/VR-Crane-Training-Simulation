@@ -2,8 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
-public class UIController : MonoBehaviour
+public class UIController : Singleton<UIController>
 {
     public Transform lever1;
     public Transform lever2;
@@ -18,6 +19,11 @@ public class UIController : MonoBehaviour
     public Canvas lever3Canvas;
     public Canvas lever4Canvas;
     public Canvas endPracticeSectioncanvas;
+    public Canvas onOffButtonMessage;
+    public Canvas leverMessage;
+
+    public Text timerText;
+    public Text scoreText;
 
     public GameObject cargo;
     public GameObject targetPlinth;
@@ -25,6 +31,9 @@ public class UIController : MonoBehaviour
     public void PracticeMode()
     {
         MyRoutine(); // Reload Scene to make sure the orientation of the crane is correct
+
+        timerText.gameObject.SetActive(false);
+        timerText.gameObject.SetActive(false);
 
         cargo.SetActive(false);
         targetPlinth.SetActive(false);
@@ -50,7 +59,12 @@ public class UIController : MonoBehaviour
             ChangeLayersRecursively(lever1, "Grab Ignore Ray"); // first lever active
             // TODO UI instruction for lever 1 appears
             onOffButtonCanvas.gameObject.SetActive(false);
+            onOffButtonMessage.gameObject.SetActive(false);
             lever1Canvas.gameObject.SetActive(true);
+        }
+        else
+        {
+            onOffButtonMessage.gameObject.SetActive(true);
         }
     }
 
@@ -66,7 +80,12 @@ public class UIController : MonoBehaviour
             ChangeLayersRecursively(releaseButton, "Practice Mode");
             // TODO turn off UI for lever1 and turn on for UI lever2
             lever1Canvas.gameObject.SetActive(false);
+            leverMessage.gameObject.SetActive(false);
             lever2Canvas.gameObject.SetActive(true);
+        }
+        else
+        {
+            leverMessage.gameObject.SetActive(true);
         }
             
     }
@@ -83,9 +102,14 @@ public class UIController : MonoBehaviour
             ChangeLayersRecursively(releaseButton, "Practice Mode");
             // TODO turn off UI for lever2 and turn on for UI lever3
             lever2Canvas.gameObject.SetActive(false);
+            leverMessage.gameObject.SetActive(false);
             lever3Canvas.gameObject.SetActive(true);
         }
-            
+        else
+        {
+            leverMessage.gameObject.SetActive(true);
+        }
+
     }
 
     public void MoveToFourthLever()
@@ -100,10 +124,14 @@ public class UIController : MonoBehaviour
             ChangeLayersRecursively(releaseButton, "Practice Mode");
             // TODO turn off UI for lever3 and turn on for UI lever4
             lever3Canvas.gameObject.SetActive(false);
+            leverMessage.gameObject.SetActive(false);
             lever4Canvas.gameObject.SetActive(true);
             // Set hidden cargo active for picking up 
         }
-
+        else
+        {
+            leverMessage.gameObject.SetActive(true);
+        }
 
     }
 
@@ -132,9 +160,14 @@ public class UIController : MonoBehaviour
             ChangeLayersRecursively(releaseButton, "Practice Mode");
 
             lever4Canvas.gameObject.SetActive(false);
+            leverMessage.gameObject.SetActive(false);
             endPracticeSectioncanvas.gameObject.SetActive(true);
         }
-            
+        else
+        {
+            leverMessage.gameObject.SetActive(true);
+        }
+
     }
 
     public IEnumerator MyRoutine()
@@ -146,6 +179,9 @@ public class UIController : MonoBehaviour
     public void TrainingMode()
     {
         MyRoutine();
+
+        timerText.gameObject.SetActive(true);
+        timerText.gameObject.SetActive(true);
 
         ChangeLayersRecursively(lever1, "Grab Ignore Ray");
         ChangeLayersRecursively(lever2, "Grab Ignore Ray");
@@ -166,5 +202,25 @@ public class UIController : MonoBehaviour
             child.gameObject.layer = LayerMask.NameToLayer(name);
             ChangeLayersRecursively(child, name);
         }
+    }
+
+    public void DisableLevers()
+    {
+        ChangeLayersRecursively(lever1, "Practice Mode"); // lever1 is not interactive
+        ChangeLayersRecursively(lever2, "Practice Mode");
+        ChangeLayersRecursively(lever3, "Practice Mode");
+        ChangeLayersRecursively(lever4, "Practice Mode");
+        ChangeLayersRecursively(dropButton, "Practice Mode");
+        ChangeLayersRecursively(releaseButton, "Practice Mode");
+    }
+
+    public void ActivateLevers()
+    {
+        ChangeLayersRecursively(lever1, "Grab Ignore Ray");
+        ChangeLayersRecursively(lever2, "Grab Ignore Ray");
+        ChangeLayersRecursively(lever3, "Grab Ignore Ray");
+        ChangeLayersRecursively(lever4, "Grab Ignore Ray");
+        ChangeLayersRecursively(dropButton, "Grab Ignore Ray");
+        ChangeLayersRecursively(releaseButton, "Grab Ignore Ray");
     }
 }
