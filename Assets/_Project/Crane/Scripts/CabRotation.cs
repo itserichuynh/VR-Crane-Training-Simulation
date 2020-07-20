@@ -5,10 +5,11 @@ using UnityEngine;
 public class CabRotation : Singleton<CabRotation>
 {
     public float cabRotateSpeed; 
-
-    private Rigidbody _rb;
     public bool turn;
     public bool cabIsTurning;
+    public Vector3 rotation;
+
+    private Rigidbody _rb;
 
     void Start()
     {
@@ -20,17 +21,7 @@ public class CabRotation : Singleton<CabRotation>
     {
         _rb.velocity = Vector3.zero;
         _rb.angularVelocity = Vector3.zero;
-
-        if (turn == true)
-        {
-            CabTurnRight();
-        }
-        else if (turn==false)
-        {
-            _rb.velocity = Vector3.zero;
-            _rb.angularVelocity = Vector3.zero;
-        }
-
+        rotation = transform.localEulerAngles;
     }
 
     public void CabTurnRight()

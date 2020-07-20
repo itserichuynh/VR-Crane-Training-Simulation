@@ -16,20 +16,19 @@ public class HookPickUp : MonoBehaviour
         }
         
     }
+
     public void PickUp()
     {
         if (cargoDetected)
         {
             gameObject.AddComponent<FixedJoint>();
             gameObject.GetComponent<FixedJoint>().connectedBody = cargo.rigidbody;
-        }        
-    }
-
-
-    public void Drop()
-    {
-        Destroy(gameObject.GetComponent<FixedJoint>());
-        cargoDetected = false;
+            cargoDetected = false;
+        }
+        else
+        {
+            Destroy(gameObject.GetComponent<FixedJoint>());
+        }
     }
 
 

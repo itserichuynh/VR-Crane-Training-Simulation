@@ -5,6 +5,8 @@ using UnityEngine;
 public class HookController : Singleton<HookController>
 {
     public float hookSpeed;
+    public Vector3 position;
+    public Vector3 worldPosition;
 
     private SpringJoint springJoint;
     private SoftJointLimit softJointLimit;
@@ -12,7 +14,7 @@ public class HookController : Singleton<HookController>
     private float minHookPosition = 0.5f;
     private float maxHookPosition = 10f;
 
-    private float currentLength;
+    public float currentLength;
 
     public bool hookIsMoving;
 
@@ -26,6 +28,8 @@ public class HookController : Singleton<HookController>
     private void FixedUpdate()
     {
         currentLength = springJoint.maxDistance;
+        position = transform.localPosition;
+        worldPosition = transform.position;
     }
 
     public void HookUp()

@@ -24,6 +24,7 @@ public class BoomRaise : Singleton<BoomRaise>
     private void FixedUpdate()
     {
         rotation = transform.localEulerAngles;
+        //Debug.Log(rotation.x);
         _rigid.velocity = Vector3.zero;
         _rigid.angularVelocity = Vector3.zero;
     }
