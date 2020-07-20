@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SecondLeverController : MonoBehaviour
+public class SecondLeverController : Singleton<SecondLeverController>
 {
-    Vector3 leverRotation;
+    public Vector3 leverRotation;
     public bool leverTwoActive;
 
     private void FixedUpdate()

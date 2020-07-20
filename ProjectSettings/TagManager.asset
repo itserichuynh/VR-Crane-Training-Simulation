@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Ignite
   - Cargo
+  - cargo
   layers:
   - Default
   - TransparentFX
@@ -17,7 +18,7 @@ TagManager:
   - 
   - Grab Ignore Ray
   - Engine Off
-  - 
+  - Practice Mode
   - 
   - 
   - 

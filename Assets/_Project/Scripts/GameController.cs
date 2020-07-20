@@ -8,6 +8,7 @@ using UnityEngine;
 using UnityEngine.Audio;
 using UnityEngine.UI;
 using UnityEngine.XR.Interaction.Toolkit;
+using TMPro;
 
 public class GameController : Singleton<GameController>
 
@@ -24,7 +25,7 @@ public class GameController : Singleton<GameController>
     private float score;
     
     private static string spokenLanguage = "en";
-    private bool engineRunning = false;
+    public bool engineRunning = false;
 
     private void FixedUpdate()
     {

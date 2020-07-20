@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class FirstLeverController : MonoBehaviour
+public class FirstLeverController : Singleton<FirstLeverController>
 {
-    Vector3 leverRotation;
+    public Vector3 leverRotation;
     public bool leverOneActive;
     Rigidbody _rb;
 
