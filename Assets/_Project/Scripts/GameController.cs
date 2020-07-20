@@ -21,13 +21,12 @@ public class GameController : Singleton<GameController>
     public Text scoreText;
     public Text offText;
     public Text onText;
-
+    
     private float score;
     
-    private static string spokenLanguage = "en";
     public bool engineRunning = false;
 
-    private void Start()
+    void Start()
     {
         UIController.Instance.DisableLevers(); // disable all levers at the beginning of the game
     }
@@ -72,14 +71,12 @@ public class GameController : Singleton<GameController>
 
     public void LanguageEN()
     {
-        spokenLanguage = "en";
-        Debug.Log("selected language english");
+        LanguageController.Instance.ChangeLanguage("en");
     }
 
     public void LanguageES()
     {
-        spokenLanguage = "es";
-        Debug.Log("selected language espanol");
+        LanguageController.Instance.ChangeLanguage("es");
     }
 
     public void Engine()
@@ -112,6 +109,6 @@ public class GameController : Singleton<GameController>
 
             UIController.Instance.DisableLevers(); // Disable all levers when the crane if off
         }
-    }    
+    }
 }
 

@@ -7,6 +7,8 @@ TagManager:
   - Ignite
   - Cargo
   - cargo
+  - Language EN
+  - Language ES
   layers:
   - Default
   - TransparentFX
