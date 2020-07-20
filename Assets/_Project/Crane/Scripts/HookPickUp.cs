@@ -1,9 +1,11 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class HookPickUp : MonoBehaviour
 {
+    public TextMeshProUGUI dropText;
     bool cargoDetected;
     Collision cargo;
 
@@ -24,9 +26,11 @@ public class HookPickUp : MonoBehaviour
             gameObject.AddComponent<FixedJoint>();
             gameObject.GetComponent<FixedJoint>().connectedBody = cargo.rigidbody;
             cargoDetected = false;
+            dropText.text = "Drop";
         }
         else
         {
+            dropText.text = "Pick Up";
             Destroy(gameObject.GetComponent<FixedJoint>());
         }
     }
