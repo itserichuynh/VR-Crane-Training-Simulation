@@ -19,11 +19,15 @@ public class UIController : MonoBehaviour
     public Canvas lever4Canvas;
     public Canvas endPracticeSectioncanvas;
 
+    public GameObject cargo;
+    public GameObject targetPlinth;
 
     public void PracticeMode()
     {
         MyRoutine(); // Reload Scene to make sure the orientation of the crane is correct
 
+        cargo.SetActive(false);
+        targetPlinth.SetActive(false);
 
         ChangeLayersRecursively(lever1, "Practice Mode"); // lever1 is not interactive
         ChangeLayersRecursively(lever2, "Practice Mode"); 

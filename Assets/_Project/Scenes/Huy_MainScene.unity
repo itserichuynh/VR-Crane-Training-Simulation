@@ -1112,6 +1112,8 @@ MonoBehaviour:
   lever3Canvas: {fileID: 681693789}
   lever4Canvas: {fileID: 729333273}
   endPracticeSectioncanvas: {fileID: 1544284726}
+  cargo: {fileID: 155201972}
+  targetPlinth: {fileID: 944289719}
 --- !u!1 &179695167
 GameObject:
   m_ObjectHideFlags: 0
