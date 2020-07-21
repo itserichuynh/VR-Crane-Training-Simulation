@@ -14,13 +14,13 @@ public class UIController : Singleton<UIController>
     public Transform dropButton;
     public Transform releaseButton;
 
-    public Canvas onOffButtonCanvas;
-    public Canvas lever1Canvas;
-    public Canvas lever2Canvas;
-    public Canvas lever3Canvas;
-    public Canvas lever4Canvas;
-    public Canvas endPracticeSectioncanvas;
-    public Canvas leverMessage;
+    public GameObject onOffButtonPanel;
+    public GameObject lever1Panel;
+    public GameObject lever2Panel;
+    public GameObject lever3Panel;
+    public GameObject lever4Panel;
+    public GameObject endPracticeSectionPanel;
+    public GameObject leverMessage;
 
     
     public Text timerText;
@@ -37,36 +37,45 @@ public class UIController : Singleton<UIController>
     public GameObject target4;
     public GameObject target5;
     public GameObject target6;
+    public GameObject checkmark1;
+    public GameObject checkmark2;
 
     private void Update()
     {
         if (mode == "FirstStep" && GameController.Instance.engineRunning == true)
         {
             // display the checkmark for engine on
+            checkmark1.SetActive(true);
         }
         else if (mode=="SecondStep" && TargetTrigger1.Instance.detected==true)
         {
             // display checkmark for rotating crane right
+            checkmark2.SetActive(true);
         }
         else if (mode == "SecondStep" && TargetTrigger2.Instance.detected == true)
         {
             // display checkmark for rotating crane left
+            checkmark1.SetActive(true);
         }
         else if (mode=="ThirdStep" && TargetTrigger3.Instance.detected==true)
         {
             // display checkmark for raising boom up 
+            checkmark1.SetActive(true);
         }
         else if (mode == "ThirdStep" && TargetTrigger4.Instance.detected == true)
         {
             // display checkmark for raising boom up 
+            checkmark1.SetActive(true);
         }
         else if (mode == "FourthStep" && TargetTrigger5.Instance.detected == true)
         {
             // display checkmark for extending boom
+            checkmark1.SetActive(true);
         }
         else if (mode == "FifthStep" && TargetTrigger6.Instance.detected == true)
         {
             // display checkmark for lowering hook
+            checkmark1.SetActive(true);
         }
     }
 
@@ -93,13 +102,15 @@ public class UIController : Singleton<UIController>
         GameController.Instance.GotoCab();
 
         // UI to tell user to click on/off button
-        onOffButtonCanvas.gameObject.SetActive(true);
-        lever1Canvas.gameObject.SetActive(false);
-        lever2Canvas.gameObject.SetActive(false);
-        lever3Canvas.gameObject.SetActive(false);
-        lever4Canvas.gameObject.SetActive(false);
-        endPracticeSectioncanvas.gameObject.SetActive(false);
-        leverMessage.gameObject.SetActive(false);
+        onOffButtonPanel.SetActive(true);
+        lever1Panel.SetActive(false);
+        lever2Panel.SetActive(false);
+        lever3Panel.SetActive(false);
+        lever4Panel.SetActive(false);
+        endPracticeSectionPanel.SetActive(false);
+        leverMessage.SetActive(false);
+        checkmark1.SetActive(false);
+        checkmark2.SetActive(false);
     }
 
     public void MoveToFirstLever()
@@ -107,6 +118,9 @@ public class UIController : Singleton<UIController>
         if (GameController.Instance.engineRunning) // Once the On/Off button is pressed
         {
             mode = "SecondStep";
+            checkmark1.SetActive(false);
+            checkmark2.SetActive(false);
+
             target1.SetActive(true);
             target2.SetActive(true);
             
@@ -118,8 +132,8 @@ public class UIController : Singleton<UIController>
             ChangeLayersRecursively(releaseButton, "Practice Mode");
 
             // UI instruction for lever 1 appears
-            onOffButtonCanvas.gameObject.SetActive(false);
-            lever1Canvas.gameObject.SetActive(true);
+            onOffButtonPanel.SetActive(false);
+            lever1Panel.SetActive(true);
 
             // TODO hide checkmarks of the step before
         }
@@ -130,6 +144,9 @@ public class UIController : Singleton<UIController>
         if (FirstLeverController.Instance.leverOneActive==false && ((TargetTrigger1.Instance.detected == true) && (TargetTrigger2.Instance.detected == true)))
         {
             mode = "ThirdStep";
+            checkmark1.SetActive(false);
+            checkmark2.SetActive(false);
+
             target1.SetActive(false);
             target2.SetActive(false);
             target3.SetActive(true);
@@ -142,9 +159,9 @@ public class UIController : Singleton<UIController>
             ChangeLayersRecursively(dropButton, "Practice Mode");
             ChangeLayersRecursively(releaseButton, "Practice Mode");
             // TODO turn off UI for lever1 and turn on for UI lever2
-            lever1Canvas.gameObject.SetActive(false);
-            leverMessage.gameObject.SetActive(false);
-            lever2Canvas.gameObject.SetActive(true);
+            lever1Panel.SetActive(false);
+            leverMessage.SetActive(false);
+            lever2Panel.SetActive(true);
 
             // TODO hide checkmarks of the step before
 
@@ -161,6 +178,9 @@ public class UIController : Singleton<UIController>
         if (SecondLeverController.Instance.leverTwoActive==false && ((TargetTrigger3.Instance.detected == true) || (TargetTrigger4.Instance.detected == true)))
         {
             mode = "FourthStep";
+            checkmark1.SetActive(false);
+            checkmark2.SetActive(false);
+
             target1.SetActive(false);
             target2.SetActive(false);
             target3.SetActive(false);
@@ -174,13 +194,13 @@ public class UIController : Singleton<UIController>
             ChangeLayersRecursively(dropButton, "Practice Mode");
             ChangeLayersRecursively(releaseButton, "Practice Mode");
             // TODO turn off UI for lever2 and turn on for UI lever3
-            lever2Canvas.gameObject.SetActive(false);
-            leverMessage.gameObject.SetActive(false);
-            lever3Canvas.gameObject.SetActive(true);
+            lever2Panel.SetActive(false);
+            leverMessage.SetActive(false);
+            lever3Panel.SetActive(true);
         }
         else if (SecondLeverController.Instance.leverTwoActive==true && (TargetTrigger3.Instance.detected == true || TargetTrigger4.Instance.detected == true))
         {
-            leverMessage.gameObject.SetActive(true);
+            leverMessage.SetActive(true);
         }
 
     }
@@ -190,6 +210,9 @@ public class UIController : Singleton<UIController>
         if ((ThirdLeverController.Instance.leverThreeActive == false) && (TargetTrigger5.Instance.detected == true))
         {
             mode = "FifthStep";
+            checkmark1.SetActive(false);
+            checkmark2.SetActive(false);
+
             target1.SetActive(false);
             target2.SetActive(false);
             target3.SetActive(false);
@@ -204,14 +227,14 @@ public class UIController : Singleton<UIController>
             ChangeLayersRecursively(dropButton, "Practice Mode");
             ChangeLayersRecursively(releaseButton, "Practice Mode");
             // TODO turn off UI for lever3 and turn on for UI lever4
-            lever3Canvas.gameObject.SetActive(false);
-            leverMessage.gameObject.SetActive(false);
-            lever4Canvas.gameObject.SetActive(true);
+            lever3Panel.SetActive(false);
+            leverMessage.SetActive(false);
+            lever4Panel.SetActive(true);
             // Set hidden cargo active for picking up 
         }
         else if (ThirdLeverController.Instance.leverThreeActive==true && (TargetTrigger5.Instance.detected == true))
         {
-            leverMessage.gameObject.SetActive(true);
+            leverMessage.SetActive(true);
         }
 
     }
@@ -233,6 +256,16 @@ public class UIController : Singleton<UIController>
     {
         if ((FourthLeverController.Instance.leverFourActive == false) && (TargetTrigger6.Instance.detected==true))
         {
+            checkmark1.SetActive(false);
+            checkmark2.SetActive(false);
+
+            target1.SetActive(false);
+            target2.SetActive(false);
+            target3.SetActive(false);
+            target4.SetActive(false);
+            target5.SetActive(false);
+            target6.SetActive(false);
+
             ChangeLayersRecursively(lever1, "Practice Mode");
             ChangeLayersRecursively(lever2, "Practice Mode");
             ChangeLayersRecursively(lever3, "Practice Mode");
@@ -240,13 +273,13 @@ public class UIController : Singleton<UIController>
             ChangeLayersRecursively(dropButton, "Practice Mode");
             ChangeLayersRecursively(releaseButton, "Practice Mode");
 
-            lever4Canvas.gameObject.SetActive(false);
-            leverMessage.gameObject.SetActive(false);
-            endPracticeSectioncanvas.gameObject.SetActive(true);
+            lever4Panel.SetActive(false);
+            leverMessage.SetActive(false);
+            endPracticeSectionPanel.SetActive(true);
         }
         else if (FourthLeverController.Instance.leverFourActive == true && (TargetTrigger6.Instance.detected == true))
         {
-            leverMessage.gameObject.SetActive(true);
+            leverMessage.SetActive(true);
         }
 
     }
