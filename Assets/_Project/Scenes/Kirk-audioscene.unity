@@ -99,7 +99,7 @@ LightmapSettings:
     m_LightProbeSampleCountMultiplier: 4
   m_LightingDataAsset: {fileID: 112000000, guid: f6f99b0af7648f84aac124ab23f038ec,
     type: 2}
-  m_UseShadowmask: 0
+  m_UseShadowmask: 1
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -1687,7 +1687,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4000013149834228, guid: 6857ff1d3761e21479727f3b27cc8f68, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.40619138
+      value: 0.371
       objectReference: {fileID: 0}
     - target: {fileID: 4000013149834228, guid: 6857ff1d3761e21479727f3b27cc8f68, type: 3}
       propertyPath: m_LocalPosition.z
@@ -1858,8 +1858,8 @@ MonoBehaviour:
   lever4Panel: {fileID: 2058635667}
   endPracticeSectionPanel: {fileID: 619641794}
   leverMessage: {fileID: 74129036}
-  timerText: {fileID: 0}
-  scoreText: {fileID: 0}
+  timerText: {fileID: 1428755896}
+  scoreText: {fileID: 1074899191}
   cargo: {fileID: 155201972}
   targetPlinth: {fileID: 944289719}
   target1: {fileID: 141911539}
@@ -3576,7 +3576,7 @@ Transform:
   - {fileID: 345877163}
   - {fileID: 773574609}
   m_Father: {fileID: 0}
-  m_RootOrder: 29
+  m_RootOrder: 30
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &288996997
 GameObject:
@@ -51640,7 +51640,7 @@ Transform:
   m_LocalScale: {x: 0.04, y: 0.04, z: 0.04}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 30
+  m_RootOrder: 29
   m_LocalEulerAnglesHint: {x: -90, y: 0, z: 0}
 --- !u!1 &2109812925
 GameObject:
