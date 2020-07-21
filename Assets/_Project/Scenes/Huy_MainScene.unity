@@ -1534,8 +1534,7 @@ MonoBehaviour:
   lever2: {fileID: 518711174}
   lever3: {fileID: 1545134708}
   lever4: {fileID: 1733100010}
-  dropButton: {fileID: 0}
-  releaseButton: {fileID: 670365305}
+  dropButton: {fileID: 670365305}
   onOffButtonPanel: {fileID: 634318346}
   lever1Panel: {fileID: 1056571301}
   lever2Panel: {fileID: 1186330934}
@@ -1547,7 +1546,6 @@ MonoBehaviour:
   scoreText: {fileID: 1074899191}
   cargo: {fileID: 155201972}
   targetPlinth: {fileID: 944289719}
-  mode: 
   target1: {fileID: 141911539}
   target2: {fileID: 1137059869}
   target3: {fileID: 1681756085}

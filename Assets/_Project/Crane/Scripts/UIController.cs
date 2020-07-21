@@ -12,7 +12,6 @@ public class UIController : Singleton<UIController>
     public Transform lever3;
     public Transform lever4;
     public Transform dropButton;
-    public Transform releaseButton;
 
     public GameObject onOffButtonPanel;
     public GameObject lever1Panel;
@@ -29,7 +28,7 @@ public class UIController : Singleton<UIController>
     public GameObject cargo;
     public GameObject targetPlinth;
 
-    public string mode;
+    private string mode;
 
     public GameObject target1;
     public GameObject target2;
@@ -96,7 +95,6 @@ public class UIController : Singleton<UIController>
         ChangeLayersRecursively(lever3, "Practice Mode"); 
         ChangeLayersRecursively(lever4, "Practice Mode"); 
         ChangeLayersRecursively(dropButton, "Practice Mode"); 
-        ChangeLayersRecursively(releaseButton, "Practice Mode"); 
 
         // Teleport user into the cab
         GameController.Instance.GotoCab();
@@ -129,7 +127,6 @@ public class UIController : Singleton<UIController>
             ChangeLayersRecursively(lever3, "Practice Mode");
             ChangeLayersRecursively(lever4, "Practice Mode");
             ChangeLayersRecursively(dropButton, "Practice Mode");
-            ChangeLayersRecursively(releaseButton, "Practice Mode");
 
             // UI instruction for lever 1 appears
             onOffButtonPanel.SetActive(false);
@@ -157,7 +154,6 @@ public class UIController : Singleton<UIController>
             ChangeLayersRecursively(lever3, "Practice Mode");
             ChangeLayersRecursively(lever4, "Practice Mode");
             ChangeLayersRecursively(dropButton, "Practice Mode");
-            ChangeLayersRecursively(releaseButton, "Practice Mode");
             // TODO turn off UI for lever1 and turn on for UI lever2
             lever1Panel.SetActive(false);
             leverMessage.SetActive(false);
@@ -192,7 +188,6 @@ public class UIController : Singleton<UIController>
             ChangeLayersRecursively(lever3, "Grab Ignore Ray"); // lever3 is active
             ChangeLayersRecursively(lever4, "Practice Mode");
             ChangeLayersRecursively(dropButton, "Practice Mode");
-            ChangeLayersRecursively(releaseButton, "Practice Mode");
             // TODO turn off UI for lever2 and turn on for UI lever3
             lever2Panel.SetActive(false);
             leverMessage.SetActive(false);
@@ -225,7 +220,6 @@ public class UIController : Singleton<UIController>
             ChangeLayersRecursively(lever3, "Practice Mode");
             ChangeLayersRecursively(lever4, "Grab Ignore Ray"); // lever4 is active
             ChangeLayersRecursively(dropButton, "Practice Mode");
-            ChangeLayersRecursively(releaseButton, "Practice Mode");
             // TODO turn off UI for lever3 and turn on for UI lever4
             lever3Panel.SetActive(false);
             leverMessage.SetActive(false);
@@ -246,7 +240,6 @@ public class UIController : Singleton<UIController>
     //    ChangeLayersRecursively(lever3, "Practice Mode");
     //    ChangeLayersRecursively(lever4, "Practice Mode"); 
     //    ChangeLayersRecursively(dropButton, "Grab Ignore Ray"); // 2 buttons are active
-    //    ChangeLayersRecursively(releaseButton, "Grab Ignore Ray");
     //    // TODO turn off UI for lever4 and turn on for UI buttons
     //    lever4Canvas.gameObject.SetActive(false);
     //    dropButtonCanvas.gameObject.SetActive(true);
@@ -271,7 +264,6 @@ public class UIController : Singleton<UIController>
             ChangeLayersRecursively(lever3, "Practice Mode");
             ChangeLayersRecursively(lever4, "Practice Mode");
             ChangeLayersRecursively(dropButton, "Practice Mode");
-            ChangeLayersRecursively(releaseButton, "Practice Mode");
 
             lever4Panel.SetActive(false);
             leverMessage.SetActive(false);
@@ -304,7 +296,6 @@ public class UIController : Singleton<UIController>
         ChangeLayersRecursively(lever3, "Grab Ignore Ray");
         ChangeLayersRecursively(lever4, "Grab Ignore Ray");
         ChangeLayersRecursively(dropButton, "Grab Ignore Ray");
-        ChangeLayersRecursively(releaseButton, "Grab Ignore Ray");
         
         GameController.Instance.GotoCab();
         //Debug.Log("Running");
@@ -327,7 +318,6 @@ public class UIController : Singleton<UIController>
         ChangeLayersRecursively(lever3, "Practice Mode");
         ChangeLayersRecursively(lever4, "Practice Mode");
         ChangeLayersRecursively(dropButton, "Practice Mode");
-        ChangeLayersRecursively(releaseButton, "Practice Mode");
     }
 
     public void ActivateLevers()
@@ -337,6 +327,5 @@ public class UIController : Singleton<UIController>
         ChangeLayersRecursively(lever3, "Grab Ignore Ray");
         ChangeLayersRecursively(lever4, "Grab Ignore Ray");
         ChangeLayersRecursively(dropButton, "Grab Ignore Ray");
-        ChangeLayersRecursively(releaseButton, "Grab Ignore Ray");
     }
 }
