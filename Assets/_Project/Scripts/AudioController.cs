@@ -16,6 +16,10 @@ public class AudioController : Singleton<AudioController>
     public AudioClip engineRunning;
     public AudioClip engineEnd;
     public AudioClip npcWelcome;
+
+    public AudioMixerSnapshot cabRadio;
+    public AudioMixerSnapshot outsideSpatialized;
+    public AudioSource radioSource;
     
     
     // start Flampeyeiry's AudioController content
@@ -40,12 +44,17 @@ public class AudioController : Singleton<AudioController>
     
     public void AtCab()
     {
-        cabAmbient.TransitionTo(.1f);    
+        cabAmbient.TransitionTo(.1f);
+        cabRadio.TransitionTo(.1f);
+        radioSource.spatialBlend = 0f;
+
     }
 
     public void AtStart()
     {
         startAmbient.TransitionTo(.1f);
+        outsideSpatialized.TransitionTo(.1f);
+        radioSource.spatialBlend = 1f;
     }
 
     public void Radio()
