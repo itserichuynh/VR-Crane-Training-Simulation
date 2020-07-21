@@ -85,7 +85,7 @@ public class UIController : Singleton<UIController>
         MyRoutine(); // Reload Scene to make sure the orientation of the crane is correct
 
         timerText.gameObject.SetActive(false);
-        timerText.gameObject.SetActive(false);
+        scoreText.gameObject.SetActive(false);
 
         cargo.SetActive(false);
         targetPlinth.SetActive(false);
@@ -131,8 +131,6 @@ public class UIController : Singleton<UIController>
             // UI instruction for lever 1 appears
             onOffButtonPanel.SetActive(false);
             lever1Panel.SetActive(true);
-
-            // TODO hide checkmarks of the step before
         }
     }
 
@@ -154,12 +152,11 @@ public class UIController : Singleton<UIController>
             ChangeLayersRecursively(lever3, "Practice Mode");
             ChangeLayersRecursively(lever4, "Practice Mode");
             ChangeLayersRecursively(dropButton, "Practice Mode");
+
             // TODO turn off UI for lever1 and turn on for UI lever2
             lever1Panel.SetActive(false);
             leverMessage.SetActive(false);
             lever2Panel.SetActive(true);
-
-            // TODO hide checkmarks of the step before
 
         }
         else if (FirstLeverController.Instance.leverOneActive == true && ((TargetTrigger1.Instance.detected == true) && (TargetTrigger2.Instance.detected == true)))
@@ -220,11 +217,11 @@ public class UIController : Singleton<UIController>
             ChangeLayersRecursively(lever3, "Practice Mode");
             ChangeLayersRecursively(lever4, "Grab Ignore Ray"); // lever4 is active
             ChangeLayersRecursively(dropButton, "Practice Mode");
+
             // TODO turn off UI for lever3 and turn on for UI lever4
             lever3Panel.SetActive(false);
             leverMessage.SetActive(false);
             lever4Panel.SetActive(true);
-            // Set hidden cargo active for picking up 
         }
         else if (ThirdLeverController.Instance.leverThreeActive==true && (TargetTrigger5.Instance.detected == true))
         {
@@ -289,7 +286,10 @@ public class UIController : Singleton<UIController>
         MyRoutine();
 
         timerText.gameObject.SetActive(true);
-        timerText.gameObject.SetActive(true);
+        scoreText.gameObject.SetActive(true);
+
+        cargo.SetActive(true);
+        targetPlinth.SetActive(true);
 
         ChangeLayersRecursively(lever1, "Grab Ignore Ray");
         ChangeLayersRecursively(lever2, "Grab Ignore Ray");
@@ -299,6 +299,16 @@ public class UIController : Singleton<UIController>
         
         GameController.Instance.GotoCab();
         //Debug.Log("Running");
+
+        onOffButtonPanel.SetActive(false);
+        lever1Panel.SetActive(false);
+        lever2Panel.SetActive(false);
+        lever3Panel.SetActive(false);
+        lever4Panel.SetActive(false);
+        endPracticeSectionPanel.SetActive(false);
+        leverMessage.SetActive(false);
+        checkmark1.SetActive(false);
+        checkmark2.SetActive(false);
     }
 
     public void ChangeLayersRecursively(Transform trans, string name)
