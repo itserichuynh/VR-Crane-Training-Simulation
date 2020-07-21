@@ -80,9 +80,9 @@ public class UIController : Singleton<UIController>
 
     public void PracticeMode()
     {
-        mode = "FirstStep";
-
         MyRoutine(); // Reload Scene to make sure the orientation of the crane is correct
+
+        mode = "FirstStep";
 
         timerText.gameObject.SetActive(false);
         scoreText.gameObject.SetActive(false);
@@ -283,10 +283,9 @@ public class UIController : Singleton<UIController>
 
     public void TrainingMode()
     {
-        mode = "training";
-
         MyRoutine();
 
+        mode = "training";
         timerText.gameObject.SetActive(true);
         scoreText.gameObject.SetActive(true);
 
