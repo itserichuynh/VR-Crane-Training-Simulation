@@ -2638,7 +2638,7 @@ MonoBehaviour:
   m_CheckFor3DOcclusion: 0
   m_BlockingMask:
     serializedVersion: 2
-    m_Bits: 2147483647
+    m_Bits: 4294967295
 --- !u!114 &402072732
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2696,7 +2696,7 @@ Canvas:
   m_OverridePixelPerfect: 0
   m_SortingBucketNormalizedSize: 0
   m_AdditionalShaderChannelsFlag: 25
-  m_SortingLayerID: 0
+  m_SortingLayerID: -1717143747
   m_SortingOrder: 0
   m_TargetDisplay: 0
 --- !u!224 &402072735
@@ -10593,8 +10593,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2107134236}
   m_LocalRotation: {x: -0.7071068, y: 0, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: 12.6494, y: 1.2976, z: -10.222}
-  m_LocalScale: {x: 0.039881162, y: 0.03988114, z: 0.03988114}
+  m_LocalPosition: {x: 12.246, y: 1.294, z: -9.779}
+  m_LocalScale: {x: 0.04, y: 0.04, z: 0.04}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 26
