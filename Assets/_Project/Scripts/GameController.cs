@@ -3,7 +3,6 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Net;
 using System.Net.Mime;
-/*using UnityEditor.Experimental.GraphView;*/
 using UnityEngine;
 using UnityEngine.Audio;
 using UnityEngine.UI;
@@ -65,18 +64,6 @@ public class GameController : Singleton<GameController>
         audioController.AtStart();
     }
 
-    public void LanguageEN()
-    {
-        spokenLanguage = "en";
-        Debug.Log("selected language english");
-    }
-
-    public void LanguageES()
-    {
-        spokenLanguage = "es";
-        Debug.Log("selected language espanol");
-    }
-
     public void Engine()
     {
         if (engineRunning == false)
@@ -90,6 +77,7 @@ public class GameController : Singleton<GameController>
             OnOffButtonController.Instance.ChangeToYellow(); // Change color to yellow (ON)
             TimerController.Instance.StartTimer(); // Start timer
 
+            UIController.Instance.ActivateLevers(); // Activate all levers when the On/Off button is pressed
         }
         else
         {
@@ -103,7 +91,9 @@ public class GameController : Singleton<GameController>
             onText.gameObject.SetActive(false); // on text dosappears
             OnOffButtonController.Instance.ChangeToBlue(); // Change color to yellow (OFF)
             TimerController.Instance.StopTimer(); // Stop timer
+
+            UIController.Instance.DisableLevers(); // Disable all levers when the crane if off
         }
-    }    
+    }
 }
 
