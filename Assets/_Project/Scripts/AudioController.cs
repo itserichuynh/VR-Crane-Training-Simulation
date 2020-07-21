@@ -17,6 +17,27 @@ public class AudioController : Singleton<AudioController>
     public AudioClip engineEnd;
     public AudioClip npcWelcome;
     
+    
+    // start Flampeyeiry's AudioController content
+    private void Awake()
+    {
+        NPCSpeaker.Instance.Play(NPCSpeaker.Phrase.Welcome);
+    }
+
+    public void PlayWelcome()
+    {
+        NPCSpeaker.Instance.Play(NPCSpeaker.Phrase.Welcome);
+    }
+    public void PlayLookAround()
+    {
+        NPCSpeaker.Instance.Play(NPCSpeaker.Phrase.LookAround);
+    }
+    public void PlayLastAudio()
+    {
+        NPCSpeaker.Instance.Play(NPCSpeaker.Phrase.LastAudio);
+    }
+    // end Flampeyeiry's AudioController content
+    
     public void AtCab()
     {
         cabAmbient.TransitionTo(.1f);    

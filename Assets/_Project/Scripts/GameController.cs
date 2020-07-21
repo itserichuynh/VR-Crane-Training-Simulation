@@ -27,11 +27,6 @@ public class GameController : Singleton<GameController>
     private static string spokenLanguage = "en";
     public bool engineRunning = false;
 
-    private void Start()
-    {
-        UIController.Instance.DisableLevers(); // disable all levers at the beginning of the game
-    }
-
     private void FixedUpdate()
     {
         score = ScoreController.Instance.scoretotal
