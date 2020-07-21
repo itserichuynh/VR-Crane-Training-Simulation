@@ -246,6 +246,8 @@ public class UIController : Singleton<UIController>
     {
         if ((FourthLeverController.Instance.leverFourActive == false) && (TargetTrigger6.Instance.detected==true))
         {
+            mode = "SixthStep";
+
             checkmark1.SetActive(false);
             checkmark2.SetActive(false);
 
