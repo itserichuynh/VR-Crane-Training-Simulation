@@ -14,14 +14,14 @@ public class SecondLeverController : Singleton<SecondLeverController>
         //Debug.Log(BoomRaise.Instance.rotation.x);
         
 
-        if ((leverRotation.x <= 10f && leverRotation.x >= 0f) || (leverRotation.x >= 350f && leverRotation.x <= 360f))
+        if ((leverRotation.x <= 15f && leverRotation.x >= 0f) || (leverRotation.x >= 345f && leverRotation.x <= 360f))
         {
             BoomRaise.Instance.BoomStationary();
             BoomRaise.Instance.boomIsRaising = false;
             leverTwoActive = false;
         }
 
-        else if (leverRotation.x > 10f && leverRotation.x <= 61f)
+        else if (leverRotation.x > 15f && leverRotation.x <= 61f)
         {
             if (BoomRaise.Instance.rotation.x >= 310f && BoomRaise.Instance.rotation.x <= 359.5f)
             {
@@ -37,7 +37,7 @@ public class SecondLeverController : Singleton<SecondLeverController>
                 //Debug.Log("No force 1");
             }            
         }
-        else if (leverRotation.x < 350f && leverRotation.x >= 299f)
+        else if (leverRotation.x < 345f && leverRotation.x >= 299f)
         {
             if (BoomRaise.Instance.rotation.x >= -0.5f && BoomRaise.Instance.rotation.x <= 0.5f)
             {

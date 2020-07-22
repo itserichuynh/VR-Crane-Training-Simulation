@@ -34,7 +34,6 @@ public class UIController : Singleton<UIController>
     public GameObject target3;
     public GameObject target4;
     public GameObject target5;
-    public GameObject target6;
     public GameObject checkmark1;
     public GameObject checkmark2;
 
@@ -51,29 +50,24 @@ public class UIController : Singleton<UIController>
         else if (mode == "SecondStep" && TargetTrigger1.Instance.detected == true)
         {
             // display checkmark for rotating crane right
-            checkmark2.SetActive(true);
+            checkmark1.SetActive(true);
         }
         else if (mode == "SecondStep" && TargetTrigger2.Instance.detected == true)
         {
             // display checkmark for rotating crane left
-            checkmark1.SetActive(true);
+            checkmark2.SetActive(true);
         }
         else if (mode == "ThirdStep" && TargetTrigger3.Instance.detected == true)
         {
             // display checkmark for raising boom up 
             checkmark1.SetActive(true);
         }
-        else if (mode == "ThirdStep" && TargetTrigger4.Instance.detected == true)
-        {
-            // display checkmark for raising boom up 
-            checkmark1.SetActive(true);
-        }
-        else if (mode == "FourthStep" && TargetTrigger5.Instance.detected == true)
+        else if (mode == "FourthStep" && TargetTrigger4.Instance.detected == true)
         {
             // display checkmark for extending boom
             checkmark1.SetActive(true);
         }
-        else if (mode == "FifthStep" && TargetTrigger6.Instance.detected == true)
+        else if (mode == "FifthStep" && TargetTrigger5.Instance.detected == true)
         {
             // display checkmark for lowering hook
             checkmark1.SetActive(true);
@@ -81,52 +75,58 @@ public class UIController : Singleton<UIController>
 
 
         // Highlight cargo and target subsequently
-        if (mode == "training" && HookPickUp.Instance.cargoDetected == false)
-        {
-            if (cargo.GetComponent<Outline>() == false)
-            {
-                outlineForCargo = cargo.AddComponent<Outline>();
+        //if (mode == "training" && HookPickUp.Instance.cargoDetected == false)
+        //{
+        //    if (cargo.GetComponent<Outline>() == false)
+        //    {
+        //        outlineForCargo = cargo.AddComponent<Outline>();
 
-                outlineForCargo.OutlineMode = Outline.Mode.OutlineAll;
-                outlineForCargo.OutlineColor = Color.yellow;
-                outlineForCargo.OutlineWidth = 5f;
-            }
-            else
-            {
-                var outline = cargo.GetComponent<Outline>();
-                outline.enabled = true;
-            }
-        }
-        else if (mode == "training" && HookPickUp.Instance.cargoDetected == true)
-        {
-            var outline = cargo.GetComponent<Outline>();
-            outline.enabled = false; // un-higlight cargo
+        //        outlineForCargo.OutlineMode = Outline.Mode.OutlineAll;
+        //        outlineForCargo.OutlineColor = Color.yellow;
+        //        outlineForCargo.OutlineWidth = 5f;
+        //    }
+        //    else
+        //    {
+        //        var outline = cargo.GetComponent<Outline>();
+        //        outline.enabled = true;
+        //    }
+        //}
+        //else if (mode == "training" && HookPickUp.Instance.cargoDetected == true)
+        //{
+        //    var outline = cargo.GetComponent<Outline>();
+        //    outline.enabled = false; // un-higlight cargo
 
-            if (targetPlinth.GetComponent<Outline>() == false)
-            {
-                outlineForTarget = targetPlinth.AddComponent<Outline>();
+        //    if (targetPlinth.GetComponent<Outline>() == false)
+        //    {
+        //        outlineForTarget = targetPlinth.AddComponent<Outline>();
 
-                outlineForTarget.OutlineMode = Outline.Mode.OutlineAll;
-                outlineForTarget.OutlineColor = Color.yellow;
-                outlineForTarget.OutlineWidth = 5f;
-            }
-            else
-            {
-                var outlineTarget = targetPlinth.GetComponent<Outline>();
-                outlineTarget.enabled = true;
-            }
-        }
+        //        outlineForTarget.OutlineMode = Outline.Mode.OutlineAll;
+        //        outlineForTarget.OutlineColor = Color.yellow;
+        //        outlineForTarget.OutlineWidth = 5f;
+        //    }
+        //    else
+        //    {
+        //        var outlineTarget = targetPlinth.GetComponent<Outline>();
+        //        outlineTarget.enabled = true;
+        //    }
+        //}
 
         if (GameController.Instance.score >= 1)
         {
             var outlineTarget = targetPlinth.GetComponent<Outline>();
             outlineTarget.enabled = false; // un-highligt if user scores
         }
+
+        // Setting up target for tutorial
+        target3.transform.position = new Vector3(HookController.Instance.worldPosition.x, 6f, HookController.Instance.worldPosition.z-0.5f);
+        target4.transform.position = new Vector3(2.32f,HookController.Instance.worldPosition.y + .3f,6.63f);
+        target5.transform.position = new Vector3(HookController.Instance.worldPosition.x,1, HookController.Instance.worldPosition.z);
     }
 
     public void PracticeMode()
     {
         MyRoutine(); // Reload Scene to make sure the orientation of the crane is correct
+        //SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
 
         mode = "FirstStep";
 
@@ -193,7 +193,6 @@ public class UIController : Singleton<UIController>
             target1.SetActive(false);
             target2.SetActive(false);
             target3.SetActive(true);
-            target4.SetActive(true);
 
             ChangeLayersRecursively(lever1, "Practice Mode");
             ChangeLayersRecursively(lever2, "Grab Ignore Ray"); // lever2 is active
@@ -216,7 +215,7 @@ public class UIController : Singleton<UIController>
 
     public void MoveToThirdLever()
     {
-        if (SecondLeverController.Instance.leverTwoActive == false && ((TargetTrigger3.Instance.detected == true) || (TargetTrigger4.Instance.detected == true)))
+        if (SecondLeverController.Instance.leverTwoActive == false && (TargetTrigger3.Instance.detected == true))
         {
             mode = "FourthStep";
             checkmark1.SetActive(false);
@@ -225,8 +224,7 @@ public class UIController : Singleton<UIController>
             target1.SetActive(false);
             target2.SetActive(false);
             target3.SetActive(false);
-            target4.SetActive(false);
-            target5.SetActive(true);
+            target4.SetActive(true);
 
             ChangeLayersRecursively(lever1, "Practice Mode");
             ChangeLayersRecursively(lever2, "Practice Mode");
@@ -238,7 +236,7 @@ public class UIController : Singleton<UIController>
             leverMessage.SetActive(false);
             lever3Panel.SetActive(true);
         }
-        else if (SecondLeverController.Instance.leverTwoActive == true && (TargetTrigger3.Instance.detected == true || TargetTrigger4.Instance.detected == true))
+        else if (SecondLeverController.Instance.leverTwoActive == true && (TargetTrigger3.Instance.detected == true ))
         {
             leverMessage.SetActive(true);
         }
@@ -247,7 +245,7 @@ public class UIController : Singleton<UIController>
 
     public void MoveToFourthLever()
     {
-        if ((ThirdLeverController.Instance.leverThreeActive == false) && (TargetTrigger5.Instance.detected == true))
+        if ((ThirdLeverController.Instance.leverThreeActive == false) && (TargetTrigger4.Instance.detected == true))
         {
             mode = "FifthStep";
             checkmark1.SetActive(false);
@@ -257,8 +255,7 @@ public class UIController : Singleton<UIController>
             target2.SetActive(false);
             target3.SetActive(false);
             target4.SetActive(false);
-            target5.SetActive(false);
-            target6.SetActive(true);
+            target5.SetActive(true);
 
             ChangeLayersRecursively(lever1, "Practice Mode");
             ChangeLayersRecursively(lever2, "Practice Mode");
@@ -271,7 +268,7 @@ public class UIController : Singleton<UIController>
             leverMessage.SetActive(false);
             lever4Panel.SetActive(true);
         }
-        else if (ThirdLeverController.Instance.leverThreeActive == true && (TargetTrigger5.Instance.detected == true))
+        else if (ThirdLeverController.Instance.leverThreeActive == true && (TargetTrigger4.Instance.detected == true))
         {
             leverMessage.SetActive(true);
         }
@@ -292,7 +289,7 @@ public class UIController : Singleton<UIController>
 
     public void EndPracticeSection()
     {
-        if ((FourthLeverController.Instance.leverFourActive == false) && (TargetTrigger6.Instance.detected == true))
+        if ((FourthLeverController.Instance.leverFourActive == false) && (TargetTrigger5.Instance.detected == true))
         {
             mode = "SixthStep";
 
@@ -304,7 +301,6 @@ public class UIController : Singleton<UIController>
             target3.SetActive(false);
             target4.SetActive(false);
             target5.SetActive(false);
-            target6.SetActive(false);
 
             ChangeLayersRecursively(lever1, "Practice Mode");
             ChangeLayersRecursively(lever2, "Practice Mode");
@@ -316,7 +312,7 @@ public class UIController : Singleton<UIController>
             leverMessage.SetActive(false);
             endPracticeSectionPanel.SetActive(true);
         }
-        else if (FourthLeverController.Instance.leverFourActive == true && (TargetTrigger6.Instance.detected == true))
+        else if (FourthLeverController.Instance.leverFourActive == true && (TargetTrigger5.Instance.detected == true))
         {
             leverMessage.SetActive(true);
         }

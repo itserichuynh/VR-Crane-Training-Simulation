@@ -13,14 +13,14 @@ public class ThirdLeverController : Singleton<ThirdLeverController>
         //Debug.Log(leverRotation.x);
 
 
-        if ((leverRotation.x <= 10f && leverRotation.x >= 0f) || (leverRotation.x >= 350f && leverRotation.x <= 360f))
+        if ((leverRotation.x <= 15f && leverRotation.x >= 0f) || (leverRotation.x >= 345f && leverRotation.x <= 360f))
         {
            
             ExtendBoom.Instance.ExtendStationary();
             ExtendBoom.Instance.boomIsExtending = false;
             leverThreeActive = false;
         }
-        else if (leverRotation.x > 10f && leverRotation.x <= 61f)
+        else if (leverRotation.x > 15f && leverRotation.x <= 61f)
         {
             if (ExtendBoom.Instance.position.z > 0.081f)
             {
@@ -37,7 +37,7 @@ public class ThirdLeverController : Singleton<ThirdLeverController>
             }
                 
         }
-        else if (leverRotation.x < 350f && leverRotation.x >= 299f)
+        else if (leverRotation.x < 345f && leverRotation.x >= 299f)
         {
             if (ExtendBoom.Instance.position.z < 3.581f)
             {
