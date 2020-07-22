@@ -30,7 +30,7 @@ public class GameController : Singleton<GameController>
     {
         score = ScoreController.scoretotal;
             
-        scoreText.text = "Score: " + score.ToString();
+        scoreText.text = score.ToString();
     }
 
     public void GotoCab()
