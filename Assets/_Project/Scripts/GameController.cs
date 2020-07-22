@@ -64,8 +64,8 @@ public class GameController : Singleton<GameController>
     {
         if (engineRunning == false)
         {
-            audioController.CraneStart();
             engineRunning = true;
+            audioController.AudioCraneEngineIdle();
             
             offText.gameObject.SetActive(false); // off text disappears
             onText.gameObject.SetActive(true); // on text appears
@@ -77,7 +77,9 @@ public class GameController : Singleton<GameController>
         else
         {
             engineRunning = false;
-            GotoStart();
+            audioController.AudioCraneEngineIdle();
+            
+            // GotoStart(); - this is called in AudioController on engine shutoff
 
             offText.gameObject.SetActive(true); // off text appears
             onText.gameObject.SetActive(false); // on text dosappears

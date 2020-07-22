@@ -31,7 +31,6 @@ public class AudioController : Singleton<AudioController>
         cabAmbient.TransitionTo(.1f);
         cabRadio.TransitionTo(.1f);
         radioSource.spatialBlend = 0f;
-
     }
 
     public void AtStart()
@@ -41,29 +40,19 @@ public class AudioController : Singleton<AudioController>
         radioSource.spatialBlend = 1f;
     }
 
-    public void CraneStart()
-    {
-        cabEngineSource.PlayOneShot(engineStart);
-        StartCoroutine(WaitCraneStart());
-    }
-
-    public void CraneEnd()
-    {
-        cabEngineSource.PlayOneShot(engineEnd);
-        // TODO wait until after clip finishes before exiting 
-        
-    }
-
     public void AudioCraneEngineIdle()
     {
         if (GameController.Instance.engineRunning == true)
         {
-            craneEngineIdle.volume = 1f;    
+            cabEngineSource.PlayOneShot(engineStart);
+            StartCoroutine(WaitCraneEngineStart());
         }
         else
         {
             craneEngineIdle.volume = 0f;
-        }
+            cabEngineSource.PlayOneShot(engineEnd);
+            StartCoroutine(WaitCraneEngineEnd());
+    }
     }
 
     public void AudioCraneRotate()
@@ -116,7 +105,6 @@ public class AudioController : Singleton<AudioController>
 
     void Update()
     {
-        AudioCraneEngineIdle();
         AudioCraneRotate();
         AudioCraneHydraulic();
         AudioCraneWinch();
@@ -124,14 +112,16 @@ public class AudioController : Singleton<AudioController>
     }
 
     
-    IEnumerator WaitCraneStart()
+    IEnumerator WaitCraneEngineStart()
     {
         yield return new WaitForSeconds(engineStart.length);
-        /*
-        cabEngineSource.clip = engineRunning;
-        cabEngineSource.loop = true;
-        cabEngineSource.Play();
-        */
+        craneEngineIdle.volume = 1f;
+    }
 
+    IEnumerator WaitCraneEngineEnd()
+    {
+        yield return new WaitForSeconds(engineEnd.length);
+        
+        GameController.Instance.GotoStart();
     }
 }
