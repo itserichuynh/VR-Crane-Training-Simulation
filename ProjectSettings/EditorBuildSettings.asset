@@ -5,9 +5,12 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 1
+  - enabled: 0
     path: Assets/_Project/Scenes/MainScene.unity
     guid: 7f3c8d2e747496442956c83612e0946d
+  - enabled: 1
+    path: Assets/_Project/Scenes/Kirk-audioscene.unity
+    guid: 0776557588adf5e4ab71b83e568890d2
   m_configObjects:
     Unity.XR.Oculus.Settings: {fileID: 11400000, guid: 7fc30bc504276c240a6d73c8a020d39e,
       type: 2}
