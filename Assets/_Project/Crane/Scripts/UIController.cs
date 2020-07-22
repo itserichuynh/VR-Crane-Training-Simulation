@@ -37,7 +37,7 @@ public class UIController : Singleton<UIController>
     public GameObject checkmark1;
     public GameObject checkmark2;
 
-    private Outline outlineForCargo;
+    //private Outline outlineForCargo;
     private Outline outlineForTarget;
 
     private void Update()
@@ -110,11 +110,26 @@ public class UIController : Singleton<UIController>
         //        outlineTarget.enabled = true;
         //    }
         //}
+        if (GameController.Instance.score == 0)
+        {
+            if (targetPlinth.GetComponent<Outline>() == false)
+            {
+                outlineForTarget = targetPlinth.AddComponent<Outline>();
 
-        if (GameController.Instance.score >= 1)
+                outlineForTarget.OutlineMode = Outline.Mode.OutlineAll;
+                outlineForTarget.OutlineColor = Color.yellow;
+                outlineForTarget.OutlineWidth = 5f;
+            }
+            else
+            {
+                var outlineTarget = targetPlinth.GetComponent<Outline>();
+                outlineTarget.enabled = true;
+            }
+        }
+        else if (GameController.Instance.score >= 1)
         {
             var outlineTarget = targetPlinth.GetComponent<Outline>();
-            outlineTarget.enabled = false; // un-highligt if user scores
+            outlineTarget.enabled = false; // un-highlight if user scores
         }
 
         // Setting up target for tutorial
