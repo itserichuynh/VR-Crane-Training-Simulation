@@ -15,7 +15,6 @@ public class AudioController : Singleton<AudioController>
     public AudioClip engineStart;
     public AudioClip engineRunning;
     public AudioClip engineEnd;
-    public AudioClip npcWelcome;
 
     public AudioMixerSnapshot cabRadio;
     public AudioMixerSnapshot outsideSpatialized;
@@ -55,11 +54,6 @@ public class AudioController : Singleton<AudioController>
         startAmbient.TransitionTo(.1f);
         outsideSpatialized.TransitionTo(.1f);
         radioSource.spatialBlend = 1f;
-    }
-
-    public void Radio()
-    {
-        cabRadioSource.PlayOneShot(npcWelcome);
     }
 
     public void CraneStart()
