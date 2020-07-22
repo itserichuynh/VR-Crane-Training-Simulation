@@ -21,7 +21,7 @@ public class GameController : Singleton<GameController>
     public Text offText;
     public Text onText;
 
-    private float score;
+    public float score;
     
     private static string spokenLanguage = "en";
     public bool engineRunning = false;

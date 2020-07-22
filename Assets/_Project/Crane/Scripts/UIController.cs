@@ -21,9 +21,8 @@ public class UIController : Singleton<UIController>
     public GameObject endPracticeSectionPanel;
     public GameObject leverMessage;
 
-    
-    public Text timerText;
-    public Text scoreText;
+    //public Text timerText;
+    //public Text scoreText;
 
     public GameObject cargo;
     public GameObject targetPlinth;
@@ -39,6 +38,9 @@ public class UIController : Singleton<UIController>
     public GameObject checkmark1;
     public GameObject checkmark2;
 
+    private Outline outlineForCargo;
+    private Outline outlineForTarget;
+
     private void Update()
     {
         if (mode == "FirstStep" && GameController.Instance.engineRunning == true)
@@ -46,7 +48,7 @@ public class UIController : Singleton<UIController>
             // display the checkmark for engine on
             checkmark1.SetActive(true);
         }
-        else if (mode=="SecondStep" && TargetTrigger1.Instance.detected==true)
+        else if (mode == "SecondStep" && TargetTrigger1.Instance.detected == true)
         {
             // display checkmark for rotating crane right
             checkmark2.SetActive(true);
@@ -56,7 +58,7 @@ public class UIController : Singleton<UIController>
             // display checkmark for rotating crane left
             checkmark1.SetActive(true);
         }
-        else if (mode=="ThirdStep" && TargetTrigger3.Instance.detected==true)
+        else if (mode == "ThirdStep" && TargetTrigger3.Instance.detected == true)
         {
             // display checkmark for raising boom up 
             checkmark1.SetActive(true);
@@ -76,25 +78,71 @@ public class UIController : Singleton<UIController>
             // display checkmark for lowering hook
             checkmark1.SetActive(true);
         }
+
+
+        // Highlight cargo and target subsequently
+        if (mode == "training" && HookPickUp.Instance.cargoDetected == false)
+        {
+            if (cargo.GetComponent<Outline>() == false)
+            {
+                outlineForCargo = cargo.AddComponent<Outline>();
+
+                outlineForCargo.OutlineMode = Outline.Mode.OutlineAll;
+                outlineForCargo.OutlineColor = Color.yellow;
+                outlineForCargo.OutlineWidth = 5f;
+            }
+            else
+            {
+                var outline = cargo.GetComponent<Outline>();
+                outline.enabled = true;
+            }
+        }
+        else if (mode == "training" && HookPickUp.Instance.cargoDetected == true)
+        {
+            var outline = cargo.GetComponent<Outline>();
+            outline.enabled = false; // un-higlight cargo
+
+            if (targetPlinth.GetComponent<Outline>() == false)
+            {
+                outlineForTarget = targetPlinth.AddComponent<Outline>();
+
+                outlineForTarget.OutlineMode = Outline.Mode.OutlineAll;
+                outlineForTarget.OutlineColor = Color.yellow;
+                outlineForTarget.OutlineWidth = 5f;
+            }
+            else
+            {
+                var outlineTarget = targetPlinth.GetComponent<Outline>();
+                outlineTarget.enabled = true;
+            }
+        }
+
+        if (GameController.Instance.score >= 1)
+        {
+            var outlineTarget = targetPlinth.GetComponent<Outline>();
+            outlineTarget.enabled = false; // un-highligt if user scores
+        }
     }
 
     public void PracticeMode()
     {
-        mode = "FirstStep";
-
         MyRoutine(); // Reload Scene to make sure the orientation of the crane is correct
 
-        timerText.gameObject.SetActive(false);
-        timerText.gameObject.SetActive(false);
+        mode = "FirstStep";
+
+        //timerText.gameObject.SetActive(false);
+        //scoreText.gameObject.SetActive(false);
+        TimerController.Instance.timerText.gameObject.SetActive(false);
+        GameController.Instance.scoreText.gameObject.SetActive(false);
 
         cargo.SetActive(false);
         targetPlinth.SetActive(false);
 
         ChangeLayersRecursively(lever1, "Practice Mode"); // lever1 is not interactive
-        ChangeLayersRecursively(lever2, "Practice Mode"); 
-        ChangeLayersRecursively(lever3, "Practice Mode"); 
-        ChangeLayersRecursively(lever4, "Practice Mode"); 
-        ChangeLayersRecursively(dropButton, "Practice Mode"); 
+        ChangeLayersRecursively(lever2, "Practice Mode");
+        ChangeLayersRecursively(lever3, "Practice Mode");
+        ChangeLayersRecursively(lever4, "Practice Mode");
+        ChangeLayersRecursively(dropButton, "Practice Mode");
 
         // Teleport user into the cab
         GameController.Instance.GotoCab();
@@ -121,7 +169,7 @@ public class UIController : Singleton<UIController>
 
             target1.SetActive(true);
             target2.SetActive(true);
-            
+
             ChangeLayersRecursively(lever1, "Grab Ignore Ray"); // first lever active
             ChangeLayersRecursively(lever2, "Practice Mode");
             ChangeLayersRecursively(lever3, "Practice Mode");
@@ -131,14 +179,12 @@ public class UIController : Singleton<UIController>
             // UI instruction for lever 1 appears
             onOffButtonPanel.SetActive(false);
             lever1Panel.SetActive(true);
-
-            // TODO hide checkmarks of the step before
         }
     }
 
     public void MoveToSecondLever()
     {
-        if (FirstLeverController.Instance.leverOneActive==false && ((TargetTrigger1.Instance.detected == true) && (TargetTrigger2.Instance.detected == true)))
+        if (FirstLeverController.Instance.leverOneActive == false && ((TargetTrigger1.Instance.detected == true) && (TargetTrigger2.Instance.detected == true)))
         {
             mode = "ThirdStep";
             checkmark1.SetActive(false);
@@ -154,24 +200,23 @@ public class UIController : Singleton<UIController>
             ChangeLayersRecursively(lever3, "Practice Mode");
             ChangeLayersRecursively(lever4, "Practice Mode");
             ChangeLayersRecursively(dropButton, "Practice Mode");
+
             // TODO turn off UI for lever1 and turn on for UI lever2
             lever1Panel.SetActive(false);
             leverMessage.SetActive(false);
             lever2Panel.SetActive(true);
-
-            // TODO hide checkmarks of the step before
 
         }
         else if (FirstLeverController.Instance.leverOneActive == true && ((TargetTrigger1.Instance.detected == true) && (TargetTrigger2.Instance.detected == true)))
         {
             leverMessage.gameObject.SetActive(true);
         }
-            
+
     }
 
     public void MoveToThirdLever()
     {
-        if (SecondLeverController.Instance.leverTwoActive==false && ((TargetTrigger3.Instance.detected == true) || (TargetTrigger4.Instance.detected == true)))
+        if (SecondLeverController.Instance.leverTwoActive == false && ((TargetTrigger3.Instance.detected == true) || (TargetTrigger4.Instance.detected == true)))
         {
             mode = "FourthStep";
             checkmark1.SetActive(false);
@@ -193,7 +238,7 @@ public class UIController : Singleton<UIController>
             leverMessage.SetActive(false);
             lever3Panel.SetActive(true);
         }
-        else if (SecondLeverController.Instance.leverTwoActive==true && (TargetTrigger3.Instance.detected == true || TargetTrigger4.Instance.detected == true))
+        else if (SecondLeverController.Instance.leverTwoActive == true && (TargetTrigger3.Instance.detected == true || TargetTrigger4.Instance.detected == true))
         {
             leverMessage.SetActive(true);
         }
@@ -220,13 +265,13 @@ public class UIController : Singleton<UIController>
             ChangeLayersRecursively(lever3, "Practice Mode");
             ChangeLayersRecursively(lever4, "Grab Ignore Ray"); // lever4 is active
             ChangeLayersRecursively(dropButton, "Practice Mode");
+
             // TODO turn off UI for lever3 and turn on for UI lever4
             lever3Panel.SetActive(false);
             leverMessage.SetActive(false);
             lever4Panel.SetActive(true);
-            // Set hidden cargo active for picking up 
         }
-        else if (ThirdLeverController.Instance.leverThreeActive==true && (TargetTrigger5.Instance.detected == true))
+        else if (ThirdLeverController.Instance.leverThreeActive == true && (TargetTrigger5.Instance.detected == true))
         {
             leverMessage.SetActive(true);
         }
@@ -247,8 +292,10 @@ public class UIController : Singleton<UIController>
 
     public void EndPracticeSection()
     {
-        if ((FourthLeverController.Instance.leverFourActive == false) && (TargetTrigger6.Instance.detected==true))
+        if ((FourthLeverController.Instance.leverFourActive == false) && (TargetTrigger6.Instance.detected == true))
         {
+            mode = "SixthStep";
+
             checkmark1.SetActive(false);
             checkmark2.SetActive(false);
 
@@ -284,21 +331,35 @@ public class UIController : Singleton<UIController>
 
     public void TrainingMode()
     {
-        mode = "training";
-
         MyRoutine();
 
-        timerText.gameObject.SetActive(true);
-        timerText.gameObject.SetActive(true);
+        mode = "training";
+        //timerText.gameObject.SetActive(true);
+        //scoreText.gameObject.SetActive(true);
+        TimerController.Instance.timerText.gameObject.SetActive(true);
+        GameController.Instance.scoreText.gameObject.SetActive(true);
+
+        cargo.SetActive(true);
+        targetPlinth.SetActive(true);
 
         ChangeLayersRecursively(lever1, "Grab Ignore Ray");
         ChangeLayersRecursively(lever2, "Grab Ignore Ray");
         ChangeLayersRecursively(lever3, "Grab Ignore Ray");
         ChangeLayersRecursively(lever4, "Grab Ignore Ray");
         ChangeLayersRecursively(dropButton, "Grab Ignore Ray");
-        
+
         GameController.Instance.GotoCab();
         //Debug.Log("Running");
+
+        onOffButtonPanel.SetActive(false);
+        lever1Panel.SetActive(false);
+        lever2Panel.SetActive(false);
+        lever3Panel.SetActive(false);
+        lever4Panel.SetActive(false);
+        endPracticeSectionPanel.SetActive(false);
+        leverMessage.SetActive(false);
+        checkmark1.SetActive(false);
+        checkmark2.SetActive(false);
     }
 
     public void ChangeLayersRecursively(Transform trans, string name)

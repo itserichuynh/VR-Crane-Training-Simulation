@@ -3,10 +3,10 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 
-public class HookPickUp : MonoBehaviour
+public class HookPickUp : Singleton<HookPickUp>
 {
     public TextMeshProUGUI dropText;
-    bool cargoDetected;
+    public bool cargoDetected;
     Collision cargo;
 
     private void OnCollisionEnter(Collision collision)
@@ -24,14 +24,14 @@ public class HookPickUp : MonoBehaviour
         if (cargoDetected)
         {
             gameObject.AddComponent<FixedJoint>();
-            gameObject.GetComponent<FixedJoint>().connectedBody = cargo.rigidbody;
-            cargoDetected = false;
+            gameObject.GetComponent<FixedJoint>().connectedBody = cargo.rigidbody;            
             dropText.text = "Drop";
         }
         else
         {
             dropText.text = "Pick Up";
             Destroy(gameObject.GetComponent<FixedJoint>());
+            cargoDetected = false;
         }
     }
 
