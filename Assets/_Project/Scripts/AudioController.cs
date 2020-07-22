@@ -26,29 +26,6 @@ public class AudioController : Singleton<AudioController>
     public AudioMixerSnapshot outsideSpatialized;
     public AudioSource radioSource;
 
-   
-    /*
-    // start Flampeyeiry's AudioController content
-    private void Awake()
-    {
-        NPCSpeaker.Instance.Play(NPCSpeaker.Phrase.Welcome);
-    }
-
-    public void PlayWelcome()
-    {
-        NPCSpeaker.Instance.Play(NPCSpeaker.Phrase.Welcome);
-    }
-    public void PlayLookAround()
-    {
-        NPCSpeaker.Instance.Play(NPCSpeaker.Phrase.LookAround);
-    }
-    public void PlayLastAudio()
-    {
-        NPCSpeaker.Instance.Play(NPCSpeaker.Phrase.LastAudio);
-    }
-    // end Flampeyeiry's AudioController content
-    */
-    
     public void AtCab()
     {
         cabAmbient.TransitionTo(.1f);
@@ -77,9 +54,9 @@ public class AudioController : Singleton<AudioController>
         
     }
 
-    public void AudioCraneIdle()
+    public void AudioCraneEngineIdle()
     {
-        if (IsCraneEngineIdle == true)
+        if (GameController.Instance.engineRunning == true)
         {
             craneEngineIdle.volume = 1f;    
         }
@@ -91,7 +68,7 @@ public class AudioController : Singleton<AudioController>
 
     public void AudioCraneRotate()
     {
-        if (IsCraneRotate == true)
+        if (CabRotation.Instance.cabIsTurning == true)
         {
             craneRotation.volume = 1f;    
         }
@@ -103,7 +80,7 @@ public class AudioController : Singleton<AudioController>
 
     public void AudioCraneHydraulic()
     {
-        if (IsCraneHydraulic == true)
+        if (BoomRaise.Instance.boomIsRaising || ExtendBoom.Instance.boomIsExtending == true)
         {
             craneHydraulic.volume = 1f;    
         }
@@ -115,7 +92,7 @@ public class AudioController : Singleton<AudioController>
 
     public void AudioCraneWinch()
     {
-        if (IsCraneWinch == true)
+        if (HookController.Instance.hookIsMoving == true)
         {
             craneWinch.volume = 1f;
         }
@@ -127,22 +104,24 @@ public class AudioController : Singleton<AudioController>
 
     public void AudioCraneBeep()
     {
-        if (IsCraneRotate == false)
+        if (CabRotation.Instance.cabIsTurning || (BoomRaise.Instance.boomIsRaising || ExtendBoom.Instance.boomIsExtending) || HookController.Instance.hookIsMoving)
         {
-            if (IsCraneHydraulic == false)
-            {
-                if (IsCraneWinch == false)
-                {
-                    craneBeep.volume = 0f;
-                }
-            }
+             craneBeep.volume = 1f;
         }
         else
         {
-            craneBeep.volume = 1f;
+            craneBeep.volume = 0f;
         }
     }
 
+    void Update()
+    {
+        AudioCraneEngineIdle();
+        AudioCraneRotate();
+        AudioCraneHydraulic();
+        AudioCraneWinch();
+        AudioCraneBeep();
+    }
 
     
     IEnumerator WaitCraneStart()
