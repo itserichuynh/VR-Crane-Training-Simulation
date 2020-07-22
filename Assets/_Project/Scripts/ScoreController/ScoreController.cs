@@ -2,9 +2,18 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ScoreController : Singleton<ScoreController>
+public class ScoreController : MonoBehaviour
 {
-    public float scoretotal = 0;
+    Renderer _renderer;
+    public Color colorHit;
+    public Color colorMiss;
+    
+    public static float scoretotal = 0;
+
+    private void Start()
+    {
+        _renderer = GetComponent<Renderer>();
+    }
 
     void OnTriggerEnter(Collider other)
     {
@@ -12,7 +21,7 @@ public class ScoreController : Singleton<ScoreController>
         {
             print(gameObject.name + "+1 point");
             scoretotal = scoretotal + 1;
-            
+            _renderer.material.color = colorHit;
         }    
     }
 
@@ -22,7 +31,7 @@ public class ScoreController : Singleton<ScoreController>
         {
             print(gameObject.name + "-1 point");
             scoretotal = scoretotal -1;
-            
+            _renderer.material.color = colorMiss;
         }
     }
 

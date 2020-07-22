@@ -28,15 +28,8 @@ public class GameController : Singleton<GameController>
 
     private void FixedUpdate()
     {
-        score = ScoreController.Instance.scoretotal
-            + ScoreController1.Instance.scoretotal
-            + ScoreController2.Instance.scoretotal
-            + ScoreController3.Instance.scoretotal
-            + ScoreController4.Instance.scoretotal
-            + ScoreController5.Instance.scoretotal
-            + ScoreController6.Instance.scoretotal
-            + ScoreController7.Instance.scoretotal
-            + ScoreController8.Instance.scoretotal;
+        score = ScoreController.scoretotal;
+            
         scoreText.text = "Score: " + score.ToString();
     }
 
