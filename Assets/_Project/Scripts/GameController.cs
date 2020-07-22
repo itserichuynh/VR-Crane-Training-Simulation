@@ -20,7 +20,7 @@ public class GameController : Singleton<GameController>
     public Text scoreText;
     public Text offText;
     public Text onText;
-
+    public GameObject npc;
     public float score;
     
     private static string spokenLanguage = "en";
@@ -43,6 +43,7 @@ public class GameController : Singleton<GameController>
             locationCab.transform.position.z);
         xrRigLocation.transform.SetParent(xrRigInCab.transform);
         audioController.AtCab();
+        npc.transform.LookAt(xrRigLocation);
     }
 
     public void GotoStart()
@@ -55,6 +56,7 @@ public class GameController : Singleton<GameController>
             locationStart.transform.position.z);
         xrRigLocation.transform.SetParent(null);
         audioController.AtStart();
+        npc.transform.LookAt(xrRigLocation);
     }
 
     public void Engine()
@@ -87,6 +89,11 @@ public class GameController : Singleton<GameController>
 
             UIController.Instance.DisableLevers(); // Disable all levers when the crane if off
         }
+    }
+
+    void Start()
+    {
+        npc.transform.LookAt(xrRigLocation);
     }
 }
 
