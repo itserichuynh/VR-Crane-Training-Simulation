@@ -10992,7 +10992,7 @@ AudioSource:
     type: 2}
   m_audioClip: {fileID: 8300000, guid: fea4e77425fa1764dbcf5d0bb2103270, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 1
+  m_Volume: 0
   m_Pitch: 1
   Loop: 1
   Mute: 0
@@ -11364,7 +11364,7 @@ AudioSource:
     type: 2}
   m_audioClip: {fileID: 8300000, guid: 846f7c67d8a0853498c4ed1184a6ad98, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 1
+  m_Volume: 0
   m_Pitch: 1
   Loop: 1
   Mute: 0
@@ -11460,7 +11460,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 17
+  m_RootOrder: 14
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &625410881
 GameObject:
@@ -12851,7 +12851,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &716087821
 Transform:
   m_ObjectHideFlags: 0
@@ -20257,9 +20257,13 @@ MonoBehaviour:
     type: 2}
   cabEngineSource: {fileID: 1491351229}
   cabRadioSource: {fileID: 1159596847}
-  engineStart: {fileID: 8300000, guid: 8ece6de0d0cb5d2499fe55e5622033e5, type: 3}
-  engineRunning: {fileID: 8300000, guid: d9d941d7ae2fbaf4d9de494b2b7546a7, type: 3}
-  engineEnd: {fileID: 8300000, guid: 1f4a7590267935c489d1987d0089bf4a, type: 3}
+  craneEngineIdle: {fileID: 622205022}
+  craneBeep: {fileID: 2040640024}
+  craneRotation: {fileID: 1303598723}
+  craneHydraulic: {fileID: 1319044766}
+  craneWinch: {fileID: 576321562}
+  engineStart: {fileID: 8300000, guid: d7c70a976e132af418131d82990cf7fb, type: 3}
+  engineEnd: {fileID: 8300000, guid: ac142270bbbc96540befccff8846d681, type: 3}
   cabRadio: {fileID: 24500006, guid: 11bf0b74ed55ea44892e70c5475c0839, type: 2}
   outsideSpatialized: {fileID: 6303998545362774516, guid: 11bf0b74ed55ea44892e70c5475c0839,
     type: 2}
@@ -24441,7 +24445,7 @@ AudioSource:
     type: 2}
   m_audioClip: {fileID: 8300000, guid: 6eae84108d67db1459b6b327f4e0bc3c, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 1
+  m_Volume: 0
   m_Pitch: 1
   Loop: 1
   Mute: 0
@@ -24537,7 +24541,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 15
+  m_RootOrder: 16
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1304086485
 GameObject:
@@ -24809,7 +24813,7 @@ AudioSource:
     type: 2}
   m_audioClip: {fileID: 8300000, guid: f72b50e422b48a348a354ef26a70227f, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 1
+  m_Volume: 0
   m_Pitch: 1
   Loop: 1
   Mute: 0
@@ -24905,7 +24909,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 14
+  m_RootOrder: 17
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1319256031
 GameObject:
@@ -27401,7 +27405,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!82 &1539346208
 AudioSource:
   m_ObjectHideFlags: 0
@@ -46943,7 +46947,7 @@ AudioSource:
     type: 2}
   m_audioClip: {fileID: 8300000, guid: f05b34c9762561f4d8b675fa64d6fb91, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 1
+  m_Volume: 0
   m_Pitch: 1
   Loop: 1
   Mute: 0
@@ -47039,7 +47043,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 16
+  m_RootOrder: 15
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2041365999
 GameObject:

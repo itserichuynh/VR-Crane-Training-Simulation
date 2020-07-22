@@ -12,15 +12,22 @@ public class AudioController : Singleton<AudioController>
     public AudioMixerSnapshot startAmbient;
     public AudioSource cabEngineSource;
     public AudioSource cabRadioSource;
+
+    public AudioSource craneEngineIdle;
+    public AudioSource craneBeep;
+    public AudioSource craneRotation;
+    public AudioSource craneHydraulic;
+    public AudioSource craneWinch;
+    
     public AudioClip engineStart;
-    public AudioClip engineRunning;
     public AudioClip engineEnd;
 
     public AudioMixerSnapshot cabRadio;
     public AudioMixerSnapshot outsideSpatialized;
     public AudioSource radioSource;
-    
-    
+
+   
+    /*
     // start Flampeyeiry's AudioController content
     private void Awake()
     {
@@ -40,6 +47,7 @@ public class AudioController : Singleton<AudioController>
         NPCSpeaker.Instance.Play(NPCSpeaker.Phrase.LastAudio);
     }
     // end Flampeyeiry's AudioController content
+    */
     
     public void AtCab()
     {
@@ -59,19 +67,92 @@ public class AudioController : Singleton<AudioController>
     public void CraneStart()
     {
         cabEngineSource.PlayOneShot(engineStart);
-        StartCoroutine(WaitToSwitchOutClips());
+        StartCoroutine(WaitCraneStart());
     }
 
     public void CraneEnd()
     {
-        /*cabEngineSource.PlayOneShot(engineEnd);*/ // TODO Kirk - need to fix this with shutoff sound
+        cabEngineSource.PlayOneShot(engineEnd);
+        // TODO wait until after clip finishes before exiting 
+        
     }
 
-    IEnumerator WaitToSwitchOutClips()
+    public void AudioCraneIdle()
+    {
+        if (IsCraneEngineIdle == true)
+        {
+            craneEngineIdle.volume = 1f;    
+        }
+        else
+        {
+            craneEngineIdle.volume = 0f;
+        }
+    }
+
+    public void AudioCraneRotate()
+    {
+        if (IsCraneRotate == true)
+        {
+            craneRotation.volume = 1f;    
+        }
+        else
+        {
+            craneRotation.volume = 0f;
+        }
+    }
+
+    public void AudioCraneHydraulic()
+    {
+        if (IsCraneHydraulic == true)
+        {
+            craneHydraulic.volume = 1f;    
+        }
+        else
+        {
+            craneHydraulic.volume = 0f;
+        }
+    }
+
+    public void AudioCraneWinch()
+    {
+        if (IsCraneWinch == true)
+        {
+            craneWinch.volume = 1f;
+        }
+        else
+        {
+            craneWinch.volume = 0f;
+        }
+    }
+
+    public void AudioCraneBeep()
+    {
+        if (IsCraneRotate == false)
+        {
+            if (IsCraneHydraulic == false)
+            {
+                if (IsCraneWinch == false)
+                {
+                    craneBeep.volume = 0f;
+                }
+            }
+        }
+        else
+        {
+            craneBeep.volume = 1f;
+        }
+    }
+
+
+    
+    IEnumerator WaitCraneStart()
     {
         yield return new WaitForSeconds(engineStart.length);
+        /*
         cabEngineSource.clip = engineRunning;
         cabEngineSource.loop = true;
         cabEngineSource.Play();
+        */
+
     }
 }

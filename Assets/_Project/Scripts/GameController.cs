@@ -44,6 +44,7 @@ public class GameController : Singleton<GameController>
         xrRigLocation.transform.SetParent(xrRigInCab.transform);
         audioController.AtCab();
         npc.transform.LookAt(xrRigLocation);
+        
     }
 
     public void GotoStart()
@@ -65,8 +66,7 @@ public class GameController : Singleton<GameController>
         {
             audioController.CraneStart();
             engineRunning = true;
-            // TODO Kirk - change button material to engine_on
-
+            
             offText.gameObject.SetActive(false); // off text disappears
             onText.gameObject.SetActive(true); // on text appears
             OnOffButtonController.Instance.ChangeToYellow(); // Change color to yellow (ON)
@@ -76,9 +76,6 @@ public class GameController : Singleton<GameController>
         }
         else
         {
-            // TODO Kirk - crane shutdown sound & wait for sound to finish
-            // TODO Kirk - set variable for completion of task
-            // TODO Kirk - change button material to engine_off
             engineRunning = false;
             GotoStart();
 
