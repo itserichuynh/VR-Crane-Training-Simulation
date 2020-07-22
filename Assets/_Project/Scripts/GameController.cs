@@ -18,8 +18,6 @@ public class GameController : Singleton<GameController>
     public Transform xrRigLocation;
     public GameObject xrRigInCab;
     public Text scoreText;
-    public Text offText;
-    public Text onText;
     public GameObject npc;
     public float score;
     
@@ -67,8 +65,6 @@ public class GameController : Singleton<GameController>
             engineRunning = true;
             // TODO Kirk - change button material to engine_on
 
-            offText.gameObject.SetActive(false); // off text disappears
-            onText.gameObject.SetActive(true); // on text appears
             OnOffButtonController.Instance.ChangeToYellow(); // Change color to yellow (ON)
             TimerController.Instance.StartTimer(); // Start timer
 
@@ -82,9 +78,7 @@ public class GameController : Singleton<GameController>
             engineRunning = false;
             GotoStart();
 
-            offText.gameObject.SetActive(true); // off text appears
-            onText.gameObject.SetActive(false); // on text dosappears
-            OnOffButtonController.Instance.ChangeToBlue(); // Change color to yellow (OFF)
+            OnOffButtonController.Instance.ChangeToWhite(); // Change color to white (OFF)
             TimerController.Instance.StopTimer(); // Stop timer
 
             UIController.Instance.DisableLevers(); // Disable all levers when the crane if off

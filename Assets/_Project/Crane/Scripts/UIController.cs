@@ -110,7 +110,7 @@ public class UIController : Singleton<UIController>
         //        outlineTarget.enabled = true;
         //    }
         //}
-        if (GameController.Instance.score == 0)
+        if (GameController.Instance.score == 0 && GameController.Instance.engineRunning == true)
         {
             if (targetPlinth.GetComponent<Outline>() == false)
             {
