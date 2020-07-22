@@ -3088,7 +3088,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 27
+  m_RootOrder: 26
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &269084860
 GameObject:
@@ -3567,7 +3567,7 @@ Transform:
   - {fileID: 345877163}
   - {fileID: 773574609}
   m_Father: {fileID: 0}
-  m_RootOrder: 33
+  m_RootOrder: 32
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &292002852
 GameObject:
@@ -10268,7 +10268,7 @@ ParticleSystem:
     sphericalDirectionAmount: 0
     randomPositionAmount: 0
     radius:
-      value: 1
+      value: 2
       mode: 0
       spread: 0
       speed:
@@ -10387,7 +10387,7 @@ ParticleSystem:
     rateOverTime:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 10
+      scalar: 20
       minScalar: 10
       maxCurve:
         serializedVersion: 2
@@ -14556,7 +14556,7 @@ PrefabInstance:
     - target: {fileID: 9145313138180625458, guid: 4076a7c96803d6f4b8deff189a308006,
         type: 3}
       propertyPath: m_RootOrder
-      value: 29
+      value: 28
       objectReference: {fileID: 0}
     - target: {fileID: 9145313138180625458, guid: 4076a7c96803d6f4b8deff189a308006,
         type: 3}
@@ -16580,7 +16580,7 @@ PrefabInstance:
     - target: {fileID: 5688926787451536726, guid: 7f68c6aff324bef4eaffcb8249dc091c,
         type: 3}
       propertyPath: m_RootOrder
-      value: 31
+      value: 30
       objectReference: {fileID: 0}
     - target: {fileID: 5688926787451536726, guid: 7f68c6aff324bef4eaffcb8249dc091c,
         type: 3}
@@ -18605,7 +18605,7 @@ RectTransform:
   m_Children:
   - {fileID: 1462480809}
   m_Father: {fileID: 0}
-  m_RootOrder: 34
+  m_RootOrder: 33
   m_LocalEulerAnglesHint: {x: 0, y: -2, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -18918,7 +18918,7 @@ CapsuleCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 1
   m_Enabled: 1
-  m_Radius: 0.5
+  m_Radius: 3
   m_Height: 2
   m_Direction: 1
   m_Center: {x: 0, y: 0, z: 0}
@@ -18982,7 +18982,7 @@ Transform:
   m_Children:
   - {fileID: 1152598825}
   m_Father: {fileID: 0}
-  m_RootOrder: 24
+  m_RootOrder: 23
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &812210486
 PrefabInstance:
@@ -19554,7 +19554,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 26
+  m_RootOrder: 25
   m_LocalEulerAnglesHint: {x: 90, y: 180, z: -8.1}
 --- !u!1 &889650081
 GameObject:
@@ -19760,7 +19760,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 25
+  m_RootOrder: 24
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &901455832
 GameObject:
@@ -23663,7 +23663,7 @@ ParticleSystem:
     rateOverTime:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 10
+      scalar: 15
       minScalar: 10
       maxCurve:
         serializedVersion: 2
@@ -28592,8 +28592,8 @@ CapsuleCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   m_Radius: 0.5
-  m_Height: 2
-  m_Direction: 1
+  m_Height: 10
+  m_Direction: 0
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!23 &1244294957
 MeshRenderer:
@@ -30028,7 +30028,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &1366529365
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -30052,9 +30052,9 @@ CapsuleCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 1
   m_Enabled: 1
-  m_Radius: 0.5
-  m_Height: 2
-  m_Direction: 1
+  m_Radius: 1
+  m_Height: 20
+  m_Direction: 0
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!23 &1366529368
 MeshRenderer:
@@ -30111,12 +30111,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1366529364}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 2.32, y: 3.5051172, z: 6.63}
-  m_LocalScale: {x: 0.2, y: 0.2, z: 0.2}
+  m_LocalPosition: {x: -0.02181447, y: 0.45361388, z: 6.7524014}
+  m_LocalScale: {x: 0.19999996, y: 0.2, z: 0.19999996}
   m_Children:
   - {fileID: 2057641337}
-  m_Father: {fileID: 0}
-  m_RootOrder: 23
+  m_Father: {fileID: 762109925}
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1385858684
 GameObject:
@@ -33100,7 +33100,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 32
+  m_RootOrder: 31
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1658062728
 GameObject:
@@ -34986,7 +34986,7 @@ Transform:
   - {fileID: 1796961190}
   - {fileID: 202831561}
   m_Father: {fileID: 0}
-  m_RootOrder: 28
+  m_RootOrder: 27
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1833550513
 GameObject:
@@ -40896,7 +40896,7 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: c3cf7859d3716f84b935d65daa222ac3,
         type: 3}
       propertyPath: m_RootOrder
-      value: 30
+      value: 29
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: c3cf7859d3716f84b935d65daa222ac3,
         type: 3}
@@ -42744,7 +42744,7 @@ ParticleSystem:
     rateOverTime:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 10
+      scalar: 15
       minScalar: 10
       maxCurve:
         serializedVersion: 2

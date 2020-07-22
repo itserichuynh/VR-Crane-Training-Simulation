@@ -134,8 +134,8 @@ public class UIController : Singleton<UIController>
 
         // Setting up target for tutorial
         target3.transform.position = new Vector3(HookController.Instance.worldPosition.x, 6f, HookController.Instance.worldPosition.z-0.5f);
-        target4.transform.position = new Vector3(2.32f,HookController.Instance.worldPosition.y + .3f,6.63f);
-        target5.transform.position = new Vector3(HookController.Instance.worldPosition.x,1, HookController.Instance.worldPosition.z);
+        //target4.transform.position = new Vector3(HookController.Instance.worldPosition.x, HookController.Instance.worldPosition.y - 0.5f, HookController.Instance.worldPosition.z+2);
+        target5.transform.position = new Vector3(HookController.Instance.worldPosition.x, 1, HookController.Instance.worldPosition.z);
     }
 
     public void PracticeMode()
