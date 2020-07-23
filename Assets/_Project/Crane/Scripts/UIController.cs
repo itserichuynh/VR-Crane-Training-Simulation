@@ -45,7 +45,12 @@ public class UIController : Singleton<UIController>
 
     private Outline outlineForCargo;
     private Outline outlineForTarget;
+    private Vector3 cargoOriginalPosition;
 
+    private void Start()
+    {
+        cargoOriginalPosition = cargo.transform.position;
+    }
     private void Update()
     {
         if (mode == "FirstStep" && GameController.Instance.engineRunning == true)
@@ -401,6 +406,7 @@ public class UIController : Singleton<UIController>
         scoreArea.gameObject.SetActive(true);
 
         cargo.SetActive(true);
+        cargo.transform.position = cargoOriginalPosition;
         targetPlinth.SetActive(true);
 
         ChangeLayersRecursively(lever1, "Grab Ignore Ray");
