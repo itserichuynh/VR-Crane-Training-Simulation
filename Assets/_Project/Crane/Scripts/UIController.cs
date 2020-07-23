@@ -206,6 +206,11 @@ public class UIController : Singleton<UIController>
         leverMessage.SetActive(false);
         checkmark1.SetActive(false);
         checkmark2.SetActive(false);
+        target1.SetActive(false);
+        target2.SetActive(false);
+        target3.SetActive(false);
+        target4.SetActive(false);
+        target5.SetActive(false);
     }
 
     public void MoveToFirstLever()
