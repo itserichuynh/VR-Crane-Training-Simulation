@@ -59,7 +59,7 @@ public class AudioController : Singleton<AudioController>
     {
         if (CabRotation.Instance.cabIsTurning == true)
         {
-            craneRotation.volume = 1f;    
+            craneRotation.volume = .8f;    
         }
         else
         {
@@ -71,7 +71,7 @@ public class AudioController : Singleton<AudioController>
     {
         if (BoomRaise.Instance.boomIsRaising || ExtendBoom.Instance.boomIsExtending == true)
         {
-            craneHydraulic.volume = 1f;    
+            craneHydraulic.volume = .8f;    
         }
         else
         {
@@ -83,7 +83,7 @@ public class AudioController : Singleton<AudioController>
     {
         if (HookController.Instance.hookIsMoving == true)
         {
-            craneWinch.volume = 1f;
+            craneWinch.volume = .8f;
         }
         else
         {
@@ -95,7 +95,7 @@ public class AudioController : Singleton<AudioController>
     {
         if (CabRotation.Instance.cabIsTurning || (BoomRaise.Instance.boomIsRaising || ExtendBoom.Instance.boomIsExtending) || HookController.Instance.hookIsMoving)
         {
-             craneBeep.volume = 1f;
+             craneBeep.volume = .5f;
         }
         else
         {
@@ -115,7 +115,7 @@ public class AudioController : Singleton<AudioController>
     IEnumerator WaitCraneEngineStart()
     {
         yield return new WaitForSeconds(engineStart.length);
-        craneEngineIdle.volume = 1f;
+        craneEngineIdle.volume = .8f;
     }
 
     IEnumerator WaitCraneEngineEnd()

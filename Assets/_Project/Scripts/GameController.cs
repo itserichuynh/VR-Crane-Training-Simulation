@@ -20,7 +20,8 @@ public class GameController : Singleton<GameController>
     public Text scoreText;
     public GameObject npc;
     public float score;
-    
+
+    private bool EngineButtonInteractable = true;
     private static string spokenLanguage = "en";
     public bool engineRunning = false;
 
@@ -58,6 +59,8 @@ public class GameController : Singleton<GameController>
 
     public void Engine()
     {
+        if (!EngineButtonInteractable) return;
+        
         if (engineRunning == false)
         {
             engineRunning = true;
@@ -75,11 +78,20 @@ public class GameController : Singleton<GameController>
             OnOffButtonController.Instance.ChangeToWhite(); // Change color to white (OFF)
             TimerController.Instance.StopTimer(); // Stop timer
         }
+
+        StartCoroutine(TempDisableEngineButton());
     }
 
     void Start()
     {
         npc.transform.LookAt(xrRigLocation);
+    }
+
+    private IEnumerator TempDisableEngineButton()
+    {
+        EngineButtonInteractable = false;
+        yield return new WaitForSeconds(5f);
+        EngineButtonInteractable = true;
     }
 }
 
