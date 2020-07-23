@@ -52,7 +52,7 @@ public class AudioController : Singleton<AudioController>
             craneEngineIdle.volume = 0f;
             cabEngineSource.PlayOneShot(engineEnd);
             StartCoroutine(WaitCraneEngineEnd());
-    }
+        }
     }
 
     public void AudioCraneRotate()
