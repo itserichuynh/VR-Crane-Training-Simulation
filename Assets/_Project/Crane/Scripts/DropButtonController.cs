@@ -10,13 +10,13 @@ public class DropButtonController : MonoBehaviour
     {
         _renderer = GetComponent<Renderer>();
     }
-    public void ChangeToRed()
+    public void ChangeToWhite()
     {
-        _renderer.material.color = Color.red;
+        _renderer.material.color = Color.white;
     }
 
-    public void ChangeToGreen()
+    public void ChangeToYellow()
     {
-        _renderer.material.color = Color.green;
+        _renderer.material.color = Color.yellow;
     }
 }

@@ -5,7 +5,6 @@ using TMPro;
 
 public class HookPickUp : Singleton<HookPickUp>
 {
-    public TextMeshProUGUI dropText;
     public bool cargoDetected = false;
     Collision cargo;
 
@@ -24,13 +23,11 @@ public class HookPickUp : Singleton<HookPickUp>
         if (cargoDetected)
         {
             gameObject.AddComponent<FixedJoint>();
-            gameObject.GetComponent<FixedJoint>().connectedBody = cargo.rigidbody;            
-            dropText.text = "Drop";
+            gameObject.GetComponent<FixedJoint>().connectedBody = cargo.rigidbody;
             cargoDetected = false;
         }
         else
         {
-            dropText.text = "Pick Up";
             Destroy(gameObject.GetComponent<FixedJoint>());
             /*cargoDetected = false;*/
         }

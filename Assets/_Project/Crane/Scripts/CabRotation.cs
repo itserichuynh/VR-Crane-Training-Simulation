@@ -22,6 +22,7 @@ public class CabRotation : Singleton<CabRotation>
         _rb.velocity = Vector3.zero;
         _rb.angularVelocity = Vector3.zero;
         rotation = transform.localEulerAngles;
+        //Debug.Log(cabIsTurning);
     }
 
     public void CabTurnRight()

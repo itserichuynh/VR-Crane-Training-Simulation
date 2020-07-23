@@ -9,5 +9,6 @@ public class TargetTrigger1 : Singleton<TargetTrigger1>
     private void OnTriggerEnter(Collider other)
     {
         detected = true;
+        this.gameObject.SetActive(false);
     }
 }
