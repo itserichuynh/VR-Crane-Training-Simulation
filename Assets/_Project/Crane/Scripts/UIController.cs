@@ -127,7 +127,7 @@ public class UIController : Singleton<UIController>
             {
                 outlineForTarget = targetPlinth.AddComponent<Outline>();
 
-                outlineForTarget.OutlineMode = Outline.Mode.OutlineAll;
+                outlineForTarget.OutlineMode = Outline.Mode.OutlineVisible;
                 outlineForTarget.OutlineColor = Color.yellow;
                 outlineForTarget.OutlineWidth = 5f;
             }
@@ -141,7 +141,7 @@ public class UIController : Singleton<UIController>
             {
                 outlineForCargo = cargo.AddComponent<Outline>();
 
-                outlineForCargo.OutlineMode = Outline.Mode.OutlineAll;
+                outlineForCargo.OutlineMode = Outline.Mode.OutlineVisible;
                 outlineForCargo.OutlineColor = Color.yellow;
                 outlineForCargo.OutlineWidth = 5f;
             }
