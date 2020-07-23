@@ -58,27 +58,32 @@ public class UIController : Singleton<UIController>
             // display the checkmark for engine on
             checkmark1.SetActive(true);
         }
-        else if (mode == "SecondStep" && TargetTrigger1.Instance.detected == true)
+
+        if (mode == "SecondStep" && TargetTrigger1.Instance.detected == true)
         {
             // display checkmark for rotating crane right
             checkmark1.SetActive(true);
         }
-        else if (mode == "SecondStep" && TargetTrigger2.Instance.detected == true)
+
+        if (mode == "SecondStep" && TargetTrigger2.Instance.detected == true)
         {
             // display checkmark for rotating crane left
             checkmark2.SetActive(true);
         }
-        else if (mode == "ThirdStep" && TargetTrigger3.Instance.detected == true)
+
+        if (mode == "ThirdStep" && TargetTrigger3.Instance.detected == true)
         {
             // display checkmark for raising boom up 
             checkmark1.SetActive(true);
         }
-        else if (mode == "FourthStep" && TargetTrigger4.Instance.detected == true)
+
+        if (mode == "FourthStep" && TargetTrigger4.Instance.detected == true)
         {
             // display checkmark for extending boom
             checkmark1.SetActive(true);
         }
-        else if (mode == "FifthStep" && TargetTrigger5.Instance.detected == true)
+
+        if (mode == "FifthStep" && TargetTrigger5.Instance.detected == true)
         {
             // display checkmark for lowering hook
             checkmark1.SetActive(true);
