@@ -7,8 +7,9 @@ public class HookController : Singleton<HookController>
     public float hookSpeed;
     public Vector3 position;
     public Vector3 worldPosition;
+    public Vector3 originalPosition;
 
-    private SpringJoint springJoint;
+    public SpringJoint springJoint;
     private SoftJointLimit softJointLimit;
 
     private float minHookPosition = 0.5f;
@@ -18,11 +19,12 @@ public class HookController : Singleton<HookController>
 
     public bool hookIsMoving;
 
-   
+
     void Start()
     {
         hookSpeed = 0.005f;
         springJoint = GetComponent<SpringJoint>();
+        originalPosition = this.transform.localPosition;
     }
 
     private void FixedUpdate()
