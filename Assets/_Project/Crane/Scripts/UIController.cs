@@ -36,7 +36,8 @@ public class UIController : Singleton<UIController>
     public GameObject target5;
     public GameObject checkmark1;
     public GameObject checkmark2;
-
+    public GameObject scoreArea;
+    
     private Outline outlineForCargo;
     private Outline outlineForTarget;
 
@@ -155,7 +156,7 @@ public class UIController : Singleton<UIController>
         target5.transform.position = new Vector3(HookController.Instance.worldPosition.x, 1, HookController.Instance.worldPosition.z);
     }
 
-    public void PracticeMode()
+    public void TutorialMode()
     {
         MyRoutine(); // Reload Scene to make sure the orientation of the crane is correct
         //SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
@@ -164,8 +165,11 @@ public class UIController : Singleton<UIController>
 
         //timerText.gameObject.SetActive(false);
         //scoreText.gameObject.SetActive(false);
+        scoreArea.gameObject.SetActive(false);
+        /*
         TimerController.Instance.timerText.gameObject.SetActive(false);
         GameController.Instance.scoreText.gameObject.SetActive(false);
+        */
 
         cargo.SetActive(false);
         targetPlinth.SetActive(false);
@@ -357,16 +361,19 @@ public class UIController : Singleton<UIController>
         yield return new WaitForSeconds(3f);
     }
 
-    public void TrainingMode()
+    public void PracticeMode()
     {
         MyRoutine();
 
         mode = "training";
         //timerText.gameObject.SetActive(true);
         //scoreText.gameObject.SetActive(true);
+        /*
         TimerController.Instance.timerText.gameObject.SetActive(true);
         GameController.Instance.scoreText.gameObject.SetActive(true);
-
+        */
+        scoreArea.gameObject.SetActive(true);
+        
         cargo.SetActive(true);
         targetPlinth.SetActive(true);
 
