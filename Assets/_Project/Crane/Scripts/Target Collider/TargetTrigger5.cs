@@ -10,5 +10,6 @@ public class TargetTrigger5 : Singleton<TargetTrigger5>
     {
         detected = true;
         this.gameObject.SetActive(false);
+        AudioController.Instance.sfxTarget.Play();
     }
 }

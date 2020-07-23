@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using OVR;
 using UnityEngine;
 using UnityEngine.Audio;
 using UnityEngine.XR.Interaction.Toolkit;
@@ -18,7 +19,8 @@ public class AudioController : Singleton<AudioController>
     public AudioSource craneRotation;
     public AudioSource craneHydraulic;
     public AudioSource craneWinch;
-    
+    public AudioSource sfxTarget;
+
     public AudioClip engineStart;
     public AudioClip engineEnd;
 
@@ -40,6 +42,11 @@ public class AudioController : Singleton<AudioController>
         radioSource.spatialBlend = 1f;
     }
 
+    public void sfxComplete()
+    {
+        sfxTarget.Play();
+    }
+
     public void AudioCraneEngineIdle()
     {
         if (GameController.Instance.engineRunning == true)
@@ -59,7 +66,7 @@ public class AudioController : Singleton<AudioController>
     {
         if (CabRotation.Instance.cabIsTurning == true)
         {
-            craneRotation.volume = .8f;    
+            craneRotation.volume = .8f;
         }
         else
         {
@@ -115,14 +122,37 @@ public class AudioController : Singleton<AudioController>
     
     IEnumerator WaitCraneEngineStart()
     {
-        yield return new WaitForSeconds(engineStart.length);
-        craneEngineIdle.volume = .8f;
+        yield return new WaitForSeconds(engineStart.length - 1f);
+        StartCoroutine(FadeIn(craneEngineIdle, 1f));
+        /*craneEngineIdle.volume = .8f;*/
     }
 
     IEnumerator WaitCraneEngineEnd()
     {
-        yield return new WaitForSeconds(engineEnd.length);
+        yield return new WaitForSeconds(engineEnd.length - 1f);
         
         GameController.Instance.GotoStart();
+    }
+
+    IEnumerator FadeOut(AudioSource audioSource, float FadeTime)
+    {
+        float startVolume = audioSource.volume;
+        while (audioSource.volume > 0)
+        {
+            audioSource.volume -= startVolume * Time.deltaTime / FadeTime;
+            yield return null;
+        }
+        audioSource.Stop();
+    }
+
+    IEnumerator FadeIn(AudioSource audioSource, float FadeTime)
+    {
+        audioSource.Play();
+        audioSource.volume = 0f;
+        while (audioSource.volume < 1)
+        {
+            audioSource.volume += Time.deltaTime / FadeTime;
+            yield return null;
+        }
     }
 }
