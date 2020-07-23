@@ -17,9 +17,9 @@ public class TimerController : Singleton<TimerController>
             float t = Time.time - startTime;
 
             string minutes = ((int)t / 60).ToString();
-            string seconds = (t % 60).ToString("f2");
+            string seconds = (t % 60).ToString("f0");
 
-            timerText.text = minutes + ":" + seconds;
+            timerText.text = "m" + minutes + ":" + seconds + "s";
         }
     }
 
