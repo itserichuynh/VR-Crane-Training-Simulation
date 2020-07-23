@@ -128,7 +128,7 @@ public class UIController : Singleton<UIController>
                 outlineForTarget = targetPlinth.AddComponent<Outline>();
 
                 outlineForTarget.OutlineMode = Outline.Mode.OutlineVisible;
-                outlineForTarget.OutlineColor = Color.yellow;
+                outlineForTarget.OutlineColor = Color.green;
                 outlineForTarget.OutlineWidth = 5f;
             }
             else
