@@ -14,11 +14,16 @@ public class BoomRaise : Singleton<BoomRaise>
     public Vector3 rotation;
     public bool boomIsRaising;
     public float raiseSpeed;
-                 
+    public Vector3 originalRotation;
+    public Vector3 originalPosition;
+
     void Start()
     {
         _rigid = GetComponent<Rigidbody>();
         raiseSpeed = 35f;
+        originalRotation = this.transform.localEulerAngles;
+        originalPosition = this.transform.localPosition;
+        //Debug.Log(originalRotation);
     }
 
     private void FixedUpdate()
