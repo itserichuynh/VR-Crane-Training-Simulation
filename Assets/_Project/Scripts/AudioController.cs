@@ -93,7 +93,8 @@ public class AudioController : Singleton<AudioController>
 
     public void AudioCraneBeep()
     {
-        if (CabRotation.Instance.cabIsTurning || (BoomRaise.Instance.boomIsRaising || ExtendBoom.Instance.boomIsExtending) || HookController.Instance.hookIsMoving)
+        /*if (CabRotation.Instance.cabIsTurning || (BoomRaise.Instance.boomIsRaising || ExtendBoom.Instance.boomIsExtending) || HookController.Instance.hookIsMoving)*/
+        if (CabRotation.Instance.cabIsTurning)
         {
              craneBeep.volume = .5f;
         }
