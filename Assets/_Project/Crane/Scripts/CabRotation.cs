@@ -4,9 +4,7 @@ using UnityEngine;
 
 public class CabRotation : Singleton<CabRotation>
 {
-    public Vector3 originalRotation;
-    public Vector3 originalPosition;
-    public float cabRotateSpeed;
+    public float cabRotateSpeed; 
     public bool turn;
     public bool cabIsTurning;
     public Vector3 rotation;
@@ -15,11 +13,8 @@ public class CabRotation : Singleton<CabRotation>
 
     void Start()
     {
-        originalRotation = this.transform.localEulerAngles;
-        originalPosition = this.transform.localPosition;
         _rb = GetComponent<Rigidbody>();
         cabRotateSpeed = 100f;
-        Debug.Log(originalRotation);
     }
 
     private void FixedUpdate()

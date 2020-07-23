@@ -37,12 +37,7 @@ public class UIController : Singleton<UIController>
     public GameObject checkmark1;
     public GameObject checkmark2;
     public GameObject scoreArea;
-
-    public GameObject cab;
-    public GameObject boomA;
-    public GameObject boomB;
-    public GameObject hook;
-
+    
     private Outline outlineForCargo;
     private Outline outlineForTarget;
 
@@ -163,16 +158,8 @@ public class UIController : Singleton<UIController>
 
     public void TutorialMode()
     {
-        //MyRoutine(); // Reload Scene to make sure the orientation of the crane is correct
+        MyRoutine(); // Reload Scene to make sure the orientation of the crane is correct
         //SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
-        cab.transform.localEulerAngles = CabRotation.Instance.originalRotation;
-        cab.transform.localPosition = CabRotation.Instance.originalPosition;
-        boomA.transform.localEulerAngles = BoomRaise.Instance.originalRotation;
-        boomA.transform.localPosition = BoomRaise.Instance.originalPosition;
-        boomB.transform.localPosition = ExtendBoom.Instance.originalPosition;
-        boomB.transform.localEulerAngles = ExtendBoom.Instance.originalRotation;
-        hook.transform.localPosition = HookController.Instance.originalPosition;
-        HookController.Instance.springJoint.maxDistance = 0;
 
         mode = "FirstStep";
 
@@ -285,7 +272,7 @@ public class UIController : Singleton<UIController>
             leverMessage.SetActive(false);
             lever3Panel.SetActive(true);
         }
-        else if (SecondLeverController.Instance.leverTwoActive == true && (TargetTrigger3.Instance.detected == true))
+        else if (SecondLeverController.Instance.leverTwoActive == true && (TargetTrigger3.Instance.detected == true ))
         {
             leverMessage.SetActive(true);
         }
@@ -376,15 +363,7 @@ public class UIController : Singleton<UIController>
 
     public void PracticeMode()
     {
-        cab.transform.localEulerAngles = CabRotation.Instance.originalRotation;
-        cab.transform.localPosition = CabRotation.Instance.originalPosition;
-        boomA.transform.localEulerAngles = BoomRaise.Instance.originalRotation;
-        boomA.transform.localPosition = BoomRaise.Instance.originalPosition;
-        boomB.transform.localPosition = ExtendBoom.Instance.originalPosition;
-        boomB.transform.localEulerAngles = ExtendBoom.Instance.originalRotation;
-        hook.transform.localPosition = HookController.Instance.originalPosition;
-        HookController.Instance.springJoint.maxDistance = 0;
-        //MyRoutine();
+        MyRoutine();
 
         mode = "training";
         //timerText.gameObject.SetActive(true);
@@ -394,7 +373,7 @@ public class UIController : Singleton<UIController>
         GameController.Instance.scoreText.gameObject.SetActive(true);
         */
         scoreArea.gameObject.SetActive(true);
-
+        
         cargo.SetActive(true);
         targetPlinth.SetActive(true);
 

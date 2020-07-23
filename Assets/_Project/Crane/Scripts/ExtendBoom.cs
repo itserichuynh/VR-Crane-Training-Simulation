@@ -8,15 +8,11 @@ public class ExtendBoom : Singleton<ExtendBoom>
     public Vector3 position;
     public bool boomIsExtending;
     public float extendSpeed;
-    public Vector3 originalPosition;
-    public Vector3 originalRotation;
 
     void Start()
     {
         _rigid = GetComponent<Rigidbody>();
         extendSpeed = 20f;
-        originalPosition = this.transform.localPosition;
-        originalRotation = this.transform.localEulerAngles;
     }
 
     private void FixedUpdate()
@@ -28,7 +24,7 @@ public class ExtendBoom : Singleton<ExtendBoom>
 
     public void BoomExtend()
     {
-        _rigid.constraints = RigidbodyConstraints.None;
+            _rigid.constraints = RigidbodyConstraints.None;
         _rigid.AddForce(transform.forward * extendSpeed);
         /*
         Vector3 tempVect = new Vector3(0, 0, 1);

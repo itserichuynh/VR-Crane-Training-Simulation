@@ -99,7 +99,7 @@ LightmapSettings:
     m_LightProbeSampleCountMultiplier: 4
   m_LightingDataAsset: {fileID: 112000000, guid: 3645f9536a25e7b4686264c18adcb5a5,
     type: 2}
-  m_UseShadowmask: 0
+  m_UseShadowmask: 1
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -2103,10 +2103,6 @@ MonoBehaviour:
   checkmark1: {fileID: 1239740375}
   checkmark2: {fileID: 194292595}
   scoreArea: {fileID: 1485256102}
-  cab: {fileID: 1932813386}
-  boomA: {fileID: 1327388901}
-  boomB: {fileID: 1327388900}
-  hook: {fileID: 1327388899}
 --- !u!114 &178261546
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -19505,7 +19501,7 @@ ConfigurableJoint:
   m_Anchor: {x: 0.24, y: 0.55, z: -0.06}
   m_Axis: {x: 1, y: 0, z: 0}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: 0.1819468, y: -0.5356145, z: -0.0877917}
+  m_ConnectedAnchor: {x: 0.1819468, y: -0.535614, z: -0.08778871}
   serializedVersion: 2
   m_SecondaryAxis: {x: 0, y: 1, z: 0}
   m_XMotion: 0
@@ -19663,7 +19659,7 @@ ConfigurableJoint:
   m_Anchor: {x: 0.07, y: 0.55, z: -0.06}
   m_Axis: {x: 1, y: 0, z: 0}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: -0.07282482, y: -0.5356145, z: -0.08778276}
+  m_ConnectedAnchor: {x: -0.07282482, y: -0.535614, z: -0.08777977}
   serializedVersion: 2
   m_SecondaryAxis: {x: 0, y: 1, z: 0}
   m_XMotion: 0
@@ -19758,7 +19754,7 @@ ConfigurableJoint:
   m_Anchor: {x: -0.26, y: 0.55, z: -0.06}
   m_Axis: {x: 1, y: 0, z: 0}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: -0.15562463, y: -0.5356145, z: -0.08778276}
+  m_ConnectedAnchor: {x: -0.15562463, y: -0.535614, z: -0.08777977}
   serializedVersion: 2
   m_SecondaryAxis: {x: 0, y: 1, z: 0}
   m_XMotion: 0
@@ -19853,7 +19849,7 @@ ConfigurableJoint:
   m_Anchor: {x: -0.09, y: 0.55, z: -0.06}
   m_Axis: {x: 1, y: 0, z: 0}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: 0.0991522, y: -0.5356145, z: -0.08778276}
+  m_ConnectedAnchor: {x: 0.0991522, y: -0.535614, z: -0.08777977}
   serializedVersion: 2
   m_SecondaryAxis: {x: 0, y: 1, z: 0}
   m_XMotion: 0
@@ -27707,24 +27703,6 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1327388897}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &1327388899 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1790937510746276153, guid: d0c39f9bc445cd84e912c5fd8e6805c3,
-    type: 3}
-  m_PrefabInstance: {fileID: 1327388897}
-  m_PrefabAsset: {fileID: 0}
---- !u!1 &1327388900 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1790937510746276141, guid: d0c39f9bc445cd84e912c5fd8e6805c3,
-    type: 3}
-  m_PrefabInstance: {fileID: 1327388897}
-  m_PrefabAsset: {fileID: 0}
---- !u!1 &1327388901 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1790937510746276131, guid: d0c39f9bc445cd84e912c5fd8e6805c3,
-    type: 3}
-  m_PrefabInstance: {fileID: 1327388897}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1334782018
 GameObject:
   m_ObjectHideFlags: 0
@@ -30229,7 +30207,7 @@ MonoBehaviour:
     type: 3}
   m_PrefabInstance: {fileID: 1327388897}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1327388899}
+  m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 1859cb425fe9bcc469cb99cb713e38e1, type: 3}
