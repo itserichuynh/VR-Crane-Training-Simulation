@@ -48,5 +48,5 @@ Make gameobject Crane Reach Zone active to show the reach of our crane's boom. T
 Crane Reach Zone is located in the Unity hierarchy in the 6th group under the Objects header. <br />
 
 Link to our Trello Board <br />
-Team2 Ð Crane VR https://trello.com/b/DubDi9Pv/team-2-crane-vr <br />
+Team2 Crane VR https://trello.com/b/DubDi9Pv/team-2-crane-vr <br />
 (Our Trello Board is currently private. If we want to share it with Vice and other interested employers, we might make it Public)
