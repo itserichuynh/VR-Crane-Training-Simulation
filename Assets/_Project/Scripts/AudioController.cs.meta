@@ -1,0 +1,24 @@
+fileFormatVersion: 2
+guid: ccbd2c6ae9cf2e445af36375b82be5a5
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - gameController: {instanceID: 0}
+  - audioInCabMixer: {fileID: 24100000, guid: 37ec67bbe89e7614895042343519d724, type: 2}
+  - audioInCabRadio: {fileID: 24100000, guid: 11bf0b74ed55ea44892e70c5475c0839, type: 2}
+  - audioInCabEngine: {fileID: 24100000, guid: 3b8dccf3bf484924f9bcb612b6ea3225, type: 2}
+  - cabAmbient: {instanceID: 0}
+  - startAmbient: {instanceID: 0}
+  - cabRadio: {instanceID: 0}
+  - cabEngine: {instanceID: 0}
+  - cabEngineSource: {instanceID: 0}
+  - cabRadioSource: {instanceID: 0}
+  - engineStart: {fileID: 8300000, guid: cf45e28070fccbd4cbce84e00ca81114, type: 3}
+  - engineRunning: {fileID: 8300000, guid: 9e196e114396c684eb3bb0fbdaea8b42, type: 3}
+  - npcWelcome: {fileID: 8300000, guid: 03efd541e69046e4a9de6857ba08e8a7, type: 3}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

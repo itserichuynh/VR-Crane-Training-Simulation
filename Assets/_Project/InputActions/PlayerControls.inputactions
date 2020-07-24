@@ -1,0 +1,44 @@
+{
+    "name": "PlayerControls",
+    "maps": [
+        {
+            "name": "XR Touch Controller",
+            "id": "a2c4b570-99e5-40d6-8167-3170625a192e",
+            "actions": [
+                {
+                    "name": "New action",
+                    "type": "Button",
+                    "id": "b85d0db7-0781-4c2e-b698-8c88fd64e056",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": ""
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "4faf7989-30fd-4642-85bd-01128d510073",
+                    "path": "<OculusTouchController>/gripPressed",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "New action",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "0246b085-b591-45d2-b8ed-5c9e609afc13",
+                    "path": "<OculusTouchController>/triggerPressed",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "New action",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
+        }
+    ],
+    "controlSchemes": []
+}

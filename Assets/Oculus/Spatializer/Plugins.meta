@@ -1,8 +1,20 @@
 fileFormatVersion: 2
+<<<<<<< HEAD
+<<<<<<<< HEAD:Assets/Oculus/Spatializer/Plugins.meta
 guid: 98f8de3e06b691a4a81218b17f50425b
 folderAsset: yes
+========
+guid: 3e0b765b450b7b84a88611f03fe83634
+>>>>>>>> Demo2:Assets/_Project/Scenes/MainScene.unity.meta
 DefaultImporter:
   externalObjects: {}
+=======
+guid: 98f8de3e06b691a4a81218b17f50425b
+folderAsset: yes
+timeCreated: 1549938752
+licenseType: Store
+DefaultImporter:
+>>>>>>> Demo2
   userData: 
   assetBundleName: 
   assetBundleVariant: 

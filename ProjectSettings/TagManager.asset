@@ -3,7 +3,11 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - Ignite
+  - Cargo
+  - Language ES
+  - Language EN
   layers:
   - Default
   - TransparentFX
@@ -13,11 +17,11 @@ TagManager:
   - UI
   - 
   - 
-  - 
-  - 
-  - 
-  - 
-  - 
+  - Grab Ignore Ray
+  - Engine Off
+  - Practice Mode
+  - Invisible to Main Camera
+  - Raycast Disable
   - 
   - 
   - 
