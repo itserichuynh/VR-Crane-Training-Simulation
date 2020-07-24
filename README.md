@@ -1,6 +1,4 @@
 # VR-Crane-Training-Simulation
-*** README file *** <br />
-VR Crane Simulation project <br />
 XRT Summer 2020 <br />
 Created 23 July 2020 <br />
 
