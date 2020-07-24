@@ -19,7 +19,7 @@ public class CabRotation : Singleton<CabRotation>
         originalPosition = this.transform.localPosition;
         _rb = GetComponent<Rigidbody>();
         cabRotateSpeed = 100f;
-        Debug.Log(originalRotation);
+        //Debug.Log(originalRotation);
     }
 
     private void FixedUpdate()
