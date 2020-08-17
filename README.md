@@ -47,4 +47,6 @@ Crane Reach Zone is located in the Unity hierarchy in the 6th group under the Ob
 
 Link to our Trello Board <br />
 Team2 Crane VR https://trello.com/b/DubDi9Pv/team-2-crane-vr <br />
-(Our Trello Board is currently private. If we want to share it with Vice and other interested employers, we might make it Public)
+(Our Trello Board is currently private. If we want to share it with Vice and other interested employers, we might make it Public) <br />
+
+Link to Demo Video: https://www.youtube.com/watch?v=DRh0pJJOhsY
